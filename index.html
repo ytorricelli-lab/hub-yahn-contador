@@ -3,32 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Hub oficial do Yahn Contador: organize seu CPF, declare seu IRPF, cuide da sua MEI, solicite DAS e acesse materiais gratuitos." />
-  <meta name="theme-color" content="#023366" />
+  <meta name="description" content="Hub oficial do Yahn Contador: organize seu CPF, declare seu IRPF, cuide da sua MEI, acesse o Portal MEI e materiais gratuitos." />
+  <meta name="theme-color" content="#021B36" />
   <meta property="og:title" content="Yahn Contador | Hub Oficial" />
-  <meta property="og:description" content="Organize seu CPF e alavanque sua MEI com orientação simples, direta e segura." />
+  <meta property="og:description" content="Organize seu CPF, estruture sua MEI e avance com clareza." />
   <meta property="og:type" content="website" />
   <title>Yahn Contador | Hub Oficial</title>
 
   <style>
     :root {
-      --azul-900: #021f3f;
-      --azul-800: #023366;
-      --azul-700: #0a4478;
-      --azul-100: #eaf3fb;
-      --azul-50: #f4f8fc;
-      --bege: #d4c9ad;
-      --bege-claro: #f1eadc;
-      --oliva: #6c6751;
-      --branco: #ffffff;
-      --texto: #162033;
-      --texto-suave: #5e6b7b;
-      --borda: rgba(2, 51, 102, 0.12);
-      --borda-forte: rgba(2, 51, 102, 0.22);
-      --sombra: 0 22px 60px rgba(2, 51, 102, 0.13);
-      --sombra-leve: 0 16px 40px rgba(2, 51, 102, 0.07);
-      --raio: 26px;
-      --raio-menor: 18px;
+      --navy-950: #061426;
+      --navy-900: #021b36;
+      --navy-800: #023366;
+      --navy-700: #0a4478;
+      --blue-600: #3386ff;
+      --blue-400: #67b4ff;
+      --cyan-300: #88e4df;
+      --ice: #eef8ff;
+      --white: #ffffff;
+      --sand: #d4c9ad;
+      --sand-light: #f2ead9;
+      --olive: #6c6751;
+      --text: #142033;
+      --muted: #637286;
+      --line: rgba(255, 255, 255, 0.14);
+      --line-dark: rgba(2, 51, 102, 0.14);
+      --shadow-blue: 0 30px 90px rgba(2, 51, 102, 0.28);
+      --shadow-soft: 0 20px 50px rgba(2, 51, 102, 0.10);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
     }
 
     * {
@@ -43,9 +47,10 @@
 
     body {
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      color: var(--texto);
-      background: #f8fafc;
+      color: var(--text);
+      background: #f7fbff;
       line-height: 1.6;
+      overflow-x: hidden;
       text-rendering: optimizeLegibility;
     }
 
@@ -60,7 +65,7 @@
     }
 
     .container {
-      width: min(1140px, calc(100% - 40px));
+      width: min(1160px, calc(100% - 40px));
       margin: 0 auto;
     }
 
@@ -68,8 +73,8 @@
       position: absolute;
       left: -999px;
       top: 12px;
-      background: var(--azul-800);
-      color: var(--branco);
+      background: var(--blue-600);
+      color: var(--white);
       padding: 10px 14px;
       border-radius: 12px;
       z-index: 100;
@@ -79,17 +84,29 @@
       left: 12px;
     }
 
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.045;
+      background-image:
+        linear-gradient(rgba(255,255,255,.4) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.4) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
     header {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--borda);
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(2, 51, 102, 0.10);
     }
 
     .nav {
-      min-height: 74px;
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -100,22 +117,35 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      font-weight: 900;
-      color: var(--azul-800);
+      font-weight: 950;
+      color: var(--navy-800);
       letter-spacing: -0.035em;
       white-space: nowrap;
     }
 
     .brand-mark {
-      width: 45px;
-      height: 45px;
-      border-radius: 15px;
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, var(--azul-800), var(--azul-700));
-      color: var(--branco);
+      background: radial-gradient(circle at 30% 20%, var(--cyan-300), var(--blue-600) 55%, var(--navy-800));
+      color: var(--white);
       font-weight: 950;
-      box-shadow: 0 12px 26px rgba(2, 51, 102, 0.24);
+      box-shadow: 0 14px 34px rgba(51, 134, 255, 0.28);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-mark::after {
+      content: "";
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.28);
+      position: absolute;
+      right: -8px;
+      top: -8px;
     }
 
     .nav-links {
@@ -123,92 +153,144 @@
       align-items: center;
       gap: 20px;
       font-size: 14px;
-      color: var(--texto-suave);
-      font-weight: 800;
+      color: var(--muted);
+      font-weight: 850;
     }
 
     .nav-links a {
       transition: 0.2s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -8px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--cyan-300), var(--blue-600));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: 0.2s ease;
     }
 
     .nav-links a:hover {
-      color: var(--azul-800);
+      color: var(--navy-800);
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 9px;
       border-radius: 999px;
       padding: 14px 20px;
-      font-weight: 900;
+      font-weight: 950;
       border: 1px solid transparent;
-      transition: 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
       cursor: pointer;
       text-align: center;
       font-size: 15px;
-      min-height: 50px;
+      min-height: 52px;
+      white-space: nowrap;
     }
 
     .btn-primary {
-      background: var(--azul-800);
-      color: var(--branco);
-      box-shadow: 0 16px 30px rgba(2, 51, 102, 0.24);
+      color: var(--white);
+      background: linear-gradient(135deg, var(--navy-800), var(--blue-600));
+      box-shadow: 0 18px 34px rgba(51, 134, 255, 0.24);
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      background: var(--azul-900);
+      box-shadow: 0 24px 50px rgba(51, 134, 255, 0.32);
+    }
+
+    .btn-glow {
+      color: var(--navy-900);
+      background: linear-gradient(135deg, var(--cyan-300), var(--blue-400));
+      box-shadow: 0 18px 42px rgba(103, 180, 255, 0.34);
+    }
+
+    .btn-glow:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 24px 56px rgba(103, 180, 255, 0.46);
     }
 
     .btn-light {
-      background: var(--branco);
-      color: var(--azul-800);
-      border-color: var(--borda);
+      background: rgba(255,255,255,0.88);
+      color: var(--navy-800);
+      border-color: rgba(2, 51, 102, 0.14);
     }
 
     .btn-light:hover {
       transform: translateY(-2px);
-      border-color: var(--borda-forte);
-      box-shadow: var(--sombra-leve);
+      box-shadow: var(--shadow-soft);
     }
 
-    .btn-beige {
-      background: var(--bege-claro);
-      color: var(--azul-800);
-      border-color: rgba(108, 103, 81, 0.18);
+    .btn-ghost {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
     }
 
-    .btn-beige:hover {
+    .btn-ghost:hover {
       transform: translateY(-2px);
-      box-shadow: var(--sombra-leve);
+      background: rgba(255,255,255,0.14);
     }
 
     .hero {
       position: relative;
+      z-index: 1;
       overflow: hidden;
-      padding: 84px 0 56px;
+      padding: 92px 0 64px;
       background:
-        radial-gradient(circle at 82% 10%, rgba(212, 201, 173, 0.65), transparent 28%),
-        radial-gradient(circle at 8% 18%, rgba(2, 51, 102, 0.08), transparent 24%),
-        linear-gradient(135deg, #f8fafc 0%, #eef5fb 100%);
+        radial-gradient(circle at 76% 12%, rgba(136, 228, 223, 0.34), transparent 28%),
+        radial-gradient(circle at 88% 70%, rgba(51, 134, 255, 0.28), transparent 30%),
+        radial-gradient(circle at 8% 18%, rgba(212, 201, 173, 0.28), transparent 25%),
+        linear-gradient(135deg, var(--navy-950) 0%, var(--navy-900) 46%, #082a53 100%);
+      color: var(--white);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(4px);
+      opacity: 0.75;
+      pointer-events: none;
     }
 
     .hero::before {
-      content: "";
-      position: absolute;
-      inset: auto -160px -240px auto;
       width: 520px;
       height: 520px;
-      background: rgba(2, 51, 102, 0.08);
-      border-radius: 999px;
+      right: -220px;
+      top: -190px;
+      background: radial-gradient(circle at 35% 35%, rgba(136,228,223,0.48), rgba(51,134,255,0.18) 50%, transparent 70%);
+      animation: floatOrb 9s ease-in-out infinite;
+    }
+
+    .hero::after {
+      width: 360px;
+      height: 360px;
+      left: -160px;
+      bottom: -140px;
+      background: radial-gradient(circle at 35% 35%, rgba(212,201,173,0.30), rgba(51,134,255,0.15) 50%, transparent 72%);
+      animation: floatOrb 12s ease-in-out infinite reverse;
     }
 
     .hero-grid {
       position: relative;
+      z-index: 2;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1.02fr 0.98fr;
       align-items: center;
       gap: 46px;
     }
@@ -216,37 +298,44 @@
     .tag {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(255, 255, 255, 0.86);
-      color: var(--azul-800);
-      border: 1px solid var(--borda);
+      gap: 9px;
+      background: rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.92);
+      border: 1px solid rgba(255,255,255,0.18);
       border-radius: 999px;
-      padding: 8px 14px;
+      padding: 9px 14px;
       font-weight: 900;
       font-size: 13px;
       margin-bottom: 22px;
-      box-shadow: 0 10px 28px rgba(2, 51, 102, 0.05);
+      backdrop-filter: blur(12px);
     }
 
     .tag-dot {
-      width: 8px;
-      height: 8px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
-      background: var(--bege);
+      background: var(--cyan-300);
+      box-shadow: 0 0 20px rgba(136, 228, 223, 0.8);
     }
 
     h1 {
-      font-size: clamp(40px, 6vw, 72px);
-      line-height: 0.97;
-      letter-spacing: -0.065em;
-      color: var(--azul-800);
-      margin-bottom: 22px;
+      font-size: clamp(42px, 6.2vw, 78px);
+      line-height: 0.95;
+      letter-spacing: -0.072em;
+      margin-bottom: 24px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #ffffff, var(--cyan-300), var(--blue-400));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     .hero p {
-      max-width: 660px;
+      max-width: 680px;
       font-size: 19px;
-      color: var(--texto-suave);
+      color: rgba(255,255,255,0.74);
       margin-bottom: 30px;
     }
 
@@ -261,177 +350,458 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      color: var(--azul-800);
       font-size: 14px;
       font-weight: 900;
     }
 
     .pill {
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid var(--borda);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
       padding: 7px 11px;
       border-radius: 999px;
+      color: rgba(255,255,255,0.82);
+      backdrop-filter: blur(10px);
     }
 
-    .hero-card {
-      background: linear-gradient(145deg, var(--azul-900), var(--azul-800));
-      color: var(--branco);
-      border-radius: 36px;
-      padding: 26px;
-      box-shadow: var(--sombra);
+    .hero-visual {
+      perspective: 1200px;
       position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      min-height: 560px;
+      display: grid;
+      place-items: center;
     }
 
-    .hero-card::after {
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      transform-style: preserve-3d;
+      box-shadow: inset -20px -24px 46px rgba(2, 27, 54, 0.24), 0 28px 80px rgba(51, 134, 255, 0.24);
+    }
+
+    .orb.one {
+      width: 120px;
+      height: 120px;
+      top: 20px;
+      right: 32px;
+      background: radial-gradient(circle at 30% 25%, #ffffff, var(--cyan-300) 20%, var(--blue-600) 68%, var(--navy-800));
+      animation: float3d 6s ease-in-out infinite;
+    }
+
+    .orb.two {
+      width: 72px;
+      height: 72px;
+      left: 12px;
+      bottom: 96px;
+      background: radial-gradient(circle at 30% 25%, #ffffff, var(--sand) 24%, var(--blue-400) 78%);
+      animation: float3d 8s ease-in-out infinite reverse;
+    }
+
+    .portal-stage {
+      width: min(100%, 480px);
+      transform-style: preserve-3d;
+      position: relative;
+    }
+
+    .portal-card {
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 38px;
+      padding: 26px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06));
+      box-shadow: var(--shadow-blue);
+      backdrop-filter: blur(18px);
+      transform: rotateX(9deg) rotateY(-11deg);
+      transform-style: preserve-3d;
+      transition: transform 0.2s ease;
+      overflow: hidden;
+    }
+
+    .portal-card::before {
       content: "";
       position: absolute;
-      width: 230px;
-      height: 230px;
-      border-radius: 999px;
-      background: rgba(212, 201, 173, 0.15);
-      top: -88px;
-      right: -88px;
+      inset: -2px;
+      background: radial-gradient(circle at 18% 12%, rgba(136,228,223,0.32), transparent 26%), radial-gradient(circle at 88% 42%, rgba(51,134,255,0.28), transparent 30%);
+      pointer-events: none;
     }
 
-    .hub-panel {
+    .portal-card > * {
       position: relative;
       z-index: 1;
-      background: #f8fafc;
-      color: var(--texto);
-      border-radius: 30px;
-      padding: 18px;
-      border: 8px solid rgba(255, 255, 255, 0.16);
     }
 
-    .panel-top {
+    .portal-logo-box {
+      background: rgba(255,255,255,0.96);
+      border-radius: 28px;
+      padding: 22px;
+      box-shadow: 0 22px 60px rgba(2, 27, 54, 0.18);
+      transform: translateZ(52px);
+      min-height: 112px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      margin-bottom: 16px;
-      color: var(--azul-800);
+      justify-content: center;
+    }
+
+    .portal-logo {
+      max-height: 80px;
+      object-fit: contain;
+    }
+
+    .logo-fallback {
+      display: none;
+      color: var(--navy-800);
+      font-size: 34px;
       font-weight: 950;
+      letter-spacing: -0.06em;
     }
 
-    .panel-status {
-      font-size: 12px;
-      background: var(--azul-100);
-      color: var(--azul-800);
-      border-radius: 999px;
-      padding: 6px 10px;
-      font-weight: 900;
+    .floating-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 18px;
+      transform: translateZ(32px);
     }
 
-    .panel-card {
-      background: var(--branco);
-      border: 1px solid var(--borda);
-      border-radius: 20px;
+    .float-chip {
+      border-radius: 22px;
       padding: 16px;
-      margin-bottom: 12px;
-      box-shadow: 0 10px 28px rgba(2, 51, 102, 0.06);
+      background: rgba(255,255,255,0.92);
+      color: var(--navy-800);
+      box-shadow: 0 18px 42px rgba(2, 27, 54, 0.16);
+    }
+
+    .float-chip small {
+      display: block;
+      color: var(--muted);
+      font-weight: 850;
+      margin-bottom: 4px;
+    }
+
+    .float-chip strong {
+      font-size: 18px;
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+    }
+
+    .mini-dashboard {
+      margin-top: 16px;
+      background: rgba(2,27,54,0.72);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 26px;
+      padding: 18px;
+      transform: translateZ(42px);
+    }
+
+    .dash-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 14px;
-    }
-
-    .panel-card small {
-      color: var(--texto-suave);
+      gap: 12px;
+      margin-bottom: 14px;
+      color: rgba(255,255,255,0.74);
+      font-size: 13px;
       font-weight: 850;
     }
 
-    .panel-card strong {
-      display: block;
-      color: var(--azul-800);
-      font-size: 17px;
-      margin-top: 4px;
-      line-height: 1.2;
+    .dash-status {
+      background: rgba(136,228,223,0.16);
+      color: var(--cyan-300);
+      border: 1px solid rgba(136,228,223,0.28);
+      padding: 6px 10px;
+      border-radius: 999px;
     }
 
-    .panel-arrow {
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
-      background: var(--azul-100);
-      color: var(--azul-800);
-      display: grid;
-      place-items: center;
-      font-weight: 950;
-      flex: 0 0 auto;
+    .dash-line {
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .dash-line span {
+      display: block;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--cyan-300), var(--blue-600));
     }
 
     .quick-bar {
-      margin-top: -22px;
+      margin-top: -32px;
       position: relative;
-      z-index: 2;
+      z-index: 4;
     }
 
     .quick-grid {
-      background: var(--branco);
-      border: 1px solid var(--borda);
-      border-radius: 24px;
-      box-shadow: var(--sombra-leve);
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(2, 51, 102, 0.10);
+      border-radius: 28px;
+      box-shadow: var(--shadow-soft);
       padding: 14px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 10px;
+      backdrop-filter: blur(18px);
     }
 
     .quick-item {
-      border-radius: 18px;
-      padding: 16px;
-      background: #fbfdff;
+      border-radius: 22px;
+      padding: 18px;
+      background: linear-gradient(180deg, #ffffff, #f6fbff);
       border: 1px solid rgba(2, 51, 102, 0.08);
+      transition: 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quick-item::after {
+      content: "";
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      right: -50px;
+      top: -50px;
+      background: rgba(51,134,255,0.10);
       transition: 0.2s ease;
     }
 
     .quick-item:hover {
-      transform: translateY(-2px);
-      background: var(--azul-50);
+      transform: translateY(-4px);
+      box-shadow: 0 18px 38px rgba(2, 51, 102, 0.10);
+    }
+
+    .quick-item:hover::after {
+      right: -36px;
+      top: -36px;
     }
 
     .quick-item span {
       display: block;
-      color: var(--azul-800);
+      color: var(--navy-800);
       font-weight: 950;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
+      letter-spacing: -0.025em;
+      position: relative;
+      z-index: 1;
     }
 
     .quick-item small {
-      color: var(--texto-suave);
+      color: var(--muted);
       font-weight: 750;
+      position: relative;
+      z-index: 1;
     }
 
     section {
-      padding: 74px 0;
+      padding: 78px 0;
+      position: relative;
+      z-index: 1;
     }
 
     .section-title {
-      max-width: 760px;
-      margin-bottom: 34px;
+      max-width: 780px;
+      margin-bottom: 36px;
     }
 
     .eyebrow {
-      color: var(--oliva);
+      color: var(--olive);
       font-size: 13px;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.13em;
       font-weight: 950;
       margin-bottom: 10px;
     }
 
     h2 {
-      font-size: clamp(30px, 4vw, 50px);
+      font-size: clamp(31px, 4vw, 52px);
       line-height: 1.05;
-      letter-spacing: -0.055em;
-      color: var(--azul-800);
+      letter-spacing: -0.058em;
+      color: var(--navy-800);
     }
 
     .section-title p {
       margin-top: 14px;
-      color: var(--texto-suave);
+      color: var(--muted);
       font-size: 17px;
+    }
+
+    .path-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .path-card {
+      min-height: 300px;
+      background: var(--white);
+      border: 1px solid var(--line-dark);
+      border-radius: 30px;
+      padding: 24px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      transition: 0.25s ease;
+      transform-style: preserve-3d;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .path-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 78% 8%, rgba(103,180,255,0.18), transparent 28%);
+      opacity: 0;
+      transition: 0.25s ease;
+    }
+
+    .path-card:hover {
+      transform: translateY(-8px) rotateX(2deg);
+      box-shadow: 0 30px 70px rgba(2, 51, 102, 0.15);
+    }
+
+    .path-card:hover::before {
+      opacity: 1;
+    }
+
+    .path-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 19px;
+      background: linear-gradient(135deg, var(--ice), #ffffff);
+      border: 1px solid rgba(2, 51, 102, 0.08);
+      color: var(--navy-800);
+      display: grid;
+      place-items: center;
+      font-weight: 950;
+      margin-bottom: 20px;
+      box-shadow: 0 14px 34px rgba(2, 51, 102, 0.07);
+      position: relative;
+      z-index: 1;
+    }
+
+    .path-card h3,
+    .path-card p,
+    .path-card a {
+      position: relative;
+      z-index: 1;
+    }
+
+    .path-card h3 {
+      color: var(--navy-800);
+      font-size: 22px;
+      line-height: 1.14;
+      margin-bottom: 10px;
+      letter-spacing: -0.04em;
+    }
+
+    .path-card p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .path-card a {
+      margin-top: auto;
+      color: var(--navy-800);
+      font-weight: 950;
+    }
+
+    .portal-section {
+      background:
+        radial-gradient(circle at 82% 18%, rgba(136,228,223,0.20), transparent 28%),
+        linear-gradient(135deg, #061426, #082e5b 58%, #0b4587);
+      color: var(--white);
+      overflow: hidden;
+    }
+
+    .portal-section h2 {
+      color: var(--white);
+    }
+
+    .portal-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 38px;
+      align-items: center;
+    }
+
+    .portal-copy p {
+      color: rgba(255,255,255,0.74);
+      font-size: 18px;
+      margin-top: 16px;
+      margin-bottom: 24px;
+    }
+
+    .portal-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .portal-showcase {
+      position: relative;
+      min-height: 430px;
+      display: grid;
+      place-items: center;
+      perspective: 1200px;
+    }
+
+    .portal-glass {
+      width: min(100%, 520px);
+      border-radius: 38px;
+      padding: 26px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 28px 80px rgba(0,0,0,0.24);
+      backdrop-filter: blur(18px);
+      transform: rotateX(6deg) rotateY(9deg);
+      transform-style: preserve-3d;
+      transition: 0.2s ease;
+    }
+
+    .portal-glass-logo {
+      background: rgba(255,255,255,0.96);
+      border-radius: 28px;
+      padding: 20px;
+      min-height: 106px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translateZ(36px);
+    }
+
+    .portal-bullets {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+      transform: translateZ(26px);
+    }
+
+    .portal-bullet {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      background: rgba(255,255,255,0.92);
+      color: var(--navy-800);
+      border-radius: 20px;
+      padding: 14px 16px;
+      font-weight: 900;
+      box-shadow: 0 16px 42px rgba(0,0,0,0.12);
+    }
+
+    .portal-bullet span {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--cyan-300), var(--blue-600));
+      color: var(--white);
+      font-size: 13px;
+      flex: 0 0 auto;
     }
 
     .problem-grid {
@@ -442,21 +812,38 @@
     }
 
     .problem-card {
-      background: var(--azul-800);
-      color: var(--branco);
-      border-radius: 32px;
-      padding: 32px;
-      box-shadow: var(--sombra);
+      background: linear-gradient(135deg, var(--navy-800), var(--navy-700));
+      color: var(--white);
+      border-radius: 34px;
+      padding: 34px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .problem-card::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      right: -90px;
+      bottom: -90px;
+      background: rgba(136,228,223,0.16);
     }
 
     .problem-card h2 {
-      color: var(--branco);
+      color: var(--white);
       margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
     }
 
     .problem-card p {
-      color: rgba(255,255,255,0.8);
+      color: rgba(255,255,255,0.80);
       font-size: 17px;
+      position: relative;
+      z-index: 1;
     }
 
     .mini-list {
@@ -465,192 +852,27 @@
     }
 
     .mini-item {
-      background: var(--branco);
-      border: 1px solid var(--borda);
-      border-radius: 20px;
+      background: var(--white);
+      border: 1px solid var(--line-dark);
+      border-radius: 22px;
       padding: 18px;
       box-shadow: 0 12px 30px rgba(2, 51, 102, 0.05);
-      color: var(--texto-suave);
+      color: var(--muted);
       font-weight: 780;
-    }
-
-    .mini-item strong {
-      color: var(--azul-800);
-      display: block;
-      margin-bottom: 4px;
-      font-size: 17px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      background: var(--branco);
-      border: 1px solid var(--borda);
-      border-radius: var(--raio);
-      padding: 24px;
-      box-shadow: var(--sombra-leve);
-      display: flex;
-      flex-direction: column;
-      min-height: 270px;
       transition: 0.2s ease;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--sombra);
+    .mini-item:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow-soft);
     }
 
-    .icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 17px;
-      background: var(--azul-100);
-      color: var(--azul-800);
-      display: grid;
-      place-items: center;
-      font-weight: 950;
-      margin-bottom: 18px;
-    }
-
-    .card h3 {
-      color: var(--azul-800);
-      font-size: 21px;
-      line-height: 1.18;
-      margin-bottom: 10px;
-      letter-spacing: -0.035em;
-    }
-
-    .card p {
-      color: var(--texto-suave);
-      font-size: 15px;
-      margin-bottom: 20px;
-    }
-
-    .card a {
-      margin-top: auto;
-      color: var(--azul-800);
-      font-weight: 950;
-    }
-
-    .feature {
-      background: var(--branco);
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 36px;
-      align-items: center;
-    }
-
-    .feature-box {
-      background: linear-gradient(135deg, var(--azul-900), var(--azul-700));
-      color: var(--branco);
-      border-radius: 34px;
-      padding: 34px;
-      box-shadow: var(--sombra);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .feature-box::after {
-      content: "";
-      position: absolute;
-      width: 240px;
-      height: 240px;
-      border-radius: 999px;
-      background: rgba(212, 201, 173, 0.12);
-      right: -100px;
-      bottom: -100px;
-    }
-
-    .feature-box > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .feature-box h2 {
-      color: var(--branco);
-      margin-bottom: 16px;
-    }
-
-    .feature-box p {
-      color: rgba(255,255,255,0.82);
+    .mini-item strong {
+      color: var(--navy-800);
+      display: block;
+      margin-bottom: 4px;
       font-size: 17px;
-      margin-bottom: 24px;
-    }
-
-    .check-list {
-      display: grid;
-      gap: 14px;
-    }
-
-    .check-item {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      color: var(--texto-suave);
-      font-weight: 780;
-      background: var(--branco);
-      border: 1px solid var(--borda);
-      padding: 17px;
-      border-radius: 20px;
-      box-shadow: 0 12px 30px rgba(2, 51, 102, 0.05);
-    }
-
-    .check {
-      flex: 0 0 auto;
-      width: 27px;
-      height: 27px;
-      border-radius: 50%;
-      background: var(--azul-800);
-      color: var(--branco);
-      display: grid;
-      place-items: center;
-      font-size: 13px;
-      font-weight: 950;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .step {
-      background: var(--branco);
-      border: 1px solid var(--borda);
-      border-radius: var(--raio);
-      padding: 26px;
-      box-shadow: var(--sombra-leve);
-    }
-
-    .step-number {
-      width: 42px;
-      height: 42px;
-      border-radius: 15px;
-      background: var(--bege-claro);
-      color: var(--azul-800);
-      display: grid;
-      place-items: center;
-      font-weight: 950;
-      margin-bottom: 18px;
-    }
-
-    .step h3 {
-      color: var(--azul-800);
-      font-size: 21px;
-      letter-spacing: -0.035em;
-      margin-bottom: 9px;
-    }
-
-    .step p {
-      color: var(--texto-suave);
-      font-size: 15px;
+      letter-spacing: -0.025em;
     }
 
     .materials {
@@ -660,43 +882,123 @@
     }
 
     .material-card {
-      background: var(--branco);
-      border: 1px solid var(--borda);
-      border-radius: var(--raio);
+      background: var(--white);
+      border: 1px solid var(--line-dark);
+      border-radius: 30px;
       padding: 24px;
-      box-shadow: var(--sombra-leve);
+      box-shadow: var(--shadow-soft);
+      transition: 0.25s ease;
+      position: relative;
+      overflow: hidden;
     }
 
-    .material-card strong {
-      color: var(--azul-800);
-      font-size: 19px;
-      display: block;
-      margin-bottom: 8px;
-      letter-spacing: -0.03em;
+    .material-card::after {
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      right: -80px;
+      top: -80px;
+      background: rgba(103,180,255,0.14);
+      transition: 0.25s ease;
     }
 
-    .material-card p {
-      color: var(--texto-suave);
-      font-size: 15px;
-      margin-bottom: 16px;
+    .material-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 26px 60px rgba(2, 51, 102, 0.13);
+    }
+
+    .material-card:hover::after {
+      right: -60px;
+      top: -60px;
     }
 
     .badge {
       display: inline-flex;
       margin-bottom: 14px;
-      background: var(--azul-100);
-      color: var(--azul-800);
-      padding: 6px 10px;
+      background: var(--ice);
+      color: var(--navy-800);
+      padding: 7px 11px;
       border-radius: 999px;
       font-size: 12px;
       font-weight: 950;
+      position: relative;
+      z-index: 1;
+    }
+
+    .material-card strong {
+      color: var(--navy-800);
+      font-size: 20px;
+      display: block;
+      margin-bottom: 8px;
+      letter-spacing: -0.035em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .material-card p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .material-card a {
+      position: relative;
+      z-index: 1;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      background: var(--white);
+      border: 1px solid var(--line-dark);
+      border-radius: 30px;
+      padding: 26px;
+      box-shadow: var(--shadow-soft);
+      transition: 0.2s ease;
+    }
+
+    .step:hover {
+      transform: translateY(-5px);
+    }
+
+    .step-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--cyan-300), var(--blue-600));
+      color: var(--white);
+      display: grid;
+      place-items: center;
+      font-weight: 950;
+      margin-bottom: 18px;
+      box-shadow: 0 16px 34px rgba(51,134,255,0.22);
+    }
+
+    .step h3 {
+      color: var(--navy-800);
+      font-size: 22px;
+      letter-spacing: -0.04em;
+      margin-bottom: 9px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 15px;
     }
 
     .about {
       background:
-        linear-gradient(rgba(2, 31, 63, 0.94), rgba(2, 51, 102, 0.92)),
-        radial-gradient(circle at top left, rgba(212, 201, 173, 0.3), transparent 36%);
-      color: var(--branco);
+        radial-gradient(circle at 18% 18%, rgba(136,228,223,0.18), transparent 26%),
+        linear-gradient(135deg, var(--navy-950), var(--navy-800));
+      color: var(--white);
     }
 
     .about-grid {
@@ -707,12 +1009,12 @@
     }
 
     .about h2 {
-      color: var(--branco);
+      color: var(--white);
       margin-bottom: 16px;
     }
 
     .about p {
-      color: rgba(255,255,255,0.82);
+      color: rgba(255,255,255,0.78);
       font-size: 17px;
       margin-bottom: 16px;
     }
@@ -726,19 +1028,26 @@
     .stat {
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.16);
-      border-radius: 22px;
+      border-radius: 24px;
       padding: 22px;
+      backdrop-filter: blur(12px);
+      transition: 0.2s ease;
+    }
+
+    .stat:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.11);
     }
 
     .stat strong {
       display: block;
-      font-size: 28px;
-      letter-spacing: -0.04em;
+      font-size: 29px;
+      letter-spacing: -0.045em;
       margin-bottom: 4px;
     }
 
     .stat span {
-      color: rgba(255,255,255,0.76);
+      color: rgba(255,255,255,0.74);
       font-weight: 780;
       font-size: 14px;
     }
@@ -750,23 +1059,28 @@
     }
 
     details {
-      background: var(--branco);
-      border: 1px solid var(--borda);
-      border-radius: 20px;
+      background: var(--white);
+      border: 1px solid var(--line-dark);
+      border-radius: 22px;
       padding: 18px 20px;
       box-shadow: 0 10px 26px rgba(2, 51, 102, 0.05);
+      transition: 0.2s ease;
+    }
+
+    details[open] {
+      box-shadow: var(--shadow-soft);
     }
 
     summary {
-      color: var(--azul-800);
+      color: var(--navy-800);
       font-weight: 950;
       cursor: pointer;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.025em;
     }
 
     details p {
       margin-top: 10px;
-      color: var(--texto-suave);
+      color: var(--muted);
       font-size: 15px;
     }
 
@@ -775,23 +1089,28 @@
     }
 
     .cta-box {
+      color: var(--white);
       background:
-        radial-gradient(circle at top left, rgba(212, 201, 173, 0.35), transparent 30%),
-        var(--branco);
-      border: 1px solid var(--borda);
-      border-radius: 36px;
-      padding: 48px 28px;
-      box-shadow: var(--sombra);
+        radial-gradient(circle at 18% 8%, rgba(136,228,223,0.25), transparent 28%),
+        radial-gradient(circle at 82% 72%, rgba(51,134,255,0.26), transparent 30%),
+        linear-gradient(135deg, var(--navy-950), var(--navy-800));
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 38px;
+      padding: 52px 30px;
+      box-shadow: var(--shadow-blue);
+      overflow: hidden;
+      position: relative;
     }
 
     .cta-box h2 {
+      color: var(--white);
       margin-bottom: 14px;
     }
 
     .cta-box p {
-      max-width: 660px;
-      margin: 0 auto 26px;
-      color: var(--texto-suave);
+      max-width: 680px;
+      margin: 0 auto 28px;
+      color: rgba(255,255,255,0.74);
       font-size: 17px;
     }
 
@@ -803,11 +1122,13 @@
     }
 
     footer {
-      padding: 30px 0;
-      color: var(--texto-suave);
+      padding: 32px 0;
+      color: var(--muted);
       font-size: 14px;
-      border-top: 1px solid var(--borda);
-      background: var(--branco);
+      border-top: 1px solid rgba(2, 51, 102, 0.10);
+      background: var(--white);
+      position: relative;
+      z-index: 1;
     }
 
     .footer-content {
@@ -818,7 +1139,7 @@
     }
 
     .footer-content strong {
-      color: var(--azul-800);
+      color: var(--navy-800);
     }
 
     .whatsapp-fixed {
@@ -826,28 +1147,62 @@
       right: 18px;
       bottom: 18px;
       z-index: 60;
-      background: var(--azul-800);
-      color: var(--branco);
+      color: var(--navy-900);
+      background: linear-gradient(135deg, var(--cyan-300), var(--blue-400));
       border-radius: 999px;
       padding: 14px 18px;
       font-weight: 950;
-      box-shadow: 0 16px 32px rgba(2, 51, 102, 0.3);
-      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 18px 42px rgba(51, 134, 255, 0.36);
+      border: 1px solid rgba(255,255,255,0.32);
     }
 
-    @media (max-width: 980px) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes floatOrb {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(16px, -18px, 0) scale(1.04); }
+    }
+
+    @keyframes float3d {
+      0%, 100% { transform: translate3d(0, 0, 42px); }
+      50% { transform: translate3d(0, -18px, 82px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+
+    @media (max-width: 1020px) {
       .nav-links {
         display: none;
       }
 
       .hero-grid,
-      .feature-grid,
+      .portal-grid,
       .about-grid,
       .problem-grid {
         grid-template-columns: 1fr;
       }
 
-      .cards,
+      .hero-visual {
+        min-height: 500px;
+      }
+
+      .path-grid,
       .quick-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -859,13 +1214,13 @@
       }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 660px) {
       .container {
-        width: min(100% - 28px, 1140px);
+        width: min(100% - 28px, 1160px);
       }
 
       .nav {
-        min-height: 66px;
+        min-height: 68px;
       }
 
       .brand-mark {
@@ -878,27 +1233,38 @@
       }
 
       .hero {
-        padding: 52px 0 38px;
+        padding: 58px 0 46px;
       }
 
       .hero-actions,
       .btn,
+      .portal-actions,
       .cta-actions {
         width: 100%;
       }
 
+      .hero-visual {
+        min-height: 420px;
+      }
+
+      .portal-card,
+      .portal-glass {
+        transform: none;
+      }
+
+      .floating-row,
       .quick-grid,
-      .cards,
+      .path-grid,
       .stats {
         grid-template-columns: 1fr;
       }
 
-      .card {
-        min-height: auto;
+      section {
+        padding: 58px 0;
       }
 
-      section {
-        padding: 54px 0;
+      .path-card {
+        min-height: auto;
       }
 
       .whatsapp-fixed {
@@ -911,6 +1277,7 @@
 </head>
 
 <body>
+  <div class="noise" aria-hidden="true"></div>
   <a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
 
   <header>
@@ -921,7 +1288,7 @@
       </a>
 
       <nav class="nav-links" aria-label="Menu principal">
-        <a href="#solucoes">Soluções</a>
+        <a href="#caminhos">Caminhos</a>
         <a href="#portal-mei">Portal MEI</a>
         <a href="#materiais">Materiais</a>
         <a href="#como-funciona">Como funciona</a>
@@ -937,69 +1304,151 @@
   <main id="conteudo">
     <section class="hero" id="topo">
       <div class="container hero-grid">
-        <div>
+        <div class="reveal visible">
           <div class="tag"><span class="tag-dot"></span> Hub oficial do Yahn Contador</div>
-          <h1>O ponto de partida para organizar seu CPF e sua MEI.</h1>
+          <h1>Organize seu CPF. Estruture sua MEI. <span class="gradient-text">Avance com clareza.</span></h1>
           <p>
-            Acesse os principais serviços, materiais e atendimentos da Yahn Contador em um só lugar. Simples para entender, direto para resolver e pensado para quem quer mais organização.
+            Uma central para acessar atendimento, materiais gratuitos, soluções para IRPF, organização para MEI e o Portal MEI — tudo em um caminho simples e direto.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20organizar%20minha%20MEI." target="_blank" rel="noopener">Organizar minha MEI</a>
-            <a class="btn btn-light" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20ajuda%20com%20meu%20IRPF." target="_blank" rel="noopener">Declarar meu IRPF</a>
-            <a class="btn btn-beige" href="#materiais">Ver materiais gratuitos</a>
+            <a class="btn btn-glow" href="mei.html">Organizar minha MEI</a>
+            <a class="btn btn-ghost" href="irpf.html">Declarar meu IRPF</a>
+            <a class="btn btn-ghost" href="https://portaml-mei.app" target="_blank" rel="noopener">Acessar Portal MEI</a>
           </div>
 
           <div class="hero-note" aria-label="Principais temas atendidos">
             <span class="pill">IRPF</span>
             <span class="pill">MEI</span>
             <span class="pill">DAS</span>
-            <span class="pill">Organização fiscal</span>
+            <span class="pill">Materiais gratuitos</span>
+            <span class="pill">Portal MEI</span>
           </div>
         </div>
 
-        <div class="hero-card" aria-label="Prévia do Hub Yahn Contador">
-          <div class="hub-panel">
-            <div class="panel-top">
-              <span>Hub Yahn Contador</span>
-              <span class="panel-status">Online</span>
+        <div class="hero-visual" aria-label="Prévia visual do Portal MEI e do Hub">
+          <div class="orb one" aria-hidden="true"></div>
+          <div class="orb two" aria-hidden="true"></div>
+
+          <div class="portal-stage">
+            <div class="portal-card tilt-card">
+              <div class="portal-logo-box">
+                <img class="portal-logo" src="assets/portal-mei-logo-horizontal.png" alt="Logo Portal MEI" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                <span class="logo-fallback">Portal MEI</span>
+              </div>
+
+              <div class="floating-row">
+                <div class="float-chip">
+                  <small>Ação rápida</small>
+                  <strong>Solicitar DAS</strong>
+                </div>
+                <div class="float-chip">
+                  <small>Controle</small>
+                  <strong>Faturamento</strong>
+                </div>
+              </div>
+
+              <div class="mini-dashboard">
+                <div class="dash-top">
+                  <span>Rotina MEI</span>
+                  <span class="dash-status">em ordem</span>
+                </div>
+                <div class="dash-line"><span style="width: 88%;"></span></div>
+                <div class="dash-line"><span style="width: 62%;"></span></div>
+                <div class="dash-line"><span style="width: 74%;"></span></div>
+              </div>
             </div>
-
-            <a class="panel-card" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20solicitar%20minha%20DAS%20do%20MEI." target="_blank" rel="noopener">
-              <span><small>Ação rápida</small><strong>Solicitar minha DAS</strong></span>
-              <span class="panel-arrow">→</span>
-            </a>
-
-            <a class="panel-card" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20organizar%20meu%20faturamento%20como%20MEI." target="_blank" rel="noopener">
-              <span><small>MEI organizado</small><strong>Controlar faturamento</strong></span>
-              <span class="panel-arrow">→</span>
-            </a>
-
-            <a class="panel-card" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20entender%20como%20alavancar%20minha%20MEI." target="_blank" rel="noopener">
-              <span><small>Próximo nível</small><strong>Alavancar minha MEI</strong></span>
-              <span class="panel-arrow">→</span>
-            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="quick-bar">
+    <div class="quick-bar reveal">
       <div class="container quick-grid" aria-label="Acessos rápidos">
-        <a class="quick-item" href="#solucoes"><span>Preciso de atendimento</span><small>Escolha entre IRPF, MEI, DAS e consultoria.</small></a>
-        <a class="quick-item" href="#portal-mei"><span>Quero o Portal MEI</span><small>Veja a proposta do portal para organizar sua rotina.</small></a>
-        <a class="quick-item" href="#materiais"><span>Quero material gratuito</span><small>Checklists e guias para começar agora.</small></a>
-        <a class="quick-item" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Vim%20pelo%20Hub%20e%20quero%20falar%20sobre%20minha%20situa%C3%A7%C3%A3o." target="_blank" rel="noopener"><span>Falar no WhatsApp</span><small>Atendimento direto pelo número oficial.</small></a>
+        <a class="quick-item" href="mei.html"><span>Quero organizar minha MEI</span><small>Controle, DAS, faturamento e rotina mensal.</small></a>
+        <a class="quick-item" href="irpf.html"><span>Preciso declarar IRPF</span><small>Orientação e declaração com mais segurança.</small></a>
+        <a class="quick-item" href="materiais.html"><span>Materiais gratuitos</span><small>Checklists, guias e calendários práticos.</small></a>
+        <a class="quick-item" href="https://portaml-mei.app" target="_blank" rel="noopener"><span>Acessar Portal MEI</span><small>A central digital para o MEI se organizar.</small></a>
       </div>
     </div>
 
-    <section>
+    <section id="caminhos" class="reveal">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow">Escolha seu caminho</div>
+          <h2>O Hub direciona você para a solução certa.</h2>
+          <p>Em vez de se perder em informações soltas, escolha o que você precisa resolver agora e siga para a página certa.</p>
+        </div>
+
+        <div class="path-grid">
+          <article class="path-card">
+            <div class="path-icon">IR</div>
+            <h3>Imposto de Renda</h3>
+            <p>Para quem precisa declarar com segurança, organizar documentos e evitar erros simples que geram dor de cabeça.</p>
+            <a href="irpf.html">Ir para IRPF →</a>
+          </article>
+
+          <article class="path-card">
+            <div class="path-icon">MEI</div>
+            <h3>MEI organizado</h3>
+            <p>Para quem quer acompanhar faturamento, DAS, obrigações e documentos de forma mais profissional.</p>
+            <a href="mei.html">Organizar minha MEI →</a>
+          </article>
+
+          <article class="path-card">
+            <div class="path-icon">✓</div>
+            <h3>Portal MEI</h3>
+            <p>Para o MEI que quer uma central simples para solicitações, acompanhamento e suporte no dia a dia.</p>
+            <a href="https://portaml-mei.app" target="_blank" rel="noopener">Acessar portal →</a>
+          </article>
+
+          <article class="path-card">
+            <div class="path-icon">PDF</div>
+            <h3>Materiais gratuitos</h3>
+            <p>Guias, checklists e conteúdos práticos para começar a se organizar antes mesmo de contratar.</p>
+            <a href="materiais.html">Ver materiais →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="portal-section reveal" id="portal-mei">
+      <div class="container portal-grid">
+        <div class="portal-copy">
+          <div class="eyebrow" style="color: var(--cyan-300);">Portal MEI</div>
+          <h2>Uma experiência digital para o MEI parar de se perder.</h2>
+          <p>
+            O Portal MEI centraliza o que o pequeno empreendedor mais precisa: solicitação de DAS, organização do faturamento, suporte e uma rotina mais clara para cuidar da empresa.
+          </p>
+          <div class="portal-actions">
+            <a class="btn btn-glow" href="https://portaml-mei.app" target="_blank" rel="noopener">Acessar Portal MEI</a>
+            <a class="btn btn-ghost" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20saber%20mais%20sobre%20o%20Portal%20MEI." target="_blank" rel="noopener">Tirar dúvidas no WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="portal-showcase">
+          <div class="portal-glass tilt-card">
+            <div class="portal-glass-logo">
+              <img class="portal-logo" src="assets/portal-mei-logo-horizontal.png" alt="Logo Portal MEI" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+              <span class="logo-fallback">Portal MEI</span>
+            </div>
+            <div class="portal-bullets">
+              <div class="portal-bullet"><span>✓</span> Solicitação de DAS em poucos cliques</div>
+              <div class="portal-bullet"><span>✓</span> Acompanhamento do faturamento</div>
+              <div class="portal-bullet"><span>✓</span> Suporte para organizar a rotina MEI</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal">
       <div class="container problem-grid">
         <div class="problem-card">
-          <div class="eyebrow" style="color: var(--bege);">Para quem é</div>
+          <div class="eyebrow" style="color: var(--cyan-300);">Para quem é</div>
           <h2>Você não precisa se perder com imposto, prazo e obrigação.</h2>
           <p>
-            O Hub foi criado para facilitar sua vida: você entra, escolhe o que precisa e vai direto para o atendimento ou material certo.
+            O Hub foi criado para facilitar sua vida: você entra, escolhe o que precisa e vai direto para o atendimento, material ou portal certo.
           </p>
         </div>
 
@@ -1011,67 +1460,40 @@
       </div>
     </section>
 
-    <section id="solucoes">
+    <section id="materiais" class="reveal">
       <div class="container">
         <div class="section-title">
-          <div class="eyebrow">Soluções principais</div>
-          <h2>Escolha o que você precisa resolver agora.</h2>
-          <p>O Hub centraliza os principais serviços, conteúdos e acessos da Yahn Contador.</p>
+          <div class="eyebrow">Conteúdos gratuitos</div>
+          <h2>Materiais para começar a se organizar hoje.</h2>
+          <p>Cada material pode virar uma página própria com explicação, entrega gratuita e uma oferta natural para atendimento.</p>
         </div>
 
-        <div class="cards">
-          <article class="card">
-            <div class="icon">IR</div>
-            <h3>Imposto de Renda</h3>
-            <p>Declaração feita com cuidado, conferência de informações e orientação clara para evitar erros simples.</p>
-            <a href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20fazer%20minha%20declara%C3%A7%C3%A3o%20de%20IRPF." target="_blank" rel="noopener">Quero declarar →</a>
+        <div class="materials">
+          <article class="material-card">
+            <span class="badge">MEI</span>
+            <strong>Checklist mensal do MEI</strong>
+            <p>O básico que todo MEI precisa acompanhar mês a mês para não se perder.</p>
+            <a class="btn btn-light" href="checklist-mei.html">Acessar material</a>
           </article>
 
-          <article class="card">
-            <div class="icon">MEI</div>
-            <h3>Organização para MEI</h3>
-            <p>Controle de faturamento, obrigações, documentos e acompanhamento para o MEI não se perder.</p>
-            <a href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20organizar%20minha%20MEI." target="_blank" rel="noopener">Organizar minha MEI →</a>
+          <article class="material-card">
+            <span class="badge">Prazos</span>
+            <strong>Calendário de obrigações</strong>
+            <p>Datas importantes para evitar atraso, multa e desorganização.</p>
+            <a class="btn btn-light" href="materiais.html">Ver calendário</a>
           </article>
 
-          <article class="card">
-            <div class="icon">DAS</div>
-            <h3>Solicitar DAS</h3>
-            <p>Peça sua guia mensal de forma simples. O atendimento continua pelo WhatsApp informado no cadastro.</p>
-            <a href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20solicitar%20minha%20DAS%20do%20MEI." target="_blank" rel="noopener">Solicitar DAS →</a>
-          </article>
-
-          <article class="card">
-            <div class="icon">+</div>
-            <h3>Alavancar a MEI</h3>
-            <p>Para quem quer sair do básico, entender os números e montar um plano para crescer com mais controle.</p>
-            <a href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20alavancar%20minha%20MEI." target="_blank" rel="noopener">Quero crescer →</a>
+          <article class="material-card">
+            <span class="badge">IRPF</span>
+            <strong>Guia rápido do IRPF</strong>
+            <p>Orientações simples para separar documentos e declarar com mais segurança.</p>
+            <a class="btn btn-light" href="materiais.html">Ver guia</a>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="feature" id="portal-mei">
-      <div class="container feature-grid">
-        <div class="feature-box">
-          <div class="eyebrow" style="color: var(--bege);">Portal MEI</div>
-          <h2>O básico que o MEI precisa, sem tela complicada.</h2>
-          <p>
-            Uma experiência simples para o MEI acompanhar obrigações, solicitar atendimento e manter a empresa organizada sem depender de planilhas soltas.
-          </p>
-          <a class="btn btn-light" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20conhecer%20o%20Portal%20MEI." target="_blank" rel="noopener">Conhecer o Portal MEI</a>
-        </div>
-
-        <div class="check-list">
-          <div class="check-item"><span class="check">✓</span><span>Solicitação de DAS direto para o Yahn Contador.</span></div>
-          <div class="check-item"><span class="check">✓</span><span>Acompanhamento do faturamento para evitar sustos com limite anual.</span></div>
-          <div class="check-item"><span class="check">✓</span><span>Organização de obrigações, documentos e informações importantes.</span></div>
-          <div class="check-item"><span class="check">✓</span><span>Botão para iniciar um plano de crescimento da MEI pelo WhatsApp.</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="como-funciona">
+    <section id="como-funciona" class="reveal">
       <div class="container">
         <div class="section-title">
           <div class="eyebrow">Como funciona</div>
@@ -1082,62 +1504,29 @@
         <div class="steps">
           <div class="step">
             <div class="step-number">1</div>
-            <h3>Diagnóstico</h3>
-            <p>Você chama no WhatsApp e explica sua situação: CPF, IRPF, MEI, DAS, faturamento ou organização.</p>
+            <h3>Escolha o caminho</h3>
+            <p>Você entra no Hub e escolhe se precisa de IRPF, MEI, Portal MEI, material gratuito ou atendimento.</p>
           </div>
 
           <div class="step">
             <div class="step-number">2</div>
-            <h3>Organização</h3>
-            <p>O atendimento define o caminho: documentos necessários, obrigações, prazos e próximos passos.</p>
+            <h3>Entenda a solução</h3>
+            <p>Cada página explica o problema, o próximo passo e como a Yahn Contador pode ajudar.</p>
           </div>
 
           <div class="step">
             <div class="step-number">3</div>
-            <h3>Acompanhamento</h3>
-            <p>Você passa a ter mais clareza sobre o que precisa fazer para manter tudo em ordem e crescer melhor.</p>
+            <h3>Converta no WhatsApp</h3>
+            <p>Quando fizer sentido, você chama pelo WhatsApp com uma mensagem pronta para iniciar o atendimento.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="materiais">
-      <div class="container">
-        <div class="section-title">
-          <div class="eyebrow">Conteúdos gratuitos</div>
-          <h2>Materiais para começar a se organizar hoje.</h2>
-          <p>Use esta área para disponibilizar calendários, checklists, guias e conteúdos que geram confiança antes do atendimento.</p>
-        </div>
-
-        <div class="materials">
-          <article class="material-card">
-            <span class="badge">MEI</span>
-            <strong>Checklist mensal do MEI</strong>
-            <p>O básico que todo MEI precisa acompanhar mês a mês para não se perder.</p>
-            <a class="btn btn-light" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20receber%20o%20checklist%20mensal%20do%20MEI." target="_blank" rel="noopener">Receber material</a>
-          </article>
-
-          <article class="material-card">
-            <span class="badge">Prazos</span>
-            <strong>Calendário de obrigações</strong>
-            <p>Datas importantes para evitar atraso, multa e desorganização.</p>
-            <a class="btn btn-light" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20receber%20o%20calend%C3%A1rio%20de%20obriga%C3%A7%C3%B5es." target="_blank" rel="noopener">Receber material</a>
-          </article>
-
-          <article class="material-card">
-            <span class="badge">IRPF</span>
-            <strong>Guia rápido do IRPF</strong>
-            <p>Orientações simples para separar documentos e declarar com mais segurança.</p>
-            <a class="btn btn-light" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20receber%20o%20guia%20r%C3%A1pido%20do%20IRPF." target="_blank" rel="noopener">Receber material</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="about" id="sobre">
+    <section class="about reveal" id="sobre">
       <div class="container about-grid">
         <div>
-          <div class="eyebrow" style="color: var(--bege);">Sobre a Yahn Contador</div>
+          <div class="eyebrow" style="color: var(--cyan-300);">Sobre a Yahn Contador</div>
           <h2>Contabilidade com linguagem simples e foco em avanço.</h2>
           <p>
             O objetivo é ajudar pessoas físicas e MEIs a entenderem suas obrigações, evitarem erros e criarem uma rotina mais organizada.
@@ -1168,7 +1557,7 @@
       </div>
     </section>
 
-    <section id="faq">
+    <section id="faq" class="reveal">
       <div class="container">
         <div class="section-title">
           <div class="eyebrow">Dúvidas rápidas</div>
@@ -1187,29 +1576,29 @@
           </details>
 
           <details>
-            <summary>O Portal MEI já substitui um contador?</summary>
+            <summary>O Portal MEI substitui o atendimento?</summary>
             <p>Não. A proposta do portal é facilitar a rotina, centralizar informações e aproximar o atendimento, não prometer solução automática para tudo.</p>
           </details>
 
           <details>
             <summary>Como recebo os materiais gratuitos?</summary>
-            <p>Por enquanto, os botões levam ao WhatsApp. Depois podemos trocar por links diretos para PDFs, Google Drive ou uma página de captura.</p>
+            <p>A próxima etapa do Hub será criar páginas específicas para cada material, com botão de entrega e oferta natural para atendimento.</p>
           </details>
         </div>
       </div>
     </section>
 
-    <section class="final-cta">
+    <section class="final-cta reveal">
       <div class="container">
         <div class="cta-box">
-          <div class="eyebrow">Próximo passo</div>
+          <div class="eyebrow" style="color: var(--cyan-300);">Próximo passo</div>
           <h2>Quer organizar sua vida fiscal ou sua MEI sem complicação?</h2>
           <p>
-            Clique no botão abaixo e fale diretamente pelo WhatsApp. Você será direcionado para iniciar o atendimento com a Yahn Contador.
+            Escolha um caminho no Hub ou fale diretamente pelo WhatsApp. A ideia é simples: menos confusão, mais clareza e um próximo passo bem definido.
           </p>
           <div class="cta-actions">
-            <a class="btn btn-primary" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Vim%20pelo%20Hub%20Yahn%20Contador%20e%20quero%20atendimento." target="_blank" rel="noopener">Falar com Yahn Contador</a>
-            <a class="btn btn-light" href="#solucoes">Ver soluções</a>
+            <a class="btn btn-glow" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Vim%20pelo%20Hub%20Yahn%20Contador%20e%20quero%20atendimento." target="_blank" rel="noopener">Falar com Yahn Contador</a>
+            <a class="btn btn-ghost" href="materiais.html">Ver materiais gratuitos</a>
           </div>
         </div>
       </div>
@@ -1219,10 +1608,44 @@
   <footer>
     <div class="container footer-content">
       <span>© 2026 <strong>Yahn Contador</strong>. Todos os direitos reservados.</span>
-      <span>CPF • MEI • IRPF • Organização fiscal</span>
+      <span>CPF • MEI • IRPF • Portal MEI • Organização fiscal</span>
     </div>
   </footer>
 
   <a class="whatsapp-fixed" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Vim%20pelo%20Hub%20Yahn%20Contador." target="_blank" rel="noopener">Falar no WhatsApp</a>
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16 });
+
+    revealEls.forEach((el) => revealObserver.observe(el));
+
+    const tiltCards = document.querySelectorAll('.tilt-card');
+
+    tiltCards.forEach((card) => {
+      card.addEventListener('mousemove', (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        const midX = rect.width / 2;
+        const midY = rect.height / 2;
+        const rotateY = ((x - midX) / midX) * 7;
+        const rotateX = -((y - midY) / midY) * 7;
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  </script>
 </body>
 </html>
