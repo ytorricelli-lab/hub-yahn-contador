@@ -22,28 +22,16 @@
       --ice: #eef8ff;
       --white: #ffffff;
       --sand: #d4c9ad;
-      --sand-light: #f2ead9;
       --olive: #6c6751;
       --text: #142033;
       --muted: #637286;
-      --line: rgba(255, 255, 255, 0.14);
       --line-dark: rgba(2, 51, 102, 0.14);
       --shadow-blue: 0 30px 90px rgba(2, 51, 102, 0.28);
       --shadow-soft: 0 20px 50px rgba(2, 51, 102, 0.10);
-      --radius-xl: 34px;
-      --radius-lg: 24px;
-      --radius-md: 18px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
@@ -51,22 +39,19 @@
       background: #f7fbff;
       line-height: 1.6;
       overflow-x: hidden;
-      text-rendering: optimizeLegibility;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(1160px, calc(100% - 40px));
-      margin: 0 auto;
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.04;
+      background-image: linear-gradient(rgba(255,255,255,.45) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.45) 1px, transparent 1px);
+      background-size: 28px 28px;
     }
 
     .skip-link {
@@ -80,27 +65,13 @@
       z-index: 100;
     }
 
-    .skip-link:focus {
-      left: 12px;
-    }
-
-    .noise {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.045;
-      background-image:
-        linear-gradient(rgba(255,255,255,.4) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.4) 1px, transparent 1px);
-      background-size: 28px 28px;
-    }
+    .skip-link:focus { left: 12px; }
 
     header {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(255, 255, 255, 0.82);
+      background: rgba(255, 255, 255, 0.84);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid rgba(2, 51, 102, 0.10);
     }
@@ -157,31 +128,8 @@
       font-weight: 850;
     }
 
-    .nav-links a {
-      transition: 0.2s ease;
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -8px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--cyan-300), var(--blue-600));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--navy-800);
-    }
-
-    .nav-links a:hover::after {
-      transform: scaleX(1);
-    }
+    .nav-links a { transition: 0.2s ease; position: relative; }
+    .nav-links a:hover { color: var(--navy-800); }
 
     .btn {
       display: inline-flex;
@@ -206,31 +154,16 @@
       box-shadow: 0 18px 34px rgba(51, 134, 255, 0.24);
     }
 
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 24px 50px rgba(51, 134, 255, 0.32);
-    }
-
     .btn-glow {
       color: var(--navy-900);
       background: linear-gradient(135deg, var(--cyan-300), var(--blue-400));
       box-shadow: 0 18px 42px rgba(103, 180, 255, 0.34);
     }
 
-    .btn-glow:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 24px 56px rgba(103, 180, 255, 0.46);
-    }
-
     .btn-light {
-      background: rgba(255,255,255,0.88);
+      background: rgba(255,255,255,0.92);
       color: var(--navy-800);
       border-color: rgba(2, 51, 102, 0.14);
-    }
-
-    .btn-light:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-soft);
     }
 
     .btn-ghost {
@@ -240,21 +173,14 @@
       backdrop-filter: blur(12px);
     }
 
-    .btn-ghost:hover {
-      transform: translateY(-2px);
-      background: rgba(255,255,255,0.14);
-    }
+    .btn:hover { transform: translateY(-2px); }
 
     .hero {
       position: relative;
       z-index: 1;
       overflow: hidden;
       padding: 92px 0 64px;
-      background:
-        radial-gradient(circle at 76% 12%, rgba(136, 228, 223, 0.34), transparent 28%),
-        radial-gradient(circle at 88% 70%, rgba(51, 134, 255, 0.28), transparent 30%),
-        radial-gradient(circle at 8% 18%, rgba(212, 201, 173, 0.28), transparent 25%),
-        linear-gradient(135deg, var(--navy-950) 0%, var(--navy-900) 46%, #082a53 100%);
+      background: radial-gradient(circle at 76% 12%, rgba(136, 228, 223, 0.34), transparent 28%), radial-gradient(circle at 88% 70%, rgba(51, 134, 255, 0.28), transparent 30%), radial-gradient(circle at 8% 18%, rgba(212, 201, 173, 0.28), transparent 25%), linear-gradient(135deg, var(--navy-950) 0%, var(--navy-900) 46%, #082a53 100%);
       color: var(--white);
     }
 
@@ -339,12 +265,13 @@
       margin-bottom: 30px;
     }
 
-    .hero-actions {
+    .hero-actions, .portal-actions, .cta-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 26px;
     }
+
+    .hero-actions { margin-bottom: 26px; }
 
     .hero-note {
       display: flex;
@@ -397,13 +324,9 @@
       animation: float3d 8s ease-in-out infinite reverse;
     }
 
-    .portal-stage {
-      width: min(100%, 480px);
-      transform-style: preserve-3d;
-      position: relative;
-    }
+    .portal-stage { width: min(100%, 480px); transform-style: preserve-3d; position: relative; }
 
-    .portal-card {
+    .portal-card, .portal-glass {
       position: relative;
       border: 1px solid rgba(255,255,255,0.18);
       border-radius: 38px;
@@ -411,13 +334,15 @@
       background: linear-gradient(145deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06));
       box-shadow: var(--shadow-blue);
       backdrop-filter: blur(18px);
-      transform: rotateX(9deg) rotateY(-11deg);
       transform-style: preserve-3d;
       transition: transform 0.2s ease;
       overflow: hidden;
     }
 
-    .portal-card::before {
+    .portal-card { transform: rotateX(9deg) rotateY(-11deg); }
+    .portal-glass { width: min(100%, 520px); transform: rotateX(6deg) rotateY(9deg); }
+
+    .portal-card::before, .portal-glass::before {
       content: "";
       position: absolute;
       inset: -2px;
@@ -425,34 +350,18 @@
       pointer-events: none;
     }
 
-    .portal-card > * {
-      position: relative;
-      z-index: 1;
-    }
+    .portal-card > *, .portal-glass > * { position: relative; z-index: 1; }
 
-    .portal-logo-box {
+    .portal-logo-box, .portal-glass-logo {
       background: rgba(255,255,255,0.96);
       border-radius: 28px;
-      padding: 22px;
-      box-shadow: 0 22px 60px rgba(2, 27, 54, 0.18);
-      transform: translateZ(52px);
+      padding: 20px;
       min-height: 112px;
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-
-    .portal-logo {
-      max-height: 80px;
-      object-fit: contain;
-    }
-
-    .logo-fallback {
-      display: none;
-      color: var(--navy-800);
-      font-size: 34px;
-      font-weight: 950;
-      letter-spacing: -0.06em;
+      box-shadow: 0 22px 60px rgba(2, 27, 54, 0.18);
+      transform: translateZ(44px);
     }
 
     .portal-inline-logo {
@@ -469,9 +378,7 @@
       height: 76px;
       border-radius: 999px;
       border: 4px solid transparent;
-      background:
-        linear-gradient(#ffffff, #ffffff) padding-box,
-        linear-gradient(135deg, var(--cyan-300), var(--blue-600)) border-box;
+      background: linear-gradient(#ffffff, #ffffff) padding-box, linear-gradient(135deg, var(--cyan-300), var(--blue-600)) border-box;
       display: grid;
       place-items: center;
       box-shadow: 0 16px 36px rgba(51, 134, 255, 0.18);
@@ -485,9 +392,7 @@
       inset: 8px;
       border-radius: 999px;
       border: 3px solid transparent;
-      background:
-        linear-gradient(#ffffff, #ffffff) padding-box,
-        linear-gradient(135deg, var(--cyan-300), var(--blue-600)) border-box;
+      background: linear-gradient(#ffffff, #ffffff) padding-box, linear-gradient(135deg, var(--cyan-300), var(--blue-600)) border-box;
     }
 
     .portal-inline-symbol span {
@@ -510,10 +415,7 @@
       white-space: nowrap;
     }
 
-    .portal-inline-logo b {
-      color: var(--blue-600);
-      font-weight: 950;
-    }
+    .portal-inline-logo b { color: var(--blue-600); font-weight: 950; }
 
     .floating-row {
       display: grid;
@@ -531,18 +433,8 @@
       box-shadow: 0 18px 42px rgba(2, 27, 54, 0.16);
     }
 
-    .float-chip small {
-      display: block;
-      color: var(--muted);
-      font-weight: 850;
-      margin-bottom: 4px;
-    }
-
-    .float-chip strong {
-      font-size: 18px;
-      line-height: 1.1;
-      letter-spacing: -0.035em;
-    }
+    .float-chip small { display: block; color: var(--muted); font-weight: 850; margin-bottom: 4px; }
+    .float-chip strong { font-size: 18px; line-height: 1.1; letter-spacing: -0.035em; }
 
     .mini-dashboard {
       margin-top: 16px;
@@ -572,29 +464,13 @@
       border-radius: 999px;
     }
 
-    .dash-line {
-      height: 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.10);
-      overflow: hidden;
-      margin-bottom: 10px;
-    }
+    .dash-line { height: 12px; border-radius: 999px; background: rgba(255,255,255,0.10); overflow: hidden; margin-bottom: 10px; }
+    .dash-line span { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--cyan-300), var(--blue-600)); }
 
-    .dash-line span {
-      display: block;
-      height: 100%;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--cyan-300), var(--blue-600));
-    }
-
-    .quick-bar {
-      margin-top: -32px;
-      position: relative;
-      z-index: 4;
-    }
+    .quick-bar { margin-top: -32px; position: relative; z-index: 4; }
 
     .quick-grid {
-      background: rgba(255,255,255,0.82);
+      background: rgba(255,255,255,0.86);
       border: 1px solid rgba(2, 51, 102, 0.10);
       border-radius: 28px;
       box-shadow: var(--shadow-soft);
@@ -605,74 +481,28 @@
       backdrop-filter: blur(18px);
     }
 
+    .quick-item, .path-card, .material-card, .step, details {
+      background: var(--white);
+      border: 1px solid var(--line-dark);
+      box-shadow: var(--shadow-soft);
+      transition: 0.22s ease;
+    }
+
     .quick-item {
       border-radius: 22px;
       padding: 18px;
       background: linear-gradient(180deg, #ffffff, #f6fbff);
-      border: 1px solid rgba(2, 51, 102, 0.08);
-      transition: 0.2s ease;
       position: relative;
       overflow: hidden;
     }
 
-    .quick-item::after {
-      content: "";
-      position: absolute;
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      right: -50px;
-      top: -50px;
-      background: rgba(51,134,255,0.10);
-      transition: 0.2s ease;
-    }
+    .quick-item:hover, .path-card:hover, .material-card:hover, .step:hover { transform: translateY(-6px); }
+    .quick-item span { display: block; color: var(--navy-800); font-weight: 950; margin-bottom: 5px; letter-spacing: -0.025em; }
+    .quick-item small { color: var(--muted); font-weight: 750; }
 
-    .quick-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 38px rgba(2, 51, 102, 0.10);
-    }
-
-    .quick-item:hover::after {
-      right: -36px;
-      top: -36px;
-    }
-
-    .quick-item span {
-      display: block;
-      color: var(--navy-800);
-      font-weight: 950;
-      margin-bottom: 5px;
-      letter-spacing: -0.025em;
-      position: relative;
-      z-index: 1;
-    }
-
-    .quick-item small {
-      color: var(--muted);
-      font-weight: 750;
-      position: relative;
-      z-index: 1;
-    }
-
-    section {
-      padding: 78px 0;
-      position: relative;
-      z-index: 1;
-    }
-
-    .section-title {
-      max-width: 780px;
-      margin-bottom: 36px;
-    }
-
-    .eyebrow {
-      color: var(--olive);
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.13em;
-      font-weight: 950;
-      margin-bottom: 10px;
-    }
+    section { padding: 78px 0; position: relative; z-index: 1; }
+    .section-title { max-width: 780px; margin-bottom: 36px; }
+    .eyebrow { color: var(--olive); font-size: 13px; text-transform: uppercase; letter-spacing: 0.13em; font-weight: 950; margin-bottom: 10px; }
 
     h2 {
       font-size: clamp(31px, 4vw, 52px);
@@ -681,75 +511,39 @@
       color: var(--navy-800);
     }
 
-    .section-title p {
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: 17px;
-    }
+    .section-title p { margin-top: 14px; color: var(--muted); font-size: 17px; }
 
-    .path-grid {
+    .path-grid, .materials {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 18px;
     }
 
-    .path-card {
-      min-height: 300px;
-      background: var(--white);
-      border: 1px solid var(--line-dark);
+    .materials { grid-template-columns: repeat(3, 1fr); }
+
+    .path-card, .material-card, .step {
       border-radius: 30px;
       padding: 24px;
-      box-shadow: var(--shadow-soft);
-      display: flex;
-      flex-direction: column;
-      transition: 0.25s ease;
-      transform-style: preserve-3d;
       position: relative;
       overflow: hidden;
     }
 
-    .path-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 78% 8%, rgba(103,180,255,0.18), transparent 28%);
-      opacity: 0;
-      transition: 0.25s ease;
-    }
-
-    .path-card:hover {
-      transform: translateY(-8px) rotateX(2deg);
-      box-shadow: 0 30px 70px rgba(2, 51, 102, 0.15);
-    }
-
-    .path-card:hover::before {
-      opacity: 1;
-    }
+    .path-card { min-height: 300px; display: flex; flex-direction: column; }
 
     .path-icon {
       width: 54px;
       height: 54px;
       border-radius: 19px;
       background: linear-gradient(135deg, var(--ice), #ffffff);
-      border: 1px solid rgba(2, 51, 102, 0.08);
       color: var(--navy-800);
       display: grid;
       place-items: center;
       font-weight: 950;
       margin-bottom: 20px;
       box-shadow: 0 14px 34px rgba(2, 51, 102, 0.07);
-      position: relative;
-      z-index: 1;
     }
 
-    .path-card h3,
-    .path-card p,
-    .path-card a {
-      position: relative;
-      z-index: 1;
-    }
-
-    .path-card h3 {
+    .path-card h3, .material-card strong, .step h3 {
       color: var(--navy-800);
       font-size: 22px;
       line-height: 1.14;
@@ -757,29 +551,16 @@
       letter-spacing: -0.04em;
     }
 
-    .path-card p {
-      color: var(--muted);
-      font-size: 15px;
-      margin-bottom: 20px;
-    }
-
-    .path-card a {
-      margin-top: auto;
-      color: var(--navy-800);
-      font-weight: 950;
-    }
+    .path-card p, .material-card p, .step p { color: var(--muted); font-size: 15px; margin-bottom: 20px; }
+    .path-card a { margin-top: auto; color: var(--navy-800); font-weight: 950; }
 
     .portal-section {
-      background:
-        radial-gradient(circle at 82% 18%, rgba(136,228,223,0.20), transparent 28%),
-        linear-gradient(135deg, #061426, #082e5b 58%, #0b4587);
+      background: radial-gradient(circle at 82% 18%, rgba(136,228,223,0.20), transparent 28%), linear-gradient(135deg, #061426, #082e5b 58%, #0b4587);
       color: var(--white);
       overflow: hidden;
     }
 
-    .portal-section h2 {
-      color: var(--white);
-    }
+    .portal-section h2 { color: var(--white); }
 
     .portal-grid {
       display: grid;
@@ -788,57 +569,10 @@
       align-items: center;
     }
 
-    .portal-copy p {
-      color: rgba(255,255,255,0.74);
-      font-size: 18px;
-      margin-top: 16px;
-      margin-bottom: 24px;
-    }
+    .portal-copy p { color: rgba(255,255,255,0.74); font-size: 18px; margin-top: 16px; margin-bottom: 24px; }
+    .portal-showcase { min-height: 430px; display: grid; place-items: center; perspective: 1200px; }
 
-    .portal-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .portal-showcase {
-      position: relative;
-      min-height: 430px;
-      display: grid;
-      place-items: center;
-      perspective: 1200px;
-    }
-
-    .portal-glass {
-      width: min(100%, 520px);
-      border-radius: 38px;
-      padding: 26px;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.18);
-      box-shadow: 0 28px 80px rgba(0,0,0,0.24);
-      backdrop-filter: blur(18px);
-      transform: rotateX(6deg) rotateY(9deg);
-      transform-style: preserve-3d;
-      transition: 0.2s ease;
-    }
-
-    .portal-glass-logo {
-      background: rgba(255,255,255,0.96);
-      border-radius: 28px;
-      padding: 20px;
-      min-height: 106px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transform: translateZ(36px);
-    }
-
-    .portal-bullets {
-      display: grid;
-      gap: 12px;
-      margin-top: 18px;
-      transform: translateZ(26px);
-    }
+    .portal-bullets { display: grid; gap: 12px; margin-top: 18px; transform: translateZ(26px); }
 
     .portal-bullet {
       display: flex;
@@ -864,7 +598,7 @@
       flex: 0 0 auto;
     }
 
-    .problem-grid {
+    .problem-grid, .about-grid {
       display: grid;
       grid-template-columns: 0.9fr 1.1fr;
       gap: 22px;
@@ -881,35 +615,9 @@
       overflow: hidden;
     }
 
-    .problem-card::after {
-      content: "";
-      position: absolute;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      right: -90px;
-      bottom: -90px;
-      background: rgba(136,228,223,0.16);
-    }
-
-    .problem-card h2 {
-      color: var(--white);
-      margin-bottom: 14px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .problem-card p {
-      color: rgba(255,255,255,0.80);
-      font-size: 17px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .mini-list {
-      display: grid;
-      gap: 12px;
-    }
+    .problem-card h2 { color: var(--white); margin-bottom: 14px; }
+    .problem-card p { color: rgba(255,255,255,0.80); font-size: 17px; }
+    .mini-list { display: grid; gap: 12px; }
 
     .mini-item {
       background: var(--white);
@@ -919,60 +627,9 @@
       box-shadow: 0 12px 30px rgba(2, 51, 102, 0.05);
       color: var(--muted);
       font-weight: 780;
-      transition: 0.2s ease;
     }
 
-    .mini-item:hover {
-      transform: translateX(4px);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .mini-item strong {
-      color: var(--navy-800);
-      display: block;
-      margin-bottom: 4px;
-      font-size: 17px;
-      letter-spacing: -0.025em;
-    }
-
-    .materials {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .material-card {
-      background: var(--white);
-      border: 1px solid var(--line-dark);
-      border-radius: 30px;
-      padding: 24px;
-      box-shadow: var(--shadow-soft);
-      transition: 0.25s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .material-card::after {
-      content: "";
-      position: absolute;
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      right: -80px;
-      top: -80px;
-      background: rgba(103,180,255,0.14);
-      transition: 0.25s ease;
-    }
-
-    .material-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 26px 60px rgba(2, 51, 102, 0.13);
-    }
-
-    .material-card:hover::after {
-      right: -60px;
-      top: -60px;
-    }
+    .mini-item strong { color: var(--navy-800); display: block; margin-bottom: 4px; font-size: 17px; }
 
     .badge {
       display: inline-flex;
@@ -983,51 +640,9 @@
       border-radius: 999px;
       font-size: 12px;
       font-weight: 950;
-      position: relative;
-      z-index: 1;
     }
 
-    .material-card strong {
-      color: var(--navy-800);
-      font-size: 20px;
-      display: block;
-      margin-bottom: 8px;
-      letter-spacing: -0.035em;
-      position: relative;
-      z-index: 1;
-    }
-
-    .material-card p {
-      color: var(--muted);
-      font-size: 15px;
-      margin-bottom: 18px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .material-card a {
-      position: relative;
-      z-index: 1;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .step {
-      background: var(--white);
-      border: 1px solid var(--line-dark);
-      border-radius: 30px;
-      padding: 26px;
-      box-shadow: var(--shadow-soft);
-      transition: 0.2s ease;
-    }
-
-    .step:hover {
-      transform: translateY(-5px);
-    }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 
     .step-number {
       width: 44px;
@@ -1042,48 +657,16 @@
       box-shadow: 0 16px 34px rgba(51,134,255,0.22);
     }
 
-    .step h3 {
-      color: var(--navy-800);
-      font-size: 22px;
-      letter-spacing: -0.04em;
-      margin-bottom: 9px;
-    }
-
-    .step p {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
     .about {
-      background:
-        radial-gradient(circle at 18% 18%, rgba(136,228,223,0.18), transparent 26%),
-        linear-gradient(135deg, var(--navy-950), var(--navy-800));
+      background: radial-gradient(circle at 18% 18%, rgba(136,228,223,0.18), transparent 26%), linear-gradient(135deg, var(--navy-950), var(--navy-800));
       color: var(--white);
     }
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
+    .about-grid { grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .about h2 { color: var(--white); margin-bottom: 16px; }
+    .about p { color: rgba(255,255,255,0.78); font-size: 17px; margin-bottom: 16px; }
 
-    .about h2 {
-      color: var(--white);
-      margin-bottom: 16px;
-    }
-
-    .about p {
-      color: rgba(255,255,255,0.78);
-      font-size: 17px;
-      margin-bottom: 16px;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
+    .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
 
     .stat {
       background: rgba(255,255,255,0.08);
@@ -1091,95 +674,30 @@
       border-radius: 24px;
       padding: 22px;
       backdrop-filter: blur(12px);
-      transition: 0.2s ease;
     }
 
-    .stat:hover {
-      transform: translateY(-4px);
-      background: rgba(255,255,255,0.11);
-    }
+    .stat strong { display: block; font-size: 29px; letter-spacing: -0.045em; margin-bottom: 4px; }
+    .stat span { color: rgba(255,255,255,0.74); font-weight: 780; font-size: 14px; }
 
-    .stat strong {
-      display: block;
-      font-size: 29px;
-      letter-spacing: -0.045em;
-      margin-bottom: 4px;
-    }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    details { border-radius: 22px; padding: 18px 20px; }
+    summary { color: var(--navy-800); font-weight: 950; cursor: pointer; letter-spacing: -0.025em; }
+    details p { margin-top: 10px; color: var(--muted); font-size: 15px; }
 
-    .stat span {
-      color: rgba(255,255,255,0.74);
-      font-weight: 780;
-      font-size: 14px;
-    }
-
-    .faq-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    details {
-      background: var(--white);
-      border: 1px solid var(--line-dark);
-      border-radius: 22px;
-      padding: 18px 20px;
-      box-shadow: 0 10px 26px rgba(2, 51, 102, 0.05);
-      transition: 0.2s ease;
-    }
-
-    details[open] {
-      box-shadow: var(--shadow-soft);
-    }
-
-    summary {
-      color: var(--navy-800);
-      font-weight: 950;
-      cursor: pointer;
-      letter-spacing: -0.025em;
-    }
-
-    details p {
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .final-cta {
-      text-align: center;
-    }
+    .final-cta { text-align: center; }
 
     .cta-box {
       color: var(--white);
-      background:
-        radial-gradient(circle at 18% 8%, rgba(136,228,223,0.25), transparent 28%),
-        radial-gradient(circle at 82% 72%, rgba(51,134,255,0.26), transparent 30%),
-        linear-gradient(135deg, var(--navy-950), var(--navy-800));
+      background: radial-gradient(circle at 18% 8%, rgba(136,228,223,0.25), transparent 28%), radial-gradient(circle at 82% 72%, rgba(51,134,255,0.26), transparent 30%), linear-gradient(135deg, var(--navy-950), var(--navy-800));
       border: 1px solid rgba(255,255,255,0.16);
       border-radius: 38px;
       padding: 52px 30px;
       box-shadow: var(--shadow-blue);
-      overflow: hidden;
-      position: relative;
     }
 
-    .cta-box h2 {
-      color: var(--white);
-      margin-bottom: 14px;
-    }
-
-    .cta-box p {
-      max-width: 680px;
-      margin: 0 auto 28px;
-      color: rgba(255,255,255,0.74);
-      font-size: 17px;
-    }
-
-    .cta-actions {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+    .cta-box h2 { color: var(--white); margin-bottom: 14px; }
+    .cta-box p { max-width: 680px; margin: 0 auto 28px; color: rgba(255,255,255,0.74); font-size: 17px; }
+    .cta-actions { justify-content: center; }
 
     footer {
       padding: 32px 0;
@@ -1191,16 +709,8 @@
       z-index: 1;
     }
 
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .footer-content strong {
-      color: var(--navy-800);
-    }
+    .footer-content { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .footer-content strong { color: var(--navy-800); }
 
     .whatsapp-fixed {
       position: fixed;
@@ -1216,16 +726,8 @@
       border: 1px solid rgba(255,255,255,0.32);
     }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: 0.7s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal { opacity: 0; transform: translateY(28px); transition: 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
     @keyframes floatOrb {
       0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
@@ -1238,100 +740,33 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition: none !important;
-      }
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition: none !important; }
     }
 
     @media (max-width: 1020px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hero-grid,
-      .portal-grid,
-      .about-grid,
-      .problem-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-visual {
-        min-height: 500px;
-      }
-
-      .path-grid,
-      .quick-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .materials,
-      .steps,
-      .faq-grid {
-        grid-template-columns: 1fr;
-      }
+      .nav-links { display: none; }
+      .hero-grid, .portal-grid, .about-grid, .problem-grid { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 500px; }
+      .path-grid, .quick-grid { grid-template-columns: repeat(2, 1fr); }
+      .materials, .steps, .faq-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 660px) {
-      .container {
-        width: min(100% - 28px, 1160px);
-      }
-
-      .nav {
-        min-height: 68px;
-      }
-
-      .brand-mark {
-        width: 40px;
-        height: 40px;
-      }
-
-      .nav .btn {
-        display: none;
-      }
-
-      .hero {
-        padding: 58px 0 46px;
-      }
-
-      .hero-actions,
-      .btn,
-      .portal-actions,
-      .cta-actions {
-        width: 100%;
-      }
-
-      .hero-visual {
-        min-height: 420px;
-      }
-
-      .portal-card,
-      .portal-glass {
-        transform: none;
-      }
-
-      .floating-row,
-      .quick-grid,
-      .path-grid,
-      .stats {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 58px 0;
-      }
-
-      .path-card {
-        min-height: auto;
-      }
-
-      .whatsapp-fixed {
-        left: 14px;
-        right: 14px;
-        text-align: center;
-      }
+      .container { width: min(100% - 28px, 1160px); }
+      .nav { min-height: 68px; }
+      .brand-mark { width: 40px; height: 40px; }
+      .nav .btn { display: none; }
+      .hero { padding: 58px 0 46px; }
+      .hero-actions, .btn, .portal-actions, .cta-actions { width: 100%; }
+      .hero-visual { min-height: 420px; }
+      .portal-card, .portal-glass { transform: none; }
+      .floating-row, .quick-grid, .path-grid, .stats { grid-template-columns: 1fr; }
+      section { padding: 58px 0; }
+      .path-card { min-height: auto; }
+      .portal-inline-logo { gap: 12px; }
+      .portal-inline-symbol { width: 58px; height: 58px; }
+      .portal-inline-symbol span { width: 17px; height: 31px; border-right-width: 7px; border-bottom-width: 7px; }
+      .whatsapp-fixed { left: 14px; right: 14px; text-align: center; }
     }
   </style>
 </head>
@@ -1355,9 +790,7 @@
         <a href="#faq">Dúvidas</a>
       </nav>
 
-      <a class="btn btn-primary" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Vim%20pelo%20Hub%20Yahn%20Contador%20e%20quero%20atendimento." target="_blank" rel="noopener">
-        Falar no WhatsApp
-      </a>
+      <a class="btn btn-primary" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Vim%20pelo%20Hub%20Yahn%20Contador%20e%20quero%20atendimento." target="_blank" rel="noopener">Falar no WhatsApp</a>
     </div>
   </header>
 
@@ -1367,9 +800,7 @@
         <div class="reveal visible">
           <div class="tag"><span class="tag-dot"></span> Hub oficial do Yahn Contador</div>
           <h1>Organize seu CPF. Estruture sua MEI. <span class="gradient-text">Avance com clareza.</span></h1>
-          <p>
-            Uma central para acessar atendimento, materiais gratuitos, soluções para IRPF, organização para MEI e o Portal MEI — tudo em um caminho simples e direto.
-          </p>
+          <p>Uma central para acessar atendimento, materiais gratuitos, soluções para IRPF, organização para MEI e o Portal MEI — tudo em um caminho simples e direto.</p>
 
           <div class="hero-actions">
             <a class="btn btn-glow" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20organizar%20minha%20MEI." target="_blank" rel="noopener">Organizar minha MEI</a>
@@ -1400,21 +831,12 @@
               </div>
 
               <div class="floating-row">
-                <div class="float-chip">
-                  <small>Ação rápida</small>
-                  <strong>Solicitar DAS</strong>
-                </div>
-                <div class="float-chip">
-                  <small>Controle</small>
-                  <strong>Faturamento</strong>
-                </div>
+                <div class="float-chip"><small>Ação rápida</small><strong>Solicitar DAS</strong></div>
+                <div class="float-chip"><small>Controle</small><strong>Faturamento</strong></div>
               </div>
 
               <div class="mini-dashboard">
-                <div class="dash-top">
-                  <span>Rotina MEI</span>
-                  <span class="dash-status">em ordem</span>
-                </div>
+                <div class="dash-top"><span>Rotina MEI</span><span class="dash-status">em ordem</span></div>
                 <div class="dash-line"><span style="width: 88%;"></span></div>
                 <div class="dash-line"><span style="width: 62%;"></span></div>
                 <div class="dash-line"><span style="width: 74%;"></span></div>
@@ -1439,35 +861,35 @@
         <div class="section-title">
           <div class="eyebrow">Escolha seu caminho</div>
           <h2>O Hub direciona você para a solução certa.</h2>
-          <p>Em vez de se perder em informações soltas, escolha o que você precisa resolver agora e siga para a página certa.</p>
+          <p>Em vez de se perder em informações soltas, escolha o que você precisa resolver agora e siga para o caminho certo.</p>
         </div>
 
         <div class="path-grid">
           <article class="path-card">
             <div class="path-icon">IR</div>
             <h3>Imposto de Renda</h3>
-            <p>Para quem precisa declarar com segurança, organizar documentos e evitar erros simples que geram dor de cabeça.</p>
+            <p>Para quem precisa declarar com segurança, organizar documentos e evitar erros simples.</p>
             <a href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20ajuda%20com%20meu%20IRPF." target="_blank" rel="noopener">Ir para IRPF →</a>
           </article>
 
           <article class="path-card">
             <div class="path-icon">MEI</div>
             <h3>MEI organizado</h3>
-            <p>Para quem quer acompanhar faturamento, DAS, obrigações e documentos de forma mais profissional.</p>
+            <p>Para acompanhar faturamento, DAS, obrigações e documentos de forma mais profissional.</p>
             <a href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20organizar%20minha%20MEI." target="_blank" rel="noopener">Organizar minha MEI →</a>
           </article>
 
           <article class="path-card">
             <div class="path-icon">✓</div>
             <h3>Portal MEI</h3>
-            <p>Para o MEI que quer uma central simples para solicitações, acompanhamento e suporte no dia a dia.</p>
+            <p>Para o MEI que quer uma central simples para solicitações, acompanhamento e suporte.</p>
             <a href="https://portal-mei.app" target="_blank" rel="noopener">Acessar portal →</a>
           </article>
 
           <article class="path-card">
             <div class="path-icon">PDF</div>
             <h3>Materiais gratuitos</h3>
-            <p>Guias, checklists e conteúdos práticos para começar a se organizar antes mesmo de contratar.</p>
+            <p>Guias, checklists e conteúdos práticos para começar a se organizar.</p>
             <a href="#materiais">Ver materiais →</a>
           </article>
         </div>
@@ -1479,9 +901,7 @@
         <div class="portal-copy">
           <div class="eyebrow" style="color: var(--cyan-300);">Portal MEI</div>
           <h2>Uma experiência digital para o MEI parar de se perder.</h2>
-          <p>
-            O Portal MEI centraliza o que o pequeno empreendedor mais precisa: solicitação de DAS, organização do faturamento, suporte e uma rotina mais clara para cuidar da empresa.
-          </p>
+          <p>O Portal MEI centraliza o que o pequeno empreendedor mais precisa: solicitação de DAS, organização do faturamento, suporte e uma rotina mais clara para cuidar da empresa.</p>
           <div class="portal-actions">
             <a class="btn btn-glow" href="https://portal-mei.app" target="_blank" rel="noopener">Acessar Portal MEI</a>
             <a class="btn btn-ghost" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20saber%20mais%20sobre%20o%20Portal%20MEI." target="_blank" rel="noopener">Tirar dúvidas no WhatsApp</a>
@@ -1491,8 +911,10 @@
         <div class="portal-showcase">
           <div class="portal-glass tilt-card">
             <div class="portal-glass-logo">
-              <img class="portal-logo" src="assets/portal-mei-logo-horizontal.png" alt="Logo Portal MEI" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-              <span class="logo-fallback">Portal MEI</span>
+              <div class="portal-inline-logo" aria-label="Portal MEI">
+                <span class="portal-inline-symbol"><span></span></span>
+                <strong>Portal <b>MEI</b></strong>
+              </div>
             </div>
             <div class="portal-bullets">
               <div class="portal-bullet"><span>✓</span> Solicitação de DAS em poucos cliques</div>
@@ -1509,9 +931,7 @@
         <div class="problem-card">
           <div class="eyebrow" style="color: var(--cyan-300);">Para quem é</div>
           <h2>Você não precisa se perder com imposto, prazo e obrigação.</h2>
-          <p>
-            O Hub foi criado para facilitar sua vida: você entra, escolhe o que precisa e vai direto para o atendimento, material ou portal certo.
-          </p>
+          <p>O Hub foi criado para facilitar sua vida: você entra, escolhe o que precisa e vai direto para o atendimento, material ou portal certo.</p>
         </div>
 
         <div class="mini-list">
@@ -1532,4 +952,162 @@
 
         <div class="materials">
           <article class="material-card">
-            <span class="b
+            <span class="badge">MEI</span>
+            <strong>Checklist mensal do MEI</strong>
+            <p>O básico que todo MEI precisa acompanhar mês a mês para não se perder.</p>
+            <a class="btn btn-light" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20receber%20o%20checklist%20mensal%20do%20MEI." target="_blank" rel="noopener">Acessar material</a>
+          </article>
+
+          <article class="material-card">
+            <span class="badge">Prazos</span>
+            <strong>Calendário de obrigações</strong>
+            <p>Datas importantes para evitar atraso, multa e desorganização.</p>
+            <a class="btn btn-light" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20receber%20o%20calend%C3%A1rio%20de%20obriga%C3%A7%C3%B5es%20do%20MEI." target="_blank" rel="noopener">Ver calendário</a>
+          </article>
+
+          <article class="material-card">
+            <span class="badge">IRPF</span>
+            <strong>Guia rápido do IRPF</strong>
+            <p>Orientações simples para separar documentos e declarar com mais segurança.</p>
+            <a class="btn btn-light" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20receber%20o%20guia%20r%C3%A1pido%20do%20IRPF." target="_blank" rel="noopener">Ver guia</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona" class="reveal">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow">Como funciona</div>
+          <h2>Um processo simples para sair da bagunça.</h2>
+          <p>A ideia é reduzir ruído. Primeiro entendemos a situação, depois organizamos e, por fim, acompanhamos o que precisa ser feito.</p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Escolha o caminho</h3>
+            <p>Você entra no Hub e escolhe se precisa de IRPF, MEI, Portal MEI, material gratuito ou atendimento.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Entenda a solução</h3>
+            <p>Cada área explica o problema, o próximo passo e como a Yahn Contador pode ajudar.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Converta no WhatsApp</h3>
+            <p>Quando fizer sentido, você chama pelo WhatsApp com uma mensagem pronta para iniciar o atendimento.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about reveal" id="sobre">
+      <div class="container about-grid">
+        <div>
+          <div class="eyebrow" style="color: var(--cyan-300);">Sobre a Yahn Contador</div>
+          <h2>Contabilidade com linguagem simples e foco em avanço.</h2>
+          <p>O objetivo é ajudar pessoas físicas e MEIs a entenderem suas obrigações, evitarem erros e criarem uma rotina mais organizada.</p>
+          <p>Aqui, a contabilidade não é tratada como algo distante. A proposta é orientar com clareza, resolver problemas e criar caminhos práticos para o cliente avançar.</p>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><strong>CPF</strong><span>Organização e IRPF</span></div>
+          <div class="stat"><strong>MEI</strong><span>DAS, limite e obrigações</span></div>
+          <div class="stat"><strong>Portal</strong><span>Central de suporte ao MEI</span></div>
+          <div class="stat"><strong>Plano</strong><span>Crescimento com controle</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="reveal">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow">Dúvidas rápidas</div>
+          <h2>Respostas simples antes de chamar no WhatsApp.</h2>
+        </div>
+
+        <div class="faq-grid">
+          <details>
+            <summary>O atendimento é só para MEI?</summary>
+            <p>Não. O foco principal é CPF, IRPF e MEI, mas o primeiro contato serve para entender sua situação e indicar o melhor caminho.</p>
+          </details>
+
+          <details>
+            <summary>Consigo solicitar apenas a DAS?</summary>
+            <p>Sim. O botão de solicitação direciona para o WhatsApp com uma mensagem pronta para iniciar o atendimento.</p>
+          </details>
+
+          <details>
+            <summary>O Portal MEI substitui o atendimento?</summary>
+            <p>Não. A proposta do portal é facilitar a rotina, centralizar informações e aproximar o atendimento, não prometer solução automática para tudo.</p>
+          </details>
+
+          <details>
+            <summary>Como recebo os materiais gratuitos?</summary>
+            <p>Por enquanto, os materiais direcionam para o WhatsApp. Depois vamos criar páginas próprias para cada material.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta reveal">
+      <div class="container">
+        <div class="cta-box">
+          <div class="eyebrow" style="color: var(--cyan-300);">Próximo passo</div>
+          <h2>Quer organizar sua vida fiscal ou sua MEI sem complicação?</h2>
+          <p>Escolha um caminho no Hub ou fale diretamente pelo WhatsApp. A ideia é simples: menos confusão, mais clareza e um próximo passo bem definido.</p>
+          <div class="cta-actions">
+            <a class="btn btn-glow" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Vim%20pelo%20Hub%20Yahn%20Contador%20e%20quero%20atendimento." target="_blank" rel="noopener">Falar com Yahn Contador</a>
+            <a class="btn btn-ghost" href="#materiais">Ver materiais gratuitos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <span>© 2026 <strong>Yahn Contador</strong>. Todos os direitos reservados.</span>
+      <span>CPF • MEI • IRPF • Portal MEI • Organização fiscal</span>
+    </div>
+  </footer>
+
+  <a class="whatsapp-fixed" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Vim%20pelo%20Hub%20Yahn%20Contador." target="_blank" rel="noopener">Falar no WhatsApp</a>
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16 });
+
+    revealEls.forEach((el) => revealObserver.observe(el));
+
+    const tiltCards = document.querySelectorAll('.tilt-card');
+
+    tiltCards.forEach((card) => {
+      card.addEventListener('mousemove', (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        const midX = rect.width / 2;
+        const midY = rect.height / 2;
+        const rotateY = ((x - midX) / midX) * 7;
+        const rotateX = -((y - midY) / midY) * 7;
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  </scri
