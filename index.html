@@ -455,6 +455,66 @@
       letter-spacing: -0.06em;
     }
 
+    .portal-inline-logo {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      color: var(--navy-800);
+    }
+
+    .portal-inline-symbol {
+      width: 76px;
+      height: 76px;
+      border-radius: 999px;
+      border: 4px solid transparent;
+      background:
+        linear-gradient(#ffffff, #ffffff) padding-box,
+        linear-gradient(135deg, var(--cyan-300), var(--blue-600)) border-box;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 16px 36px rgba(51, 134, 255, 0.18);
+      flex: 0 0 auto;
+      position: relative;
+    }
+
+    .portal-inline-symbol::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 999px;
+      border: 3px solid transparent;
+      background:
+        linear-gradient(#ffffff, #ffffff) padding-box,
+        linear-gradient(135deg, var(--cyan-300), var(--blue-600)) border-box;
+    }
+
+    .portal-inline-symbol span {
+      width: 23px;
+      height: 40px;
+      border-right: 9px solid var(--blue-600);
+      border-bottom: 9px solid var(--blue-600);
+      border-radius: 4px;
+      transform: rotate(42deg) translate(-1px, -4px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .portal-inline-logo strong {
+      font-size: clamp(34px, 4.8vw, 72px);
+      line-height: 1;
+      letter-spacing: -0.075em;
+      font-weight: 950;
+      color: #092a53;
+      white-space: nowrap;
+    }
+
+    .portal-inline-logo b {
+      color: var(--blue-600);
+      font-weight: 950;
+    }
+
     .floating-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1312,9 +1372,9 @@
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-glow" href="mei.html">Organizar minha MEI</a>
-            <a class="btn btn-ghost" href="irpf.html">Declarar meu IRPF</a>
-            <a class="btn btn-ghost" href="https://portaml-mei.app" target="_blank" rel="noopener">Acessar Portal MEI</a>
+            <a class="btn btn-glow" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20organizar%20minha%20MEI." target="_blank" rel="noopener">Organizar minha MEI</a>
+            <a class="btn btn-ghost" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20ajuda%20com%20meu%20IRPF." target="_blank" rel="noopener">Declarar meu IRPF</a>
+            <a class="btn btn-ghost" href="https://portal-mei.app" target="_blank" rel="noopener">Acessar Portal MEI</a>
           </div>
 
           <div class="hero-note" aria-label="Principais temas atendidos">
@@ -1333,8 +1393,10 @@
           <div class="portal-stage">
             <div class="portal-card tilt-card">
               <div class="portal-logo-box">
-                <img class="portal-logo" src="assets/portal-mei-logo-horizontal.png" alt="Logo Portal MEI" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-                <span class="logo-fallback">Portal MEI</span>
+                <div class="portal-inline-logo" aria-label="Portal MEI">
+                  <span class="portal-inline-symbol"><span></span></span>
+                  <strong>Portal <b>MEI</b></strong>
+                </div>
               </div>
 
               <div class="floating-row">
@@ -1365,10 +1427,10 @@
 
     <div class="quick-bar reveal">
       <div class="container quick-grid" aria-label="Acessos rápidos">
-        <a class="quick-item" href="mei.html"><span>Quero organizar minha MEI</span><small>Controle, DAS, faturamento e rotina mensal.</small></a>
-        <a class="quick-item" href="irpf.html"><span>Preciso declarar IRPF</span><small>Orientação e declaração com mais segurança.</small></a>
-        <a class="quick-item" href="materiais.html"><span>Materiais gratuitos</span><small>Checklists, guias e calendários práticos.</small></a>
-        <a class="quick-item" href="https://portaml-mei.app" target="_blank" rel="noopener"><span>Acessar Portal MEI</span><small>A central digital para o MEI se organizar.</small></a>
+        <a class="quick-item" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20organizar%20minha%20MEI." target="_blank" rel="noopener"><span>Quero organizar minha MEI</span><small>Controle, DAS, faturamento e rotina mensal.</small></a>
+        <a class="quick-item" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20ajuda%20com%20meu%20IRPF." target="_blank" rel="noopener"><span>Preciso declarar IRPF</span><small>Orientação e declaração com mais segurança.</small></a>
+        <a class="quick-item" href="#materiais"><span>Materiais gratuitos</span><small>Checklists, guias e calendários práticos.</small></a>
+        <a class="quick-item" href="https://portal-mei.app" target="_blank" rel="noopener"><span>Acessar Portal MEI</span><small>A central digital para o MEI se organizar.</small></a>
       </div>
     </div>
 
@@ -1385,28 +1447,28 @@
             <div class="path-icon">IR</div>
             <h3>Imposto de Renda</h3>
             <p>Para quem precisa declarar com segurança, organizar documentos e evitar erros simples que geram dor de cabeça.</p>
-            <a href="irpf.html">Ir para IRPF →</a>
+            <a href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20ajuda%20com%20meu%20IRPF." target="_blank" rel="noopener">Ir para IRPF →</a>
           </article>
 
           <article class="path-card">
             <div class="path-icon">MEI</div>
             <h3>MEI organizado</h3>
             <p>Para quem quer acompanhar faturamento, DAS, obrigações e documentos de forma mais profissional.</p>
-            <a href="mei.html">Organizar minha MEI →</a>
+            <a href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20organizar%20minha%20MEI." target="_blank" rel="noopener">Organizar minha MEI →</a>
           </article>
 
           <article class="path-card">
             <div class="path-icon">✓</div>
             <h3>Portal MEI</h3>
             <p>Para o MEI que quer uma central simples para solicitações, acompanhamento e suporte no dia a dia.</p>
-            <a href="https://portaml-mei.app" target="_blank" rel="noopener">Acessar portal →</a>
+            <a href="https://portal-mei.app" target="_blank" rel="noopener">Acessar portal →</a>
           </article>
 
           <article class="path-card">
             <div class="path-icon">PDF</div>
             <h3>Materiais gratuitos</h3>
             <p>Guias, checklists e conteúdos práticos para começar a se organizar antes mesmo de contratar.</p>
-            <a href="materiais.html">Ver materiais →</a>
+            <a href="#materiais">Ver materiais →</a>
           </article>
         </div>
       </div>
@@ -1421,7 +1483,7 @@
             O Portal MEI centraliza o que o pequeno empreendedor mais precisa: solicitação de DAS, organização do faturamento, suporte e uma rotina mais clara para cuidar da empresa.
           </p>
           <div class="portal-actions">
-            <a class="btn btn-glow" href="https://portaml-mei.app" target="_blank" rel="noopener">Acessar Portal MEI</a>
+            <a class="btn btn-glow" href="https://portal-mei.app" target="_blank" rel="noopener">Acessar Portal MEI</a>
             <a class="btn btn-ghost" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20saber%20mais%20sobre%20o%20Portal%20MEI." target="_blank" rel="noopener">Tirar dúvidas no WhatsApp</a>
           </div>
         </div>
@@ -1470,182 +1532,4 @@
 
         <div class="materials">
           <article class="material-card">
-            <span class="badge">MEI</span>
-            <strong>Checklist mensal do MEI</strong>
-            <p>O básico que todo MEI precisa acompanhar mês a mês para não se perder.</p>
-            <a class="btn btn-light" href="checklist-mei.html">Acessar material</a>
-          </article>
-
-          <article class="material-card">
-            <span class="badge">Prazos</span>
-            <strong>Calendário de obrigações</strong>
-            <p>Datas importantes para evitar atraso, multa e desorganização.</p>
-            <a class="btn btn-light" href="materiais.html">Ver calendário</a>
-          </article>
-
-          <article class="material-card">
-            <span class="badge">IRPF</span>
-            <strong>Guia rápido do IRPF</strong>
-            <p>Orientações simples para separar documentos e declarar com mais segurança.</p>
-            <a class="btn btn-light" href="materiais.html">Ver guia</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="como-funciona" class="reveal">
-      <div class="container">
-        <div class="section-title">
-          <div class="eyebrow">Como funciona</div>
-          <h2>Um processo simples para sair da bagunça.</h2>
-          <p>A ideia é reduzir ruído. Primeiro entendemos a situação, depois organizamos e, por fim, acompanhamos o que precisa ser feito.</p>
-        </div>
-
-        <div class="steps">
-          <div class="step">
-            <div class="step-number">1</div>
-            <h3>Escolha o caminho</h3>
-            <p>Você entra no Hub e escolhe se precisa de IRPF, MEI, Portal MEI, material gratuito ou atendimento.</p>
-          </div>
-
-          <div class="step">
-            <div class="step-number">2</div>
-            <h3>Entenda a solução</h3>
-            <p>Cada página explica o problema, o próximo passo e como a Yahn Contador pode ajudar.</p>
-          </div>
-
-          <div class="step">
-            <div class="step-number">3</div>
-            <h3>Converta no WhatsApp</h3>
-            <p>Quando fizer sentido, você chama pelo WhatsApp com uma mensagem pronta para iniciar o atendimento.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="about reveal" id="sobre">
-      <div class="container about-grid">
-        <div>
-          <div class="eyebrow" style="color: var(--cyan-300);">Sobre a Yahn Contador</div>
-          <h2>Contabilidade com linguagem simples e foco em avanço.</h2>
-          <p>
-            O objetivo é ajudar pessoas físicas e MEIs a entenderem suas obrigações, evitarem erros e criarem uma rotina mais organizada.
-          </p>
-          <p>
-            Aqui, a contabilidade não é tratada como algo distante. A proposta é orientar com clareza, resolver problemas e criar caminhos práticos para o cliente avançar.
-          </p>
-        </div>
-
-        <div class="stats">
-          <div class="stat">
-            <strong>CPF</strong>
-            <span>Organização e IRPF</span>
-          </div>
-          <div class="stat">
-            <strong>MEI</strong>
-            <span>DAS, limite e obrigações</span>
-          </div>
-          <div class="stat">
-            <strong>Portal</strong>
-            <span>Central de suporte ao MEI</span>
-          </div>
-          <div class="stat">
-            <strong>Plano</strong>
-            <span>Crescimento com controle</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="reveal">
-      <div class="container">
-        <div class="section-title">
-          <div class="eyebrow">Dúvidas rápidas</div>
-          <h2>Respostas simples antes de chamar no WhatsApp.</h2>
-        </div>
-
-        <div class="faq-grid">
-          <details>
-            <summary>O atendimento é só para MEI?</summary>
-            <p>Não. O foco principal é CPF, IRPF e MEI, mas o primeiro contato serve para entender sua situação e indicar o melhor caminho.</p>
-          </details>
-
-          <details>
-            <summary>Consigo solicitar apenas a DAS?</summary>
-            <p>Sim. O botão de solicitação direciona para o WhatsApp com uma mensagem pronta para iniciar o atendimento.</p>
-          </details>
-
-          <details>
-            <summary>O Portal MEI substitui o atendimento?</summary>
-            <p>Não. A proposta do portal é facilitar a rotina, centralizar informações e aproximar o atendimento, não prometer solução automática para tudo.</p>
-          </details>
-
-          <details>
-            <summary>Como recebo os materiais gratuitos?</summary>
-            <p>A próxima etapa do Hub será criar páginas específicas para cada material, com botão de entrega e oferta natural para atendimento.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="final-cta reveal">
-      <div class="container">
-        <div class="cta-box">
-          <div class="eyebrow" style="color: var(--cyan-300);">Próximo passo</div>
-          <h2>Quer organizar sua vida fiscal ou sua MEI sem complicação?</h2>
-          <p>
-            Escolha um caminho no Hub ou fale diretamente pelo WhatsApp. A ideia é simples: menos confusão, mais clareza e um próximo passo bem definido.
-          </p>
-          <div class="cta-actions">
-            <a class="btn btn-glow" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Vim%20pelo%20Hub%20Yahn%20Contador%20e%20quero%20atendimento." target="_blank" rel="noopener">Falar com Yahn Contador</a>
-            <a class="btn btn-ghost" href="materiais.html">Ver materiais gratuitos</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-content">
-      <span>© 2026 <strong>Yahn Contador</strong>. Todos os direitos reservados.</span>
-      <span>CPF • MEI • IRPF • Portal MEI • Organização fiscal</span>
-    </div>
-  </footer>
-
-  <a class="whatsapp-fixed" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Vim%20pelo%20Hub%20Yahn%20Contador." target="_blank" rel="noopener">Falar no WhatsApp</a>
-
-  <script>
-    const revealEls = document.querySelectorAll('.reveal');
-
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.16 });
-
-    revealEls.forEach((el) => revealObserver.observe(el));
-
-    const tiltCards = document.querySelectorAll('.tilt-card');
-
-    tiltCards.forEach((card) => {
-      card.addEventListener('mousemove', (event) => {
-        const rect = card.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-        const midX = rect.width / 2;
-        const midY = rect.height / 2;
-        const rotateY = ((x - midX) / midX) * 7;
-        const rotateX = -((y - midY) / midY) * 7;
-        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-      });
-
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-      });
-    });
-  </script>
-</body>
-</html>
+            <span class="b
