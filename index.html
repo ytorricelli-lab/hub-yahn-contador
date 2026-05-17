@@ -23,7 +23,231 @@
 .footer{background:#fff;border-top:1px solid var(--line)}.footer-grid{display:grid;grid-template-columns:1.25fr .9fr .9fr 1.05fr;gap:34px;padding:42px 0 32px}.footer-brand{display:block;color:var(--navy);font-size:22px;letter-spacing:-.04em;margin-bottom:10px}.footer p{color:var(--muted);font-size:14px;max-width:360px}.footer-title{display:block;color:var(--navy);font-size:13px;text-transform:uppercase;letter-spacing:.11em;font-weight:950;margin-bottom:12px}.footer a{display:block;color:var(--muted);font-size:14px;font-weight:750;margin-bottom:9px}.footer a:hover{color:var(--navy)}.footer-note{display:block;color:var(--muted);font-size:13px;margin-top:10px}.footer-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:18px 0 28px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}.whatsapp{position:fixed;right:18px;bottom:18px;z-index:40;padding:13px 17px;border-radius:999px;background:var(--navy);color:#fff;font-weight:950;box-shadow:0 18px 40px rgba(4,17,31,.24)}
 @media(max-width:1020px){.menu{display:none}.hero-grid,.split,.reverse{grid-template-columns:1fr}.hero-grid{min-height:auto}.path-grid,.grid-3,.grid-4,.trust-grid,.footer-grid{grid-template-columns:1fr}.trust-grid div{border-left:0;border-right:0!important;border-bottom:1px solid var(--line)}}
 @media(max-width:640px){.container{width:min(100% - 28px,1160px)}.nav{height:66px}.nav .btn{display:none}.mark{width:38px;height:38px}h1{font-size:clamp(42px,14vw,62px)}h2{font-size:clamp(34px,11vw,48px)}.hero-grid{padding:54px 0}.actions,.btn{width:100%}.section{padding:64px 0}.hero-panel-head strong{font-size:30px}.about-photo img{min-height:320px;max-height:420px}.whatsapp{left:14px;right:14px;text-align:center}}
-  </style>
+  
+/* V12 refinements: hero start panel and relationship section */
+.start-panel {
+  background: linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
+  color: var(--text);
+  border-radius: 30px;
+  padding: 24px;
+  box-shadow: 0 32px 90px rgba(4,17,31,.22);
+  border: 1px solid rgba(255,255,255,.75);
+}
+
+.start-panel-head {
+  padding: 4px 4px 18px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.start-panel-head span {
+  display: inline-flex;
+  color: var(--blue);
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-weight: 950;
+  margin-bottom: 12px;
+}
+
+.start-panel-head h2 {
+  color: var(--navy);
+  font-size: 32px;
+  line-height: 1.02;
+  letter-spacing: -.06em;
+  margin: 0 0 10px;
+}
+
+.start-panel-head p {
+  color: var(--muted);
+  font-size: 15px;
+  margin: 0;
+}
+
+.start-options {
+  display: grid;
+  gap: 10px;
+}
+
+.start-option {
+  display: grid;
+  grid-template-columns: 42px 1fr 28px;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 14px;
+  min-height: 76px;
+  border-radius: 18px;
+  border: 1px solid rgba(22,32,51,.10);
+  background: #fff;
+  transition: .18s ease;
+}
+
+.start-option:hover {
+  transform: translateX(4px);
+  border-color: rgba(47,126,247,.32);
+  box-shadow: 0 14px 34px rgba(6,24,46,.08);
+}
+
+.start-option em {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  background: var(--ice);
+  color: var(--blue);
+  display: grid;
+  place-items: center;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.start-option strong {
+  display: block;
+  color: var(--navy);
+  font-size: 16px;
+  line-height: 1.16;
+  letter-spacing: -.02em;
+}
+
+.start-option small {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 730;
+  margin-top: 3px;
+}
+
+.start-option b {
+  color: var(--muted);
+  font-weight: 900;
+  text-align: right;
+}
+
+.connect-section {
+  background:
+    radial-gradient(circle at 88% 12%, rgba(47,126,247,.08), transparent 28%),
+    linear-gradient(180deg, #ffffff 0%, #f7f8f6 100%);
+}
+
+.connect-grid {
+  display: grid;
+  grid-template-columns: .82fr 1.18fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.connect-copy {
+  position: sticky;
+  top: 104px;
+}
+
+.connect-copy h2 {
+  max-width: 470px;
+  font-size: clamp(32px, 3.6vw, 48px);
+  line-height: 1.02;
+  letter-spacing: -.06em;
+}
+
+.connect-copy p {
+  max-width: 460px;
+  color: var(--muted);
+  font-size: 17px;
+  margin: 0;
+}
+
+.connect-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.connect-card {
+  min-height: 252px;
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
+  border-radius: 24px;
+  background: #fff;
+  border: 1px solid rgba(22,32,51,.10);
+  box-shadow: 0 18px 46px rgba(6,24,46,.08);
+}
+
+.connect-card span {
+  display: inline-flex;
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--ice);
+  color: var(--blue);
+  font-size: 11px;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: .10em;
+  font-weight: 950;
+  margin-bottom: 16px;
+}
+
+.connect-card h3 {
+  color: var(--navy);
+  font-size: 23px;
+  line-height: 1.05;
+  letter-spacing: -.045em;
+  margin-bottom: 10px;
+}
+
+.connect-card p {
+  color: var(--muted);
+  font-size: 15px;
+  margin: 0 0 18px;
+}
+
+.connect-card a {
+  margin-top: auto;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 900;
+  padding: 11px 14px;
+  transition: .18s ease;
+}
+
+.connect-card a:hover {
+  transform: translateY(-2px);
+  background: var(--navy2);
+}
+
+@media (max-width: 1020px) {
+  .connect-grid,
+  .connect-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .connect-copy {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .start-panel {
+    padding: 18px;
+    border-radius: 26px;
+  }
+
+  .start-panel-head h2 {
+    font-size: 28px;
+  }
+
+  .connect-card {
+    min-height: auto;
+  }
+}
+
+</style>
 </head>
 
 <body>
@@ -51,17 +275,49 @@
         <div class="proof"><span>Atendimento humano</span><span>Conteúdo prático</span><span>Decisão com mais segurança</span></div>
       </div>
 
-      <aside class="hero-panel">
-        <div class="hero-panel-head">
+      <aside class="start-panel" aria-label="Caminhos principais">
+        <div class="start-panel-head">
           <span>Comece por aqui</span>
-          <strong>O que você precisa resolver agora?</strong>
-          <p>Escolha uma área e siga para o próximo passo.</p>
+          <h2>Escolha seu próximo passo</h2>
+          <p>Vá direto ao ponto: portal, simulação, imposto de renda ou materiais.</p>
         </div>
-        <div class="nav-cards">
-          <a class="nav-card" href="https://portal-mei.app" target="_blank" rel="noopener"><em>01</em><div><strong>Portal MEI</strong><small>Acesse a central do MEI.</small></div><b>→</b></a>
-          <a class="nav-card" href="#calculadora"><em>02</em><div><strong>Calculadora de IR MEI</strong><small>Entenda seu cenário.</small></div><b>→</b></a>
-          <a class="nav-card" href="#ir"><em>03</em><div><strong>Imposto de Renda</strong><small>Organize sua declaração.</small></div><b>→</b></a>
-          <a class="nav-card" href="#materiais"><em>04</em><div><strong>Materiais para Você</strong><small>Guias, planilhas e cursos.</small></div><b>→</b></a>
+
+        <div class="start-options">
+          <a class="start-option" href="https://portal-mei.app" target="_blank" rel="noopener">
+            <em>01</em>
+            <div>
+              <strong>Portal MEI</strong>
+              <small>Acesse a central do MEI.</small>
+            </div>
+            <b>→</b>
+          </a>
+
+          <a class="start-option" href="#calculadora">
+            <em>02</em>
+            <div>
+              <strong>Calculadora de IR MEI</strong>
+              <small>Entenda seu cenário.</small>
+            </div>
+            <b>→</b>
+          </a>
+
+          <a class="start-option" href="#ir">
+            <em>03</em>
+            <div>
+              <strong>Imposto de Renda</strong>
+              <small>Organize sua declaração.</small>
+            </div>
+            <b>→</b>
+          </a>
+
+          <a class="start-option" href="#materiais">
+            <em>04</em>
+            <div>
+              <strong>Materiais para Você</strong>
+              <small>Guias, planilhas e cursos.</small>
+            </div>
+            <b>→</b>
+          </a>
         </div>
       </aside>
     </div>
@@ -129,12 +385,36 @@
     </div>
   </section>
 
-  <section class="section secondary">
-    <div class="container head"><span class="label">Outros caminhos</span><h2>Continue conectado ao ecossistema Yahn Contador.</h2><p>Essas áreas preparam o Hub para crescer com novidades, parcerias, cursos, afiliados e páginas institucionais.</p></div>
-    <div class="container secondary-grid">
-      <article class="card"><span>Newsletter</span><strong>Receber novidades</strong><p>Materiais, cursos, ferramentas, alertas e lançamentos do Hub.</p><a href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20receber%20novidades%20do%20Hub%20Yahn%20Contador." target="_blank" rel="noopener">Quero receber novidades</a></article>
-      <article class="card"><span>Trabalhe comigo</span><strong>Publicar cursos / ser afiliado</strong><p>Espaço para parcerias, produtos digitais, aulas e afiliados.</p><a href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Tenho%20interesse%20em%20trabalhar%20com%20voc%C3%AA%20ou%20ser%20parceiro%20do%20Hub." target="_blank" rel="noopener">Tenho interesse</a></article>
-      <article class="card"><span>Diretrizes</span><strong>Privacidade, LGPD e termos</strong><p>Área para direitos, deveres, regras de uso e tratamento de dados.</p><a href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20entender%20as%20diretrizes%2C%20privacidade%20e%20termos%20do%20Hub." target="_blank" rel="noopener">Ver diretrizes</a></article>
+  <section class="section connect-section" id="relacionamento">
+    <div class="container connect-grid">
+      <div class="connect-copy">
+        <span class="label">Relacionamento</span>
+        <h2>Outras formas de acompanhar o Yahn Contador.</h2>
+        <p>O Hub também será uma central para receber novidades, conhecer futuras parcerias e consultar diretrizes com transparência.</p>
+      </div>
+
+      <div class="connect-cards">
+        <article class="connect-card" id="newsletter">
+          <span>Newsletter</span>
+          <h3>Receber novidades</h3>
+          <p>Materiais, cursos, ferramentas, alertas e lançamentos do Hub.</p>
+          <a href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20receber%20novidades%20do%20Hub%20Yahn%20Contador." target="_blank" rel="noopener">Assinar novidades</a>
+        </article>
+
+        <article class="connect-card" id="trabalhe-comigo">
+          <span>Trabalhe comigo</span>
+          <h3>Parcerias e afiliados</h3>
+          <p>Espaço para futuros cursos, produtos digitais, aulas e projetos em conjunto.</p>
+          <a href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Tenho%20interesse%20em%20trabalhar%20com%20voc%C3%AA%20ou%20ser%20parceiro%20do%20Hub." target="_blank" rel="noopener">Tenho interesse</a>
+        </article>
+
+        <article class="connect-card" id="diretrizes">
+          <span>Diretrizes</span>
+          <h3>Privacidade e LGPD</h3>
+          <p>Área para regras de uso, direitos, deveres e tratamento de dados.</p>
+          <a href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn!%20Quero%20entender%20as%20diretrizes%2C%20privacidade%20e%20termos%20do%20Hub." target="_blank" rel="noopener">Ver diretrizes</a>
+        </article>
+      </div>
     </div>
   </section>
 
