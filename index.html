@@ -247,6 +247,325 @@
   }
 }
 
+
+/* V13 mobile refinement only: keeps desktop unchanged */
+@media (max-width: 640px) {
+  body {
+    background: #f7f8f6;
+  }
+
+  .container {
+    width: min(100% - 24px, 1160px);
+  }
+
+  .header {
+    position: sticky;
+  }
+
+  .brand span:last-child {
+    font-size: 15px;
+  }
+
+  .hero-grid {
+    padding: 44px 0 28px;
+    gap: 26px;
+  }
+
+  .hero-copy .eyebrow {
+    margin-bottom: 12px;
+    font-size: 11px;
+  }
+
+  h1 {
+    font-size: clamp(38px, 12vw, 52px);
+    line-height: .96;
+    letter-spacing: -.065em;
+    margin-bottom: 18px;
+  }
+
+  .hero p {
+    font-size: 16px;
+    line-height: 1.55;
+    margin-bottom: 22px;
+  }
+
+  .hero .actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .hero .btn {
+    min-height: 48px;
+  }
+
+  .proof {
+    display: none;
+  }
+
+  .start-panel {
+    padding: 16px;
+    border-radius: 24px;
+    box-shadow: 0 18px 48px rgba(4,17,31,.18);
+  }
+
+  .start-panel-head {
+    padding: 2px 2px 12px;
+    margin-bottom: 8px;
+  }
+
+  .start-panel-head span {
+    font-size: 10px;
+    margin-bottom: 8px;
+  }
+
+  .start-panel-head h2 {
+    font-size: 25px;
+    line-height: 1.04;
+    letter-spacing: -.055em;
+    margin-bottom: 6px;
+  }
+
+  .start-panel-head p {
+    font-size: 13px;
+  }
+
+  .start-options {
+    gap: 8px;
+  }
+
+  .start-option {
+    min-height: 58px;
+    grid-template-columns: 34px 1fr 18px;
+    padding: 10px;
+    border-radius: 15px;
+  }
+
+  .start-option em {
+    width: 28px;
+    height: 28px;
+    border-radius: 10px;
+    font-size: 11px;
+  }
+
+  .start-option strong {
+    font-size: 14px;
+    line-height: 1.15;
+  }
+
+  .start-option small {
+    display: none;
+  }
+
+  .start-option b {
+    font-size: 13px;
+  }
+
+  .trust {
+    display: none;
+  }
+
+  .desktop-paths {
+    display: none;
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+
+  .section.white {
+    padding: 48px 0;
+  }
+
+  .head,
+  .section-head {
+    margin-bottom: 24px;
+  }
+
+  .label {
+    font-size: 10px;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: clamp(29px, 9.6vw, 40px);
+    line-height: 1.02;
+    letter-spacing: -.055em;
+    margin-bottom: 12px;
+  }
+
+  .section p {
+    font-size: 15px;
+    line-height: 1.55;
+    margin-bottom: 18px;
+  }
+
+  .split,
+  .reverse {
+    gap: 24px;
+  }
+
+  .panel {
+    padding: 18px;
+    border-radius: 24px;
+  }
+
+  .portal-brand {
+    min-height: 96px;
+    border-radius: 18px;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .portal-check {
+    width: 42px;
+    height: 42px;
+    font-size: 22px;
+  }
+
+  .portal-brand strong {
+    font-size: 36px;
+  }
+
+  .lines,
+  .calc {
+    gap: 8px;
+  }
+
+  .lines div,
+  .calc-line,
+  .calc-result {
+    padding: 12px;
+    border-radius: 13px;
+  }
+
+  .lines span,
+  .calc-line span,
+  .calc-result span {
+    font-size: 12px;
+  }
+
+  .lines strong,
+  .calc-line strong,
+  .calc-result strong {
+    font-size: 17px;
+  }
+
+  .cards-3,
+  .materials,
+  .secondary-grid {
+    gap: 10px;
+  }
+
+  .card {
+    padding: 18px;
+    border-radius: 20px;
+    box-shadow: 0 12px 34px rgba(6,24,46,.07);
+  }
+
+  .mini p {
+    display: none;
+  }
+
+  .material h3 {
+    font-size: 20px;
+  }
+
+  .material p {
+    font-size: 14px;
+  }
+
+  .about {
+    padding-top: 54px;
+  }
+
+  .about-photo {
+    padding: 10px;
+    border-radius: 24px;
+  }
+
+  .about-photo img {
+    min-height: 280px;
+    max-height: 340px;
+    border-radius: 18px;
+  }
+
+  .connect-section {
+    padding: 48px 0;
+  }
+
+  .connect-grid {
+    gap: 20px;
+  }
+
+  .connect-copy h2 {
+    font-size: clamp(29px, 9.6vw, 40px);
+  }
+
+  .connect-copy p {
+    font-size: 15px;
+  }
+
+  .connect-cards {
+    gap: 10px;
+  }
+
+  .connect-card {
+    min-height: auto;
+    padding: 18px;
+    border-radius: 20px;
+  }
+
+  .connect-card span {
+    font-size: 10px;
+    margin-bottom: 10px;
+  }
+
+  .connect-card h3 {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+
+  .connect-card p {
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  .connect-card a {
+    min-height: 42px;
+  }
+
+  .cta {
+    padding: 28px 0 76px;
+  }
+
+  .cta-box {
+    padding: 34px 18px;
+    border-radius: 24px;
+  }
+
+  .cta-box p {
+    font-size: 15px;
+  }
+
+  .footer-grid {
+    gap: 22px;
+    padding: 32px 0 24px;
+  }
+
+  .footer-bottom {
+    padding-bottom: 76px;
+  }
+
+  .whatsapp {
+    left: 14px;
+    right: 14px;
+    bottom: 12px;
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+}
+
 </style>
 </head>
 
@@ -331,7 +650,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section desktop-paths">
     <div class="container head center">
       <span class="label">Escolha seu caminho</span>
       <h2>Quatro entradas para transformar dúvida em ação.</h2>
