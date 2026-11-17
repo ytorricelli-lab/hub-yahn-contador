@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Café Contábil · o jornal diário do Yahn Contador</title>
-<meta name="description" content="As mudanças de imposto que afetam o seu negócio em 2 minutos, todo dia útil às 7h. Grátis para sempre para os 100 primeiros assinantes.">
+<meta name="description" content="Reforma Tributária, tributos, MEI e contabilidade em 2 minutos, todo dia útil às 7h. Grátis para sempre para os 100 primeiros assinantes.">
 <meta name="theme-color" content="#0B1A30">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,6 +54,7 @@ img{max-width:100%;display:block}
 .hero-in{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
 .kick{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--stroke);border-radius:999px;padding:7px 14px;color:var(--stone)}
 .hero h1{font-size:clamp(76px,10vw,150px);color:var(--chalk);margin-top:22px;line-height:.82}
+.news article{grid-template-columns:72px 1fr}
 .hero .sub{font-size:clamp(28px,3vw,38px);color:var(--act);margin-top:12px;line-height:1.1}
 .hero .lead{color:var(--stone);font-size:19px;max-width:30em;margin:22px 0 28px}
 
@@ -175,8 +176,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
     <div>
       <span class="kick mono"><span class="pulse"></span>Jornal diário · grátis para os 100 primeiros</span>
       <h1 class="disp">Café<br>Contábil</h1>
-      <p class="sub serif">o imposto do seu negócio em 2 minutos</p>
-      <p class="lead">Todo dia útil, às 7h, no seu e-mail: o que mudou nos impostos, o prazo da semana e uma dica rápida. Escrito por contador, com o link da fonte oficial em toda notícia.</p>
+      <p class="lead">Todo dia útil, às 7h, no seu e-mail: o que mudou na Reforma Tributária, nos tributos, no MEI e na contabilidade, o prazo da semana e uma dica rápida. Escrito por contador, com o link da fonte oficial em toda notícia.</p>
 
       <div class="vagas" aria-live="polite">
         <div class="row"><b id="v-txt">100 vagas de fundador</b><span class="mono" id="v-sub">grátis para sempre</span></div>
@@ -193,6 +193,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
           <div class="chips">
             <label><input type="radio" name="perfil" value="mei" checked><span>MEI</span></label>
             <label><input type="radio" name="perfil" value="simples"><span>Empresa do Simples</span></label>
+            <label><input type="radio" name="perfil" value="empresa"><span>Presumido ou Real</span></label>
             <label><input type="radio" name="perfil" value="autonomo"><span>Autônomo</span></label>
             <label><input type="radio" name="perfil" value="clt"><span>CLT</span></label>
             <label><input type="radio" name="perfil" value="contador"><span>Contador</span></label>
@@ -220,8 +221,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
         <p class="hi">Bom dia! Três coisas para hoje:</p>
         <div class="news">
           <article><span class="tag y">Prazo</span><div><h4>DAS de outubro vence segunda, 23/11</h4><p>O dia 20 é feriado nacional da Consciência Negra, então o vencimento passa para o próximo dia útil.</p><span class="src">Fonte: Agenda Tributária · Receita Federal</span></div></article>
-          <article><span class="tag">MEI</span><div><h4>Limite sobe para R$ 110 mil em janeiro</h4><p>Dá uma média de R$ 9.166 por mês, e o MEI passa a poder ter até 2 funcionários.</p><span class="src">Fonte: Lei Complementar 238/2026</span></div></article>
-          <article><span class="tag g">IR</span><div><h4>Isento até R$ 5 mil por mês</h4><p>Quem ganha até R$ 7.350 também paga menos. A declaração de 2027 é a primeira com a regra.</p><span class="src">Fonte: Lei 15.270/2025</span></div></article>
+          <article><span class="tag">Reforma</span><div><h4>CBS entra no lugar do PIS e da Cofins em janeiro</h4><p>2027 é o primeiro ano da cobrança da CBS. Quem é do Simples continua pagando tudo no DAS.</p><span class="src">Fonte: Lei Complementar 214/2025</span></div></article>
+          <article><span class="tag g">MEI</span><div><h4>Limite sobe para R$ 110 mil em janeiro</h4><p>Dá uma média de R$ 9.166 por mês, e o MEI passa a poder ter até 2 funcionários.</p><span class="src">Fonte: Lei Complementar 238/2026</span></div></article>
         </div>
         <div class="tip"><b>Dica de 1 minuto</b>Crie uma pasta por mês no celular e salve ali o comprovante do DAS. Na declaração anual, está tudo junto.</div>
         <div class="sign"><img src="../img/yahn.jpg" alt="" width="34" height="34">Yahn Torricelli Godoy · contador</div>
@@ -235,8 +236,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   <div class="wrap">
     <div class="head"><h2 class="disp">O que chega toda manhã</h2><p>Uma leitura curta para fazer junto com o café, antes de abrir o seu negócio.</p></div>
     <div class="parts">
-      <div><span class="mono">Notícias</span><h3>O que mudou</h3><p>Até 3 mudanças de imposto que afetam MEI, empresas do Simples e quem declara IR. Se não houve nada, a edição diz isso e não inventa.</p></div>
-      <div><span class="mono">Agenda</span><h3>Prazo da semana</h3><p>DAS, declarações, eSocial e IR, já com as datas ajustadas quando cai em feriado.</p></div>
+      <div><span class="mono">Notícias</span><h3>O que mudou</h3><p>Até 3 notícias de Reforma Tributária, tributos, MEI, IR e rotina contábil. Se não houve nada importante, a edição diz isso e não inventa.</p></div>
+      <div><span class="mono">Agenda</span><h3>Prazo da semana</h3><p>DAS, DCTFWeb, eSocial, declarações e IR, já com as datas ajustadas quando cai em feriado.</p></div>
       <div><span class="mono">Prática</span><h3>Dica de 1 minuto</h3><p>Uma coisa simples para fazer hoje e deixar o seu negócio mais organizado.</p></div>
       <div><span class="mono">Confiança</span><h3>Fonte oficial</h3><p>Toda notícia traz o link da lei, da Receita ou do gov.br, para você conferir.</p></div>
     </div>
@@ -264,7 +265,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
       <div>
         <span class="mono" style="color:var(--muted)">Quem escreve</span>
         <h3 class="disp">Yahn Torricelli Godoy</h3>
-        <p>Bacharel em Direito e Contabilidade, pós-graduando em Reforma Tributária. Atendo empresas em Jaú/SP e acompanho as mudanças de imposto todo dia para os meus clientes. O Café Contábil é esse acompanhamento, resumido para você.</p>
+        <p>Bacharel em Direito e Contabilidade, pós-graduando em Reforma Tributária. Atendo empresas em Jaú/SP e acompanho as mudanças de imposto todo dia para os meus clientes. O Café Contábil é esse acompanhamento, com foco na Reforma Tributária, resumido para você.</p>
       </div>
     </div>
   </div>
@@ -276,7 +277,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
     <div class="faq">
       <details><summary>Quando sai a primeira edição?</summary><p>Em breve. Você recebe um e-mail no dia do lançamento, e a partir daí o Café Contábil chega todo dia útil às 7h.</p></details>
       <details><summary>É grátis mesmo?</summary><p>Para os 100 primeiros, sim, e para sempre. Quem entrar depois vai pagar uma assinatura, que ainda vou anunciar.</p></details>
-      <details><summary>É para mim?</summary><p>É para MEI, empresa do Simples, autônomo e para quem é CLT e quer entender o Imposto de Renda. Se você paga imposto, vai encontrar algo útil.</p></details>
+      <details><summary>É para mim?</summary><p>É para quem tem empresa ou é MEI, para autônomos, para quem trabalha com contabilidade e para quem quer acompanhar a Reforma Tributária sem juridiquês.</p></details>
       <details><summary>Posso cancelar?</summary><p>Pode, a qualquer momento. Todo e-mail tem um link para cancelar com um clique.</p></details>
       <details><summary>O que vocês fazem com meus dados?</summary><p>Uso só para enviar o Café Contábil e avisos do Yahn Contador. Não vendo nem compartilho com ninguém.</p></details>
       <details><summary>O jornal substitui um contador?</summary><p>Não. Ele te mantém informado. Para decidir algo do seu caso, fale com o seu contador ou com o meu escritório.</p></details>
