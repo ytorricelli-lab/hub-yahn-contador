@@ -229,6 +229,7 @@ section{scroll-margin-top:84px}
 .cv-dec .t{color:var(--act)}
 .cv-dec .t small{color:var(--chalk)}
 .cv-dec .st.paid{background:var(--act);color:var(--canvas)}
+.cv-cafe .st.free{background:var(--act);color:var(--canvas)}
 .cv-irg .st.soon{background:var(--canvas);color:var(--chalk)}
 .cv-ir .t{font-family:var(--display);font-weight:700;font-size:110px;color:var(--canvas);line-height:.85}
 .cv-cf{background:#E8322E}
@@ -591,6 +592,7 @@ footer{background:var(--canvas);border-top:1px solid var(--stroke);padding:56px 
         <p>O que saiu de novo nos produtos e no mundo do MEI.</p>
       </div>
       <div class="changelog">
+        <div class="entry"><time datetime="2026-11-17">17 nov 2026</time><span class="k"><i></i>Novo</span><div><h4>Café Contábil: 100 vagas de fundador</h4><p>O jornal diário do Yahn Contador. Os 100 primeiros assinantes recebem grátis, para sempre.</p></div></div>
         <div class="entry"><time datetime="2026-11-16">16 nov 2026</time><span class="k"><i></i>IRPF</span><div><h4>Checklist IRPF 2027 e simulador</h4><p>Veja quanto você economiza com a isenção de até R$ 5 mil e baixe a lista de documentos da declaração.</p></div></div>
         <div class="entry"><time datetime="2026-11">Nov 2026</time><span class="k"><i></i>Conteúdo</span><div><h4>Calendário do MEI 2027</h4><p>As 5 datas que evitam multa no ano que vem, já com a regra nova do limite.</p></div></div>
         <div class="entry"><time datetime="2026-10-21">21 out 2026</time><span class="k"><i style="background:var(--orange)"></i>Lei</span><div><h4>Limite do MEI sobe</h4><p>A Lei Complementar 238/2026 leva o teto para R$ 110 mil em 2027 e libera até 2 funcionários.</p></div></div>
@@ -683,6 +685,7 @@ const LINKS = {
   portal: "https://portal-mei.app",
   kitMEI: "https://ytorricelli-lab.github.io/hub-yahn-contador/kit/",
   irpf: "https://ytorricelli-lab.github.io/hub-yahn-contador/irpf/",
+  cafe: "https://ytorricelli-lab.github.io/hub-yahn-contador/cafe/",
   guiaGratis: "https://ytorricelli-lab.github.io/hub-yahn-contador/MEI-no-Controle-2027.pdf",
   comunidade: ""      // link do grupo/canal da comunidade
 };
@@ -690,6 +693,7 @@ if(LINKS.comunidade) document.getElementById("comm-link").href = LINKS.comunidad
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const PRODUCTS = [
+  {tags:["mei","ir"], img:"img/cafe-contabil.jpg", fmt:"Jornal diário", st:["free","100 vagas"], name:"Café Contábil", desc:"O que mudou nos impostos do seu negócio, em 2 minutos, todo dia útil às 7h no seu e-mail.", items:["Até 3 notícias com fonte oficial","Prazo da semana já ajustado","Dica de 1 minuto"], price:"Grátis", note:"para os 100 primeiros", link:LINKS.cafe, cta:"Garantir vaga", cover:"cafe", main:true},
   {tags:["apps","mei"], img:"img/portal-mei.jpg", fmt:"App web", st:["free","30 dias grátis"], name:"Portal MEI", desc:"DAS, limite e documentos do MEI no mesmo lugar.", items:["DAS emitido antes do dia 20","Barra do limite anual","Pasta de documentos"], price:"Grátis", note:"por 30 dias", link:LINKS.portal, cta:"Testar grátis", cover:"portal", main:true},
   {tags:["guias","mei"], img:"img/mei-no-controle-gratis.jpg", fmt:"Ebook PDF", st:["free","Grátis"], name:"MEI no Controle · edição 2027", desc:"O básico do MEI em 8 páginas, já com o limite novo de 2027.", items:["Limite de R$ 110 mil e 2 funcionários","Calendário 2027 com as datas ajustadas","Checklist de 15 minutos por mês"], price:"Grátis", note:"acesso imediato", link:LINKS.guiaGratis, cta:"Quero o guia", cover:"mei", main:true},
   {tags:["guias","mei"], img:"img/kit-mei-no-controle.jpg", fmt:"Kit digital", st:["paid","Kiwify"], name:"Kit MEI no Controle", desc:"Guia completo, planilha de faturamento e checklist fiscal para manter o MEI em dia.", items:["Guia completo do MEI","Planilha: quanto falta para o limite","Checklist mensal e calendário fiscal","Bônus de acesso ao Portal MEI"], price:"R$ 47", note:"pagamento único", link:LINKS.kitMEI, cta:"Ver o kit", cover:"kit"},
