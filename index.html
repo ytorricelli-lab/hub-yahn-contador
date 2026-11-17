@@ -187,7 +187,9 @@ section{scroll-margin-top:84px}
 .prod{display:flex;flex-direction:column;background:var(--card);border-radius:var(--r-light);overflow:hidden;transition:transform .2s var(--ease)}
 .prod:hover{transform:translateY(-4px)}
 .cover{position:relative;aspect-ratio:16/10;overflow:hidden;display:grid;place-items:center}
-.cover .fmt,.cover .st{position:absolute;top:14px;font-family:var(--mono);font-size:11px;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+.cover>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.prod:hover .cover>img{transform:scale(1.035)}
+.cover .fmt,.cover .st{z-index:1;position:absolute;top:14px;font-family:var(--mono);font-size:11px;text-transform:uppercase;padding:5px 10px;border-radius:999px}
 .cover .fmt{left:14px;background:rgba(250,250,247,.92);color:var(--canvas)}
 .cover .st{right:14px}
 .st.free{background:var(--mint);color:var(--canvas)}.st.paid{background:var(--canvas);color:var(--chalk)}.st.soon{background:rgba(250,250,250,.92);color:var(--slate)}
@@ -227,6 +229,7 @@ section{scroll-margin-top:84px}
 .cv-dec .t{color:var(--act)}
 .cv-dec .t small{color:var(--chalk)}
 .cv-dec .st.paid{background:var(--act);color:var(--canvas)}
+.cv-irg .st.soon{background:var(--canvas);color:var(--chalk)}
 .cv-ir .t{font-family:var(--display);font-weight:700;font-size:110px;color:var(--canvas);line-height:.85}
 .cv-cf{background:#E8322E}
 .cv-cf .pin{width:70px;height:70px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#fff;display:grid;place-items:center}
@@ -684,12 +687,12 @@ if(LINKS.comunidade) document.getElementById("comm-link").href = LINKS.comunidad
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const PRODUCTS = [
-  {type:"apps", fmt:"App web", st:["free","30 dias grátis"], name:"Portal MEI", desc:"DAS, limite e documentos do MEI no mesmo lugar.", items:["DAS emitido antes do dia 20","Barra do limite anual","Pasta de documentos"], price:"Grátis", note:"por 30 dias", link:LINKS.portal, cta:"Testar grátis", cover:"portal", main:true},
-  {type:"guias", fmt:"Ebook PDF", st:["free","Grátis"], name:"MEI no Controle · edição 2027", desc:"O básico do MEI em 8 páginas, já com o limite novo de 2027.", items:["Limite de R$ 110 mil e 2 funcionários","Calendário 2027 com as datas ajustadas","Checklist de 15 minutos por mês"], price:"Grátis", note:"acesso imediato", link:LINKS.guiaGratis, cta:"Quero o guia", cover:"mei", main:true},
-  {type:"guias", fmt:"Kit digital", st:["paid","Kiwify"], name:"Kit MEI no Controle", desc:"Guia completo, planilha de faturamento e checklist fiscal para manter o MEI em dia.", items:["Guia completo do MEI","Planilha: quanto falta para o limite","Checklist mensal e calendário fiscal","Bônus de acesso ao Portal MEI"], price:"R$ 47", note:"pagamento único", link:LINKS.kitMEI, cta:"Ver o kit", cover:"kit"},
-  {type:"ir", fmt:"Checklist PDF", st:["free","Grátis"], name:"Checklist IRPF 2027", desc:"Os documentos para separar antes de declarar, já com a isenção de até R$ 5 mil.", items:["Lista para marcar, em 2 páginas","Parte especial para quem é MEI","Simulador: quanto você economiza em 2027"], price:"Grátis", note:"acesso imediato", link:LINKS.irpf, cta:"Simular e baixar", cover:"ir", main:true},
-  {type:"ir", fmt:"Guia PDF", st:["soon","Fev/2027"], name:"Guia IRPF 2027", desc:"O passo a passo da declaração com os números oficiais da Receita.", items:["Deduções e como evitar a malha fina","Como o MEI declara o lucro","Atualizado com a instrução normativa de 2027"], price:"Em breve", note:"lista de espera", link:LINKS.instagram, cta:"Quero ser avisado", cover:"irg"},
-  {type:"ir", fmt:"Serviço", st:["paid","Vagas limitadas"], name:"Declaração feita pelo Yahn", desc:"Você manda os documentos e eu faço, confiro e transmito a sua declaração.", items:["Ideal para MEI, aluguel e investimentos","Conferência de deduções","Entrega dentro do prazo"], price:"Sob consulta", note:"reserve sua vaga", link:LINKS.whatsIR, cta:"Reservar no WhatsApp", cover:"dec"},
+  {tags:["apps","mei"], img:"img/portal-mei.jpg", fmt:"App web", st:["free","30 dias grátis"], name:"Portal MEI", desc:"DAS, limite e documentos do MEI no mesmo lugar.", items:["DAS emitido antes do dia 20","Barra do limite anual","Pasta de documentos"], price:"Grátis", note:"por 30 dias", link:LINKS.portal, cta:"Testar grátis", cover:"portal", main:true},
+  {tags:["guias","mei"], img:"img/mei-no-controle-gratis.jpg", fmt:"Ebook PDF", st:["free","Grátis"], name:"MEI no Controle · edição 2027", desc:"O básico do MEI em 8 páginas, já com o limite novo de 2027.", items:["Limite de R$ 110 mil e 2 funcionários","Calendário 2027 com as datas ajustadas","Checklist de 15 minutos por mês"], price:"Grátis", note:"acesso imediato", link:LINKS.guiaGratis, cta:"Quero o guia", cover:"mei", main:true},
+  {tags:["guias","mei"], img:"img/kit-mei-no-controle.jpg", fmt:"Kit digital", st:["paid","Kiwify"], name:"Kit MEI no Controle", desc:"Guia completo, planilha de faturamento e checklist fiscal para manter o MEI em dia.", items:["Guia completo do MEI","Planilha: quanto falta para o limite","Checklist mensal e calendário fiscal","Bônus de acesso ao Portal MEI"], price:"R$ 47", note:"pagamento único", link:LINKS.kitMEI, cta:"Ver o kit", cover:"kit"},
+  {tags:["guias","ir"], img:"img/checklist-irpf-2027.jpg", fmt:"Checklist PDF", st:["free","Grátis"], name:"Checklist IRPF 2027", desc:"Os documentos para separar antes de declarar, já com a isenção de até R$ 5 mil.", items:["Lista para marcar, em 2 páginas","Parte especial para quem é MEI","Simulador: quanto você economiza em 2027"], price:"Grátis", note:"acesso imediato", link:LINKS.irpf, cta:"Simular e baixar", cover:"ir", main:true},
+  {tags:["guias","ir"], img:"img/guia-irpf-2027.jpg", fmt:"Guia PDF", st:["soon","Fev/2027"], name:"Guia IRPF 2027", desc:"O passo a passo da declaração com os números oficiais da Receita.", items:["Deduções e como evitar a malha fina","Como o MEI declara o lucro","Atualizado com a instrução normativa de 2027"], price:"Em breve", note:"lista de espera", link:LINKS.instagram, cta:"Quero ser avisado", cover:"irg"},
+  {tags:["ir"], img:"img/declaracao-feita-pelo-yahn.jpg", fmt:"Serviço", st:["paid","Vagas limitadas"], name:"Declaração feita pelo Yahn", desc:"Você manda os documentos e eu faço, confiro e transmito a sua declaração.", items:["Ideal para MEI, aluguel e investimentos","Conferência de deduções","Entrega dentro do prazo"], price:"Sob consulta", note:"reserve sua vaga", link:LINKS.whatsIR, cta:"Reservar no WhatsApp", cover:"dec"},
 ];
 const COVERS = {
   portal:`<div class="mini"><i></i><i class="b"></i><i style="width:70%"></i><i style="width:55%"></i></div>`,
@@ -701,13 +704,13 @@ const COVERS = {
   dec:`<div class="t">FEITO<small>pelo Yahn</small></div>`,
   kit:`<div class="t">KIT<small>MEI no Controle</small></div>`
 };
-const FILTERS = [["todos","Todos"],["apps","Apps"],["guias","Guias e kits"],["ir","Imposto de Renda"]];
+const FILTERS = [["todos","Todos"],["apps","Apps"],["guias","Guias"],["ir","Imposto de Renda"],["mei","MEI"]];
 const rowsEl = document.getElementById("rows");
 function render(f){
-  rowsEl.innerHTML = PRODUCTS.filter(p => f==="todos" || p.type===f).map(p => {
+  rowsEl.innerHTML = PRODUCTS.filter(p => f==="todos" || p.tags.includes(f)).map(p => {
     const href = p.link || LINKS.instagram;
     const cta = p.link || p.st[0]!=="paid" ? p.cta : "Pedir o link";
-    return `<article class="prod"><div class="cover cv-${p.cover}"><span class="fmt">${p.fmt}</span><span class="st ${p.st[0]}">${p.st[1]}</span>${COVERS[p.cover]}</div>
+    return `<article class="prod"><div class="cover cv-${p.cover}"><span class="fmt">${p.fmt}</span><span class="st ${p.st[0]}">${p.st[1]}</span>${p.img?`<img src="${p.img}" alt="${p.name}" width="960" height="600" loading="lazy">`:COVERS[p.cover]}</div>
       <div class="prod-b"><h4>${p.name}</h4><p>${p.desc}</p><ul>${p.items.map(i=>`<li>${i}</li>`).join("")}</ul>
       <div class="prod-f"><div class="pr">${p.price}<small>${p.note}</small></div><a class="btn ${p.main?"btn-dark":"btn-line"}" href="${href}">${cta}</a></div></div></article>`;
   }).join("");
