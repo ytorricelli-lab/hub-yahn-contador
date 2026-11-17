@@ -272,7 +272,7 @@ footer a{color:var(--stone)}
       <div class="head"><h2 class="disp"><span class="mono">Escolha como quer declarar</span>Do jeito que for melhor para você</h2><p>Comece pelo checklist. Depois, faça você mesmo com o guia ou deixe que eu faço.</p></div>
       <div class="three">
         <div class="prod hot"><span class="mono">Grátis · agora</span><h3>Checklist IRPF 2027</h3><p>Todos os documentos para separar antes da declaração, em duas páginas para marcar. Inclui a parte de quem é MEI.</p><a class="btn btn-act" href="Checklist-IRPF-2027.pdf">Baixar grátis</a></div>
-        <div class="prod"><span class="mono">Em breve · fev/2027</span><h3>Guia IRPF 2027</h3><p>Passo a passo da declaração com os números oficiais da Receita, deduções, como evitar a malha fina e como o MEI declara o lucro na pessoa física.</p><a class="btn btn-line" href="https://instagram.com/yahn.contador">Quero ser avisado</a></div>
+        <div class="prod"><span class="mono">Em breve · fev/2027</span><h3>Guia IRPF 2027</h3><p>Passo a passo da declaração com os números oficiais da Receita, deduções, como evitar a malha fina e como o MEI declara o lucro na pessoa física.</p><a class="btn btn-line" href="#avisar" data-lead="guia-irpf-2027">Quero ser avisado</a></div>
         <div class="prod"><span class="mono">Serviço · vagas limitadas</span><h3>Declaração feita pelo Yahn</h3><p>Você manda os documentos do checklist e eu faço, confiro e transmito a sua declaração. Ideal para quem tem MEI, aluguel ou investimentos.</p><a class="btn btn-line" href="https://wa.me/5514991696399?text=Ol%C3%A1%2C%20Yahn%21%20Vim%20pela%20p%C3%A1gina%20do%20IR%20e%20quero%20reservar%20minha%20vaga%20para%20a%20declara%C3%A7%C3%A3o%20do%20IR%202027.%0A%0ANome%3A%0ACidade%3A%0ATenho%20renda%20de%3A%20%28sal%C3%A1rio%2C%20MEI%2C%20aluguel%2C%20investimentos...%29">Reservar pelo WhatsApp</a></div>
       </div>
     </div>
@@ -308,5 +308,90 @@ function calc(){
 sal.addEventListener("input", () => { const d = sal.value.replace(/\D/g,""); sal.value = d ? Number(d).toLocaleString("pt-BR") : ""; calc(); });
 calc();
 </script>
+<!-- lista de espera -->
+<style>
+.ld{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100%;height:100%;inset:0;margin:0}
+.ld::backdrop{background:rgba(5,12,24,.72);backdrop-filter:blur(6px)}
+.ld[open]{display:grid;place-items:center}
+.ld-c{position:relative;width:min(460px,calc(100% - 28px));background:#FAFAFA;color:#0B1A30;border-radius:24px;padding:30px 28px 26px;box-shadow:0 40px 90px rgba(0,0,0,.45);font-family:"Geist",system-ui,sans-serif}
+.ld-x{position:absolute;right:14px;top:14px;width:36px;height:36px;border-radius:50%;border:0;background:#EEEEEE;color:#0B1A30;font-size:20px;line-height:1;cursor:pointer}
+.ld-k{font-family:"Geist Mono",ui-monospace,monospace;font-size:12px;text-transform:uppercase;color:#444;letter-spacing:.02em}
+.ld-c h3{font-family:"Barlow Condensed",sans-serif;font-weight:700;text-transform:uppercase;font-size:44px;line-height:.92;letter-spacing:-.02em;margin:10px 40px 10px 0;color:#0B1A30}
+.ld-c>p{font-size:16px;color:#444;line-height:1.45;margin:0 0 18px}
+.ld-f{display:grid;gap:12px}
+.ld-f label{display:grid;gap:6px;font-size:14px;font-weight:500;color:#0B1A30}
+.ld-f label span small{font-weight:400;color:#6b7280}
+.ld-f input[type=text],.ld-f input[type=tel],.ld-f input[type=email]{font:400 17px "Geist",system-ui,sans-serif;color:#0B1A30;background:#fff;border:1px solid #cfd5de;border-radius:10px;padding:13px 14px;width:100%;box-sizing:border-box}
+.ld-f input:focus{outline:2px solid #0B1A30;outline-offset:1px;border-color:#0B1A30}
+.ld-f label.ld-ok{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:13px;color:#444;line-height:1.4;cursor:pointer}
+.ld-ok input{margin-top:2px;width:18px;height:18px;accent-color:#0B1A30;flex:none}
+.ld-go{margin-top:4px;width:100%;font:500 17px "Geist",system-ui,sans-serif;background:#FFF100;color:#0B1A30;border:0;border-radius:3px;padding:16px;cursor:pointer}
+.ld-go:hover{background:#fff766}.ld-go:disabled{opacity:.6;cursor:wait}
+.ld-err{font-size:14px;color:#b42318;min-height:0;margin:0}
+.ld-done{display:none;text-align:left}
+.ld-done .ok{width:52px;height:52px;border-radius:50%;background:#A0CA92;display:grid;place-items:center;margin-bottom:14px}
+.ld-done .ok::after{content:"";width:20px;height:11px;border-left:4px solid #0B1A30;border-bottom:4px solid #0B1A30;transform:translateY(-3px) rotate(-45deg)}
+.ld.sent .ld-form{display:none}.ld.sent .ld-done{display:block}
+</style>
+<dialog class="ld" id="ld" aria-labelledby="ld-t">
+  <div class="ld-c">
+    <button class="ld-x" type="button" aria-label="Fechar">×</button>
+    <div class="ld-form">
+      <span class="ld-k" id="ld-k">Lista de espera</span>
+      <h3 id="ld-t">Guia IRPF 2027</h3>
+      <p id="ld-p">O guia sai quando a Receita publicar as regras de 2027, entre fevereiro e março. Deixe seu contato e eu te aviso no dia do lançamento.</p>
+      <form class="ld-f" novalidate>
+        <label><span>Nome</span><input type="text" name="nome" autocomplete="name" required maxlength="120"></label>
+        <label><span>WhatsApp</span><input type="tel" name="whatsapp" autocomplete="tel" inputmode="tel" placeholder="(14) 99999-9999" required maxlength="20"></label>
+        <label><span>E-mail <small>(opcional)</small></span><input type="email" name="email" autocomplete="email" maxlength="160"></label>
+        <label class="ld-ok"><input type="checkbox" name="ok" required>Aceito receber o aviso do lançamento e conteúdos do Yahn Contador. Posso pedir para sair quando quiser.</label>
+        <p class="ld-err" role="alert"></p>
+        <button class="ld-go" type="submit">Quero ser avisado</button>
+      </form>
+    </div>
+    <div class="ld-done" aria-live="polite">
+      <div class="ok"></div>
+      <span class="ld-k">Você está na lista</span>
+      <h3 id="ld-dn">Pronto!</h3>
+      <p style="font-size:16px;color:#444;line-height:1.45;margin:0 0 18px">Assim que o Guia IRPF 2027 sair, eu te mando uma mensagem no WhatsApp. Enquanto isso, separe seus documentos com o checklist grátis.</p>
+      <a class="ld-go" style="display:block;text-align:center;text-decoration:none;box-sizing:border-box" href="Checklist-IRPF-2027.pdf">Baixar o checklist grátis</a>
+    </div>
+  </div>
+</dialog>
+<script>
+(() => {
+  const SB = "https://vpmxaxnloaoqaxdmmoid.supabase.co", KEY = "sb_publishable_RhlWZVrxRY2WzayVLIiQFg_O92cxIBR", ORIGEM = "pagina-irpf";
+  const d = document.getElementById("ld"); if (!d) return;
+  const f = d.querySelector("form"), err = d.querySelector(".ld-err"), go = d.querySelector(".ld-go[type=submit]");
+  let interesse = "guia-irpf-2027";
+  const open = (k) => { interesse = k || interesse; d.classList.remove("sent"); err.textContent = ""; d.showModal(); setTimeout(() => f.nome.focus(), 50); };
+  document.addEventListener("click", e => { const b = e.target.closest("[data-lead]"); if (!b) return; e.preventDefault(); open(b.dataset.lead); });
+  d.querySelector(".ld-x").onclick = () => d.close();
+  d.addEventListener("click", e => { if (e.target === d) d.close(); });
+  f.whatsapp.addEventListener("input", () => {
+    const n = f.whatsapp.value.replace(/\D/g, "").slice(0, 11);
+    f.whatsapp.value = n.length > 6 ? `(${n.slice(0,2)}) ${n.slice(2, n.length-4)}-${n.slice(-4)}` : n.length > 2 ? `(${n.slice(0,2)}) ${n.slice(2)}` : n;
+  });
+  f.addEventListener("submit", async e => {
+    e.preventDefault(); err.textContent = "";
+    const nome = f.nome.value.trim(), tel = f.whatsapp.value.replace(/\D/g, ""), email = f.email.value.trim();
+    if (nome.length < 2) { err.textContent = "Escreva seu nome."; f.nome.focus(); return; }
+    if (tel.length < 10) { err.textContent = "Confira o WhatsApp com DDD, por exemplo (14) 99999-9999."; f.whatsapp.focus(); return; }
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent = "Confira o e-mail ou deixe em branco."; f.email.focus(); return; }
+    if (!f.ok.checked) { err.textContent = "Marque a caixa para eu poder te avisar."; return; }
+    go.disabled = true; go.textContent = "Salvando...";
+    try {
+      const r = await fetch(`${SB}/rest/v1/leads`, { method: "POST", headers: { apikey: KEY, "Content-Type": "application/json", Prefer: "return=minimal" },
+        body: JSON.stringify({ nome, whatsapp: tel, email: email || null, interesse, origem: ORIGEM }) });
+      if (!r.ok) throw new Error(r.status);
+      d.querySelector("#ld-dn").textContent = `Pronto, ${nome.split(" ")[0]}!`;
+      d.classList.add("sent"); f.reset();
+    } catch (_) {
+      err.innerHTML = 'Não consegui salvar agora. Tente de novo em instantes ou <a href="https://instagram.com/yahn.contador" style="color:inherit">me chame no Instagram</a>.';
+    } finally { go.disabled = false; go.textContent = "Quero ser avisado"; }
+  });
+})();
+</script>
+
 </body>
 </html>
