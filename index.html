@@ -219,6 +219,14 @@ section{scroll-margin-top:84px}
 .cv-5w .grid b{aspect-ratio:1;border-radius:6px;background:var(--card);display:grid;place-items:center;font-family:var(--display);font-size:24px;color:var(--canvas)}
 .cv-5w .grid b.h{background:var(--canvas);color:var(--act)}
 .cv-ir{background:var(--act)}
+.cv-ir .st.free{background:var(--canvas);color:var(--chalk)}
+.cv-irg{background:var(--mist)}
+.cv-irg .t,.cv-dec .t{font-family:var(--display);font-weight:700;font-size:84px;line-height:.85;text-align:center;text-transform:uppercase;color:var(--canvas)}
+.cv-irg .t small,.cv-dec .t small{display:block;font-family:var(--serif);font-style:italic;font-weight:400;font-size:24px;text-transform:none;margin-top:6px}
+.cv-dec{background:var(--canvas)}
+.cv-dec .t{color:var(--act)}
+.cv-dec .t small{color:var(--chalk)}
+.cv-dec .st.paid{background:var(--act);color:var(--canvas)}
 .cv-ir .t{font-family:var(--display);font-weight:700;font-size:110px;color:var(--canvas);line-height:.85}
 .cv-cf{background:#E8322E}
 .cv-cf .pin{width:70px;height:70px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#fff;display:grid;place-items:center}
@@ -577,6 +585,7 @@ footer{background:var(--canvas);border-top:1px solid var(--stroke);padding:56px 
         <p>O que saiu de novo nos produtos e no mundo do MEI.</p>
       </div>
       <div class="changelog">
+        <div class="entry"><time datetime="2026-11-16">16 nov 2026</time><span class="k"><i></i>IRPF</span><div><h4>Checklist IRPF 2027 e simulador</h4><p>Veja quanto você economiza com a isenção de até R$ 5 mil e baixe a lista de documentos da declaração.</p></div></div>
         <div class="entry"><time datetime="2026-11">Nov 2026</time><span class="k"><i></i>Conteúdo</span><div><h4>Calendário do MEI 2027</h4><p>As 5 datas que evitam multa no ano que vem, já com a regra nova do limite.</p></div></div>
         <div class="entry"><time datetime="2026-10-21">21 out 2026</time><span class="k"><i style="background:var(--orange)"></i>Lei</span><div><h4>Limite do MEI sobe</h4><p>A Lei Complementar 238/2026 leva o teto para R$ 110 mil em 2027 e libera até 2 funcionários.</p></div></div>
         <div class="entry"><time datetime="2026-11">Nov 2026</time><span class="k"><i></i>Ebook</span><div><h4>Guia MEI no Controle 2027</h4><p>Nova edição gratuita, com o limite de R$ 110 mil, o calendário de 2027 e o checklist mensal.</p></div></div>
@@ -666,6 +675,7 @@ const LINKS = {
   instagram: "https://instagram.com/yahn.contador",
   portal: "https://portal-mei.app",
   kitMEI: "https://ytorricelli-lab.github.io/hub-yahn-contador/kit/",
+  irpf: "https://ytorricelli-lab.github.io/hub-yahn-contador/irpf/",
   guiaGratis: "https://ytorricelli-lab.github.io/hub-yahn-contador/MEI-no-Controle-2027.pdf",
   comunidade: ""      // link do grupo/canal da comunidade
 };
@@ -676,16 +686,21 @@ const PRODUCTS = [
   {type:"apps", fmt:"App web", st:["free","30 dias grátis"], name:"Portal MEI", desc:"DAS, limite e documentos do MEI no mesmo lugar.", items:["DAS emitido antes do dia 20","Barra do limite anual","Pasta de documentos"], price:"Grátis", note:"por 30 dias", link:LINKS.portal, cta:"Testar grátis", cover:"portal", main:true},
   {type:"guias", fmt:"Ebook PDF", st:["free","Grátis"], name:"MEI no Controle · edição 2027", desc:"O básico do MEI em 8 páginas, já com o limite novo de 2027.", items:["Limite de R$ 110 mil e 2 funcionários","Calendário 2027 com as datas ajustadas","Checklist de 15 minutos por mês"], price:"Grátis", note:"acesso imediato", link:LINKS.guiaGratis, cta:"Quero o guia", cover:"mei", main:true},
   {type:"guias", fmt:"Kit digital", st:["paid","Kiwify"], name:"Kit MEI no Controle", desc:"Guia completo, planilha de faturamento e checklist fiscal para manter o MEI em dia.", items:["Guia completo do MEI","Planilha: quanto falta para o limite","Checklist mensal e calendário fiscal","Bônus de acesso ao Portal MEI"], price:"R$ 47", note:"pagamento único", link:LINKS.kitMEI, cta:"Ver o kit", cover:"kit"},
+  {type:"ir", fmt:"Checklist PDF", st:["free","Grátis"], name:"Checklist IRPF 2027", desc:"Os documentos para separar antes de declarar, já com a isenção de até R$ 5 mil.", items:["Lista para marcar, em 2 páginas","Parte especial para quem é MEI","Simulador: quanto você economiza em 2027"], price:"Grátis", note:"acesso imediato", link:LINKS.irpf, cta:"Simular e baixar", cover:"ir", main:true},
+  {type:"ir", fmt:"Guia PDF", st:["soon","Fev/2027"], name:"Guia IRPF 2027", desc:"O passo a passo da declaração com os números oficiais da Receita.", items:["Deduções e como evitar a malha fina","Como o MEI declara o lucro","Atualizado com a instrução normativa de 2027"], price:"Em breve", note:"lista de espera", link:LINKS.instagram, cta:"Quero ser avisado", cover:"irg"},
+  {type:"ir", fmt:"Serviço", st:["paid","Vagas limitadas"], name:"Declaração feita pelo Yahn", desc:"Você manda os documentos e eu faço, confiro e transmito a sua declaração.", items:["Ideal para MEI, aluguel e investimentos","Conferência de deduções","Entrega dentro do prazo"], price:"Sob consulta", note:"reserve sua vaga", link:LINKS.instagram, cta:"Reservar vaga", cover:"dec"},
 ];
 const COVERS = {
   portal:`<div class="mini"><i></i><i class="b"></i><i style="width:70%"></i><i style="width:55%"></i></div>`,
   mei:`<div class="t">MEI<small>no Controle</small></div>`,
   medos:`<div class="dots"><i></i><i></i><i></i><i></i></div>`,
   "5w":`<div class="grid">${["W","W","W","W","W","H","H"].map(l=>`<b class="${l==="H"?"h":""}">${l}</b>`).join("")}</div>`,
-  ir:`<div class="t">IRPF</div>`,
+  ir:`<div class="t">IRPF<small style="display:block;font-family:var(--serif);font-style:italic;font-weight:400;font-size:24px;text-transform:none;text-align:center">checklist 2027</small></div>`,
+  irg:`<div class="t">GUIA<small>IRPF 2027</small></div>`,
+  dec:`<div class="t">FEITO<small>pelo Yahn</small></div>`,
   kit:`<div class="t">KIT<small>MEI no Controle</small></div>`
 };
-const FILTERS = [["todos","Todos"],["apps","Apps"],["guias","Guias e kits"]];
+const FILTERS = [["todos","Todos"],["apps","Apps"],["guias","Guias e kits"],["ir","Imposto de Renda"]];
 const rowsEl = document.getElementById("rows");
 function render(f){
   rowsEl.innerHTML = PRODUCTS.filter(p => f==="todos" || p.type===f).map(p => {
