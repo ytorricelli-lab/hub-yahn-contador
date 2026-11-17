@@ -51,7 +51,8 @@ img{max-width:100%;display:block}
 
 /* herói */
 .hero{position:relative;overflow:hidden;padding:80px 0 100px}
-.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(140,157,186,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(140,157,186,.08) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(80% 70% at 70% 40%,#000,transparent);mask-image:radial-gradient(80% 70% at 70% 40%,#000,transparent)}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(140,157,186,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(140,157,186,.08) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(80% 70% at 70% 40%,#000,transparent);mask-image:radial-gradient(80% 70% at 70% 40%,#000,transparent)}
+.hero>.wrap{position:relative}
 .hero-in{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
 .tag{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--stroke);background:rgba(19,40,74,.7);border-radius:999px;padding:7px 16px;font-size:14px;color:var(--stone);margin-bottom:26px}
 .tag b{color:var(--act);font-weight:400}
