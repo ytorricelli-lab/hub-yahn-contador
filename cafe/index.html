@@ -3,365 +3,389 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Café Contábil · o jornal diário do Yahn Contador</title>
-<meta name="description" content="Reforma Tributária, tributos, MEI e contabilidade em 2 minutos, todo dia útil às 7h. Grátis para sempre para os 100 primeiros assinantes.">
+<title>Café Contábil · acorde sabendo o que mudou nos impostos</title>
+<meta name="description" content="O jornal diário do Yahn Contador: Reforma Tributária, tributos, MEI e contabilidade. Edição nova todo dia às 5h, com plantão às 10h40 e 18h40. Grátis para os 100 fundadores.">
 <meta name="theme-color" content="#0B1A30">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Geist:wght@400;500&family=Geist+Mono:wght@400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root{
-  --canvas:#0B1A30; --lift:#13284A; --stroke:#25406A; --graphite:#3A5682; --muted:#8C9DBA; --stone:#BCC8DB;
-  --bone:#EEEEEE; --chalk:#FAFAFA; --light:#E5E5E5; --card:#FFFFFF; --mist:#F3F3F3; --slate:#444444;
-  --act:#FFF100; --mint:#D1FFCA; --green:#A0CA92; --orange:#EE6018; --paper:#FBF8F1;
+  --canvas:#0B1A30; --lift:#13284A; --stroke:#25406A; --muted:#8C9DBA; --stone:#BCC8DB; --bone:#EEEEEE; --chalk:#FAFAFA;
+  --paper:#FBF8F1; --paper2:#F2ECDF; --ink:#0B1A30; --rule:#D9D2C3; --sepia:#6B6457; --slate:#4A4F57;
+  --act:#FFF100; --mint:#D1FFCA; --green:#A0CA92; --orange:#EE6018;
   --display:"Barlow Condensed","Arial Narrow",Impact,sans-serif;
   --body:"Geist",Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"Geist Mono",ui-monospace,Menlo,monospace;
   --serif:"Instrument Serif",Georgia,serif;
-  --ease:cubic-bezier(.4,0,.2,1);
-  color-scheme:dark;
+  --ease:cubic-bezier(.2,.7,.2,1); --spring:cubic-bezier(.34,1.56,.64,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--canvas);color:var(--bone);font-family:var(--body);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+body{background:var(--canvas);color:var(--bone);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 img{max-width:100%;height:auto;display:block}
 :focus-visible{outline:2px solid var(--act);outline-offset:3px;border-radius:4px}
-.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
-.disp{font-family:var(--display);font-weight:700;text-transform:uppercase;line-height:.9;letter-spacing:-.03em;text-wrap:balance}
-.mono{font-family:var(--mono);font-size:12px;line-height:1.3;letter-spacing:-.02em;text-transform:uppercase}
-.serif{font-family:var(--serif);font-style:italic;font-weight:400}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:500 17px var(--body);text-decoration:none;padding:17px 26px;border-radius:3px;border:1px solid transparent;cursor:pointer;transition:background .18s var(--ease),border-color .18s var(--ease)}
-.btn-act{background:var(--act);color:var(--canvas)}
+.wrap{width:min(980px,100% - 40px);margin-inline:auto}
+.disp{font-family:var(--display);font-weight:700;text-transform:uppercase;line-height:.88;letter-spacing:-.025em}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:-.01em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:500 16px var(--body);text-decoration:none;padding:15px 22px;border-radius:3px;border:1px solid transparent;cursor:pointer;transition:background .2s var(--ease),border-color .2s var(--ease)}
+.btn-act{background:var(--act);color:var(--ink)}
 .btn-act:hover{background:#fff766}
-.btn-line{border-color:var(--stroke);color:var(--bone)}
+.btn-line{border-color:var(--stroke);color:var(--bone);background:transparent}
 .btn-line:hover{border-color:var(--bone)}
-.light{background:var(--light);color:var(--canvas)}
-.band{padding:110px 0}
-.pulse{width:7px;height:7px;border-radius:50%;background:var(--orange);display:inline-block;animation:pulse 2s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(238,96,24,.6)}70%{box-shadow:0 0 0 8px rgba(238,96,24,0)}100%{box-shadow:0 0 0 0 rgba(238,96,24,0)}}
 
-.top{position:sticky;top:0;z-index:30;background:rgba(11,26,48,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--stroke)}
-.top .wrap{display:flex;justify-content:space-between;align-items:center;height:64px;gap:16px}
-.word{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--mono);font-size:13px;text-transform:uppercase}
-.word i{width:8px;height:8px;background:var(--act);border-radius:2px}
-.top .btn{padding:10px 16px;font-size:14px}
+/* topo */
+.top{position:sticky;top:0;z-index:30;background:rgba(11,26,48,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--stroke)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:500}
+.brand i{width:9px;height:9px;border-radius:2px;background:var(--act)}
+.top .acts{display:flex;gap:8px;align-items:center}
+.top .btn{padding:9px 14px;font-size:14px}
+.who-in{font-size:14px;color:var(--stone)}
 
-/* herói */
-.hero{position:relative;overflow:hidden;padding:72px 0 110px}
-.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(140,157,186,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(140,157,186,.08) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(80% 70% at 75% 40%,#000,transparent);mask-image:radial-gradient(80% 70% at 75% 40%,#000,transparent)}
-.hero>.wrap{position:relative}
-.hero-in{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
-.kick{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--stroke);border-radius:999px;padding:7px 14px;color:var(--stone)}
-.hero h1{font-size:clamp(76px,10vw,150px);color:var(--chalk);margin-top:22px;line-height:.82}
-.news article{grid-template-columns:72px 1fr}
-.hero .sub{font-size:clamp(28px,3vw,38px);color:var(--act);margin-top:12px;line-height:1.1}
-.hero .lead{color:var(--stone);font-size:19px;max-width:30em;margin:22px 0 28px}
+/* chamada */
+.intro{padding:34px 0 22px;text-align:center}
+.intro .live{display:inline-flex;align-items:center;gap:10px;color:var(--stone);font-size:14px;border:1px solid var(--stroke);border-radius:999px;padding:6px 14px}
+.intro .live i{width:8px;height:8px;border-radius:50%;background:var(--orange);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(238,96,24,.6)}70%{box-shadow:0 0 0 9px rgba(238,96,24,0)}100%{box-shadow:0 0 0 0 rgba(238,96,24,0)}}
+.intro h1{font-size:clamp(40px,5vw,64px);color:var(--chalk);margin-top:14px}
+.intro p{color:var(--stone);max-width:34em;margin:14px auto 0}
+.times{display:flex;justify-content:center;gap:8px;margin-top:20px;flex-wrap:wrap}
+.times span{font-family:var(--mono);font-size:12px;border-radius:999px;padding:6px 12px;background:var(--lift);color:var(--stone);border:1px solid var(--stroke)}
+.times span.on{background:var(--act);color:var(--ink);border-color:var(--act)}
 
-.vagas{display:grid;gap:10px;margin-bottom:22px;max-width:520px}
-.vagas .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-.vagas b{font-weight:500;font-size:22px;color:var(--chalk);font-variant-numeric:tabular-nums}
-.vagas .mono{color:var(--muted)}
-.bar{height:10px;border-radius:5px;background:var(--lift);overflow:hidden}
-.bar i{display:block;height:100%;width:0;background:var(--act);border-radius:5px;transition:width .8s var(--ease)}
+/* jornal */
+.paper{position:relative;background:var(--paper);color:var(--ink);border-radius:6px;padding:34px 54px 40px;box-shadow:0 50px 100px rgba(0,0,0,.45);margin-bottom:70px;transition:filter .6s var(--ease)}
+.paper>*{position:relative;z-index:1}
+.paper::before{content:"";position:absolute;inset:0;z-index:0;border-radius:inherit;pointer-events:none;background:radial-gradient(120% 80% at 0 0,rgba(255,255,255,.5),transparent 50%),repeating-linear-gradient(0deg,rgba(107,100,87,.025) 0 1px,transparent 1px 3px)}
+.mast{text-align:center;border-bottom:4px double var(--ink);padding-bottom:16px}
+.mast .disp{font-size:clamp(48px,6vw,76px);line-height:.85;letter-spacing:-.02em}
+.mast .tag{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--sepia);margin-top:8px}
+.meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 16px;font-family:var(--mono);font-size:11px;text-transform:uppercase;color:var(--sepia);padding:10px 0;border-bottom:1px solid var(--rule)}
+.lead{display:grid;grid-template-columns:1.25fr .75fr;gap:34px;padding:28px 0 8px;border-bottom:1px solid var(--rule)}
+.lead h2{font-family:var(--serif);font-weight:400;font-size:clamp(34px,4.4vw,54px);line-height:1.02;letter-spacing:-.01em}
+.lead .open{font-size:17px;color:#2b3340;line-height:1.55}
+.lead .sig{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:13px;color:var(--sepia)}
+.lead .sig img{width:36px;height:36px;border-radius:50%;object-fit:cover}
 
-/* formulário */
-.form{background:var(--chalk);color:var(--canvas);border-radius:24px;padding:26px;max-width:520px;display:grid;gap:14px}
-.form label{display:grid;gap:6px;font-size:14px;font-weight:500}
-.form label small{font-weight:400;color:#6b7280}
-.form input[type=text],.form input[type=email],.form input[type=tel]{font:400 17px var(--body);color:var(--canvas);background:#fff;border:1px solid #cfd5de;border-radius:10px;padding:13px 14px;width:100%}
-.form input:focus{outline:2px solid var(--canvas);outline-offset:1px;border-color:var(--canvas)}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-fieldset{border:0;display:grid;gap:8px}
-legend{font-size:14px;font-weight:500;margin-bottom:8px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
+.plant{margin:22px 0 4px;border:1.5px solid var(--ink);border-radius:10px;overflow:hidden}
+.plant h3{display:flex;align-items:center;gap:10px;background:var(--ink);color:var(--chalk);font-family:var(--mono);font-size:12px;font-weight:400;text-transform:uppercase;padding:9px 14px}
+.plant h3 i{width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.plant article{padding:14px 16px;border-top:1px solid var(--rule)}
+.plant article:first-of-type{border-top:0}
+
+.items{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.items article{padding:22px 22px 24px 0;border-right:1px solid var(--rule);margin-right:22px}
+.items article:last-child{border-right:0;margin-right:0;padding-right:0}
+.it-tag{display:inline-block;font-family:var(--mono);font-size:10px;text-transform:uppercase;border-radius:4px;padding:3px 7px;background:var(--ink);color:var(--chalk)}
+.it-tag.Prazo{background:var(--act);color:var(--ink)}
+.it-tag.MEI{background:var(--green);color:var(--ink)}
+.it-tag.IR{background:#DCE5FF;color:var(--ink)}
+.items h4,.plant h4{font-weight:500;font-size:19px;letter-spacing:-.02em;line-height:1.22;margin:10px 0 8px}
+.items p,.plant p{font-size:15px;color:#2b3340;line-height:1.55}
+.src{display:inline-flex;gap:6px;margin-top:10px;font-family:var(--mono);font-size:10.5px;text-transform:uppercase;color:var(--sepia);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--rule)}
+.src:hover{color:var(--ink)}
+
+.below{display:grid;grid-template-columns:1fr 1fr;gap:22px;padding-top:24px;border-top:1px solid var(--rule)}
+.box{background:var(--paper2);border-radius:12px;padding:18px 20px}
+.box h5{font-family:var(--mono);font-size:11px;font-weight:400;text-transform:uppercase;color:var(--sepia);margin-bottom:10px}
+.pz{display:grid;gap:8px}
+.pz div{display:grid;grid-template-columns:56px 1fr;gap:12px;font-size:15px;line-height:1.35}
+.pz b{font-family:var(--display);font-size:22px;line-height:1}
+.box p{font-size:15px;line-height:1.55}
+.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:10.5px;text-transform:uppercase;color:var(--sepia);margin-top:26px;padding-top:12px;border-top:1px solid var(--rule)}
+
+.empty{text-align:center;padding:60px 0;color:var(--sepia)}
+
+/* arquivo */
+.arch{margin-bottom:80px}
+.arch h3{font-size:clamp(36px,5vw,56px);color:var(--chalk);margin-bottom:18px}
+.arch ul{list-style:none;display:grid;gap:10px}
+.arch li button{width:100%;text-align:left;display:grid;grid-template-columns:130px 1fr auto;gap:16px;align-items:center;background:var(--lift);border:1px solid var(--stroke);border-radius:14px;padding:16px 18px;color:var(--bone);font:inherit;cursor:pointer;transition:border-color .2s}
+.arch li button:hover{border-color:var(--stone)}
+.arch li .mono{color:var(--muted)}
+
+/* cronômetro */
+.timer{position:fixed;left:50%;bottom:18px;z-index:40;transform:translate(-50%,140%);display:flex;align-items:center;gap:12px;background:rgba(11,26,48,.94);backdrop-filter:blur(10px);border:1px solid var(--stroke);border-radius:999px;padding:8px 16px 8px 8px;color:var(--bone);font-size:14px;box-shadow:0 20px 40px rgba(0,0,0,.4);transition:transform .5s var(--spring);white-space:nowrap}
+.timer.on{transform:translate(-50%,0)}
+.ring{position:relative;width:34px;height:34px}
+.ring svg{width:34px;height:34px;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:3}
+.ring .bg{stroke:var(--stroke)}.ring .fg{stroke:var(--act);stroke-linecap:round;transition:stroke-dashoffset 1s linear}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--mono);font-size:12px;font-weight:400}
+.timer a{color:var(--act);text-decoration:none;font-weight:500;margin-left:4px}
+
+/* portão */
+body.gated .paper,body.gated .arch{filter:blur(7px) saturate(.8);pointer-events:none;user-select:none}
+.gate{position:fixed;inset:0;z-index:60;display:none;place-items:center;padding:16px;background:rgba(5,12,24,.55);backdrop-filter:blur(2px)}
+body.gated .gate{display:grid}
+.card{width:min(480px,100%);max-height:calc(100svh - 32px);overflow:auto;background:var(--chalk);color:var(--ink);border-radius:24px;padding:28px 26px 24px;box-shadow:0 50px 100px rgba(0,0,0,.5);animation:pop .5s var(--spring)}
+@keyframes pop{from{opacity:0;transform:translateY(20px) scale(.97)}}
+.card .k{font-family:var(--mono);font-size:12px;color:var(--slate)}
+.card h3{font-size:42px;margin:8px 0 8px}
+.card>p{color:var(--slate);font-size:15px;margin-bottom:16px}
+.seats{background:var(--ink);color:var(--chalk);border-radius:14px;padding:14px 16px;margin-bottom:16px}
+.seats .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.seats b{font-weight:500;font-size:18px}
+.seats .mono{color:var(--muted)}
+.seats .bar{height:8px;border-radius:4px;background:var(--lift);margin-top:10px;overflow:hidden}
+.seats .bar i{display:block;height:100%;width:1%;background:var(--act);border-radius:4px;transition:width .8s var(--ease)}
+.tabs{display:grid;grid-template-columns:1fr 1fr;background:#E9EAEE;border-radius:12px;padding:4px;margin-bottom:16px}
+.tabs[hidden]{display:none}
+.tabs button{font:500 14px var(--body);border:0;background:transparent;border-radius:9px;padding:10px;cursor:pointer;color:var(--slate)}
+.tabs button.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+form{display:grid;gap:12px}
+form[hidden]{display:none}
+label{display:grid;gap:6px;font-size:14px;font-weight:500}
+input[type=text],input[type=email],input[type=tel]{font:400 17px var(--body);color:var(--ink);background:#fff;border:1px solid #cfd5de;border-radius:10px;padding:12px 14px;width:100%}
+input:focus{outline:2px solid var(--ink);outline-offset:1px;border-color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
 .chips label{display:block;cursor:pointer}
 .chips input{position:absolute;opacity:0;pointer-events:none}
-.chips span{display:block;font-size:14px;font-weight:400;padding:8px 13px;border:1px solid #cfd5de;border-radius:999px;background:#fff;transition:background .15s var(--ease),border-color .15s var(--ease)}
-.chips input:checked+span{background:var(--canvas);color:var(--chalk);border-color:var(--canvas)}
-.chips input:focus-visible+span{outline:2px solid var(--canvas);outline-offset:2px}
-.form label.ok{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:13px;color:var(--slate);line-height:1.4;cursor:pointer}
-.form label.ok input{margin-top:2px;width:18px;height:18px;accent-color:var(--canvas);flex:none}
-.form .btn{width:100%;font-size:18px}
+.chips span{display:block;font-size:13px;font-weight:400;padding:7px 11px;border:1px solid #cfd5de;border-radius:999px;background:#fff}
+.chips input:checked+span{background:var(--ink);color:var(--chalk);border-color:var(--ink)}
+.chips input:focus-visible+span{outline:2px solid var(--ink);outline-offset:2px}
+label.ok{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:12.5px;color:var(--slate);line-height:1.4;cursor:pointer}
+label.ok input{margin-top:2px;width:17px;height:17px;accent-color:var(--ink);flex:none}
+form .btn{width:100%;font-size:17px}
 .err{font-size:14px;color:#b42318}
 .err:empty{display:none}
-.done{display:none}
-.form.sent>*{display:none}
-.form.sent .done{display:block}
-.done .tick{width:52px;height:52px;border-radius:50%;background:var(--green);display:grid;place-items:center;margin-bottom:14px}
-.done .tick::after{content:"";width:20px;height:11px;border-left:4px solid var(--canvas);border-bottom:4px solid var(--canvas);transform:translateY(-3px) rotate(-45deg)}
-.done h3{font-size:44px;margin:8px 0 10px}
-.done p{color:var(--slate);font-size:16px}
-.done .mono{color:var(--slate)}
+.hint{font-size:13px;color:var(--slate);text-align:center}
+.hint button{border:0;background:none;font:inherit;color:var(--ink);text-decoration:underline;cursor:pointer}
 
-/* edição de exemplo */
-.ed-wrap{position:relative;padding-top:8px}
-.edition{position:relative;background:var(--paper);color:var(--canvas);border-radius:6px;padding:30px 32px 26px;box-shadow:0 50px 100px rgba(0,0,0,.45);transform:rotate(1.5deg)}
-.edition::after{content:"";position:absolute;left:-56px;bottom:-48px;width:130px;height:130px;border-radius:50%;border:9px solid rgba(120,82,40,.16);box-shadow:inset 0 0 0 3px rgba(120,82,40,.07);pointer-events:none}
-.mast{border-bottom:3px double var(--canvas);padding-bottom:12px}
-.mast .disp{font-size:54px;line-height:.85;display:block}
-.mast .mono{color:var(--slate);text-align:right;font-size:11px}
-.meta{display:flex;flex-wrap:wrap;gap:4px 12px;justify-content:space-between;font-family:var(--mono);font-size:11px;text-transform:uppercase;color:var(--slate);padding:8px 0;border-bottom:1px solid #d9d3c6}
-.edition .hi{font-family:var(--serif);font-style:italic;font-size:24px;margin:16px 0 4px}
-.news{display:grid}
-.news article{padding:14px 0;border-bottom:1px solid #d9d3c6;display:grid;grid-template-columns:62px 1fr;gap:14px}
-.news .tag{font-family:var(--mono);font-size:10px;text-transform:uppercase;background:var(--canvas);color:var(--chalk);border-radius:4px;padding:4px 6px;height:max-content;text-align:center}
-.news .tag.y{background:var(--act);color:var(--canvas)}
-.news .tag.g{background:var(--green);color:var(--canvas)}
-.news h4{font-weight:500;font-size:18px;letter-spacing:-.02em;line-height:1.25}
-.news p{font-size:14px;color:var(--slate);margin-top:4px;line-height:1.45}
-.news .src{display:block;font-family:var(--mono);font-size:10px;text-transform:uppercase;color:#6b6457;margin-top:6px}
-.tip{margin-top:14px;background:#efe9dc;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.45}
-.tip b{display:block;font-family:var(--mono);font-size:10px;text-transform:uppercase;font-weight:400;color:#6b6457;margin-bottom:4px}
-.sign{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:13px;color:var(--slate)}
-.sign img{width:34px;height:34px;border-radius:50%;object-fit:cover}
-.stamp{position:absolute;right:26px;bottom:-16px;transform:rotate(-8deg);background:var(--act);color:var(--canvas);font-family:var(--mono);font-size:11px;text-transform:uppercase;padding:8px 12px;border-radius:4px;box-shadow:0 10px 24px rgba(0,0,0,.3)}
+/* fim */
+.after{padding:10px 0 80px;color:var(--stone);text-align:center;font-size:15px}
+.after a{color:var(--act)}
+footer{border-top:1px solid var(--stroke);padding:24px 0 90px;font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
-/* seções */
-.head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:48px}
-.head h2{font-size:clamp(46px,6vw,84px)}
-.head p{color:var(--slate);font-size:18px;max-width:30em}
-.parts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.parts>div{background:var(--card);border-radius:24px;padding:26px;display:flex;flex-direction:column;gap:10px}
-.parts h3{font-weight:500;font-size:22px;letter-spacing:-.02em;line-height:1.2}
-.parts p{color:var(--slate);font-size:15px}
-.parts .mono{color:var(--slate)}
-
-.why{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
-.why h2{font-size:clamp(46px,6vw,84px);color:var(--chalk)}
-.why p{color:var(--stone);font-size:18px;margin-top:18px;max-width:32em}
-.seat{background:var(--lift);border:1px solid var(--stroke);border-radius:24px;padding:30px}
-.seat .grid{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;margin:18px 0 16px}
-.seat .grid i{aspect-ratio:1;border-radius:4px;background:var(--stroke)}
-.seat .grid i.on{background:var(--act)}
-.seat .mono{color:var(--muted)}
-.seat b{font-weight:500;color:var(--chalk);font-size:20px}
-
-.author{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;margin-top:90px;padding-top:60px;border-top:1px solid var(--stroke)}
-.avatar{width:150px;height:150px;border-radius:24px;position:relative}
-.avatar::before{content:"";position:absolute;inset:0;background:var(--act);border-radius:inherit;transform:rotate(6deg)}
-.avatar img{position:relative;width:100%;height:100%;object-fit:cover;border-radius:inherit;transform:rotate(-3deg);box-shadow:0 18px 40px rgba(0,0,0,.35)}
-.author h3{font-size:clamp(36px,4vw,56px);color:var(--chalk)}
-.author p{color:var(--stone);margin-top:10px;max-width:40em}
-
-.faq{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-details{background:var(--card);border-radius:20px;padding:22px 24px}
-summary{cursor:pointer;font-weight:500;font-size:19px;letter-spacing:-.02em;list-style:none;display:flex;justify-content:space-between;gap:16px}
-summary::after{content:"+";font-family:var(--mono);font-size:20px;line-height:1}
-details[open] summary::after{content:"−"}
-details p{color:var(--slate);margin-top:10px;font-size:16px}
-
-.end{text-align:center}
-.end h2{font-size:clamp(52px,7vw,110px);color:var(--chalk);max-width:12em;margin:0 auto}
-.end p{color:var(--stone);margin:18px auto 30px;max-width:34em}
-
-footer{border-top:1px solid var(--stroke);padding:36px 0 50px;font-family:var(--mono);font-size:11px;text-transform:uppercase;color:var(--muted)}
-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-
-@media (max-width:980px){.hero-in,.why,.head{grid-template-columns:1fr}.hero-in{gap:56px}.parts{grid-template-columns:1fr 1fr}.edition{transform:none}.stamp{right:16px}}
-@media (max-width:640px){.band{padding:76px 0}.hero{padding:44px 0 76px}.two,.faq,.parts{grid-template-columns:1fr}.edition{padding:24px 20px}.edition::after{display:none}.mast .disp{font-size:42px}.news article{grid-template-columns:1fr;gap:8px}.news .tag{width:max-content}.author{grid-template-columns:1fr;gap:28px}.avatar{width:110px;height:110px}.top .btn{padding:9px 12px;font-size:13px}}
+@media (max-width:820px){
+  .paper{padding:30px 22px 28px}
+  .lead{grid-template-columns:1fr;gap:16px}
+  .items{grid-template-columns:1fr}
+  .items article{border-right:0;margin-right:0;padding:20px 0;border-bottom:1px solid var(--rule)}
+  .items article:last-child{border-bottom:0}
+  .below{grid-template-columns:1fr}
+  .arch li button{grid-template-columns:1fr;gap:4px}
+}
+@media (max-width:480px){
+  .wrap{width:calc(100% - 24px)}
+  .top .btn-line{display:none}
+  .intro{padding:22px 0 16px}
+  .intro h1{font-size:40px;margin-top:12px}
+  .intro p{display:none}
+  .times{margin-top:12px}
+  .times span{font-size:11px;padding:5px 9px}
+  .mast .disp{font-size:52px}
+  .mast .tag{font-size:16px}
+  .two{grid-template-columns:1fr}
+  .card{padding:24px 20px 20px}.card h3{font-size:36px}
+}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
 
 <header class="top"><div class="wrap">
-  <a class="word" href="https://ytorricelli-lab.github.io/hub-yahn-contador/"><i></i>Yahn Contador</a>
-  <a class="btn btn-act" href="#assinar">Garantir minha vaga</a>
+  <a class="brand" href="https://ytorricelli-lab.github.io/hub-yahn-contador/"><i></i>Café Contábil</a>
+  <div class="acts" id="acts">
+    <button class="btn btn-line" type="button" data-open="login">Entrar</button>
+    <button class="btn btn-act" type="button" data-open="join">Garantir vaga</button>
+  </div>
 </div></header>
 
 <main>
-<section class="hero">
-  <div class="wrap hero-in">
-    <div>
-      <span class="kick mono"><span class="pulse"></span>Jornal diário · grátis para os 100 primeiros</span>
-      <h1 class="disp">Café<br>Contábil</h1>
-      <p class="lead">Todo dia útil, às 7h, no seu e-mail: o que mudou na Reforma Tributária, nos tributos, no MEI e na contabilidade, o prazo da semana e uma dica rápida. Escrito por contador, com o link da fonte oficial em toda notícia.</p>
+  <section class="intro wrap">
+    <span class="live"><i></i>Edição de hoje no ar</span>
+    <h1 class="disp">Acorde sabendo o que mudou</h1>
+    <p>Reforma Tributária, tributos, MEI e contabilidade, resumidos por um contador. A edição sai às 5h, antes do seu café.</p>
+    <div class="times" id="times"><span data-h="5">5h · edição do dia</span><span data-h="10">10h40 · plantão</span><span data-h="18">18h40 · plantão</span></div>
+  </section>
 
-      <div class="vagas" aria-live="polite">
-        <div class="row"><b id="v-txt">100 vagas de fundador</b><span class="mono" id="v-sub">grátis para sempre</span></div>
-        <div class="bar"><i id="v-bar"></i></div>
-      </div>
-
-      <form class="form" id="assinar" novalidate>
-        <div class="two">
-          <label>Nome<input type="text" name="nome" autocomplete="name" required maxlength="120"></label>
-          <label>E-mail<input type="email" name="email" autocomplete="email" required maxlength="160"></label>
-        </div>
-        <fieldset>
-          <legend>Você é</legend>
-          <div class="chips">
-            <label><input type="radio" name="perfil" value="mei" checked><span>MEI</span></label>
-            <label><input type="radio" name="perfil" value="simples"><span>Empresa do Simples</span></label>
-            <label><input type="radio" name="perfil" value="empresa"><span>Presumido ou Real</span></label>
-            <label><input type="radio" name="perfil" value="autonomo"><span>Autônomo</span></label>
-            <label><input type="radio" name="perfil" value="clt"><span>CLT</span></label>
-            <label><input type="radio" name="perfil" value="contador"><span>Contador</span></label>
-            <label><input type="radio" name="perfil" value="outro"><span>Outro</span></label>
-          </div>
-        </fieldset>
-        <label>WhatsApp <small>(opcional, para avisos importantes)</small><input type="tel" name="whatsapp" autocomplete="tel" inputmode="tel" placeholder="(14) 99999-9999" maxlength="20"></label>
-        <label class="ok"><input type="checkbox" name="ok" required>Aceito receber o Café Contábil e avisos do Yahn Contador. Posso cancelar pelo link em qualquer e-mail.</label>
-        <p class="err" role="alert"></p>
-        <button class="btn btn-act" type="submit">Garantir minha vaga de fundador</button>
-        <div class="done">
-          <div class="tick"></div>
-          <span class="mono" id="d-k">Vaga garantida</span>
-          <h3 class="disp" id="d-t">Bem-vindo!</h3>
-          <p id="d-p">A primeira edição chega no seu e-mail no dia do lançamento. Enquanto isso, me siga no Instagram para não perder nada.</p>
-          <a class="btn btn-line" style="margin-top:18px;border-color:#cfd5de;color:var(--canvas)" href="https://instagram.com/yahn.contador">Seguir @yahn.contador</a>
-        </div>
-      </form>
-    </div>
-
-    <div class="ed-wrap" aria-label="Exemplo de uma edição do Café Contábil">
-      <div class="edition">
-        <div class="mast"><span class="disp">Café Contábil</span></div>
-        <div class="meta"><span>Exemplo · terça, 17 nov 2026</span><span>2 min de leitura</span></div>
-        <p class="hi">Bom dia! Três coisas para hoje:</p>
-        <div class="news">
-          <article><span class="tag y">Prazo</span><div><h4>DAS de outubro vence segunda, 23/11</h4><p>O dia 20 é feriado nacional da Consciência Negra, então o vencimento passa para o próximo dia útil.</p><span class="src">Fonte: Agenda Tributária · Receita Federal</span></div></article>
-          <article><span class="tag">Reforma</span><div><h4>CBS entra no lugar do PIS e da Cofins em janeiro</h4><p>2027 é o primeiro ano da cobrança da CBS. Quem é do Simples continua pagando tudo no DAS.</p><span class="src">Fonte: Lei Complementar 214/2025</span></div></article>
-          <article><span class="tag g">MEI</span><div><h4>Limite sobe para R$ 110 mil em janeiro</h4><p>Dá uma média de R$ 9.166 por mês, e o MEI passa a poder ter até 2 funcionários.</p><span class="src">Fonte: Lei Complementar 238/2026</span></div></article>
-        </div>
-        <div class="tip"><b>Dica de 1 minuto</b>Crie uma pasta por mês no celular e salve ali o comprovante do DAS. Na declaração anual, está tudo junto.</div>
-        <div class="sign"><img src="../img/yahn.jpg" alt="" width="34" height="34">Yahn Torricelli Godoy · contador</div>
-      </div>
-      <span class="stamp">Toda notícia com fonte oficial</span>
-    </div>
-  </div>
-</section>
-
-<section class="band light">
   <div class="wrap">
-    <div class="head"><h2 class="disp">O que chega toda manhã</h2><p>Uma leitura curta para fazer junto com o café, antes de abrir o seu negócio.</p></div>
-    <div class="parts">
-      <div><span class="mono">Notícias</span><h3>O que mudou</h3><p>Até 3 notícias de Reforma Tributária, tributos, MEI, IR e rotina contábil. Se não houve nada importante, a edição diz isso e não inventa.</p></div>
-      <div><span class="mono">Agenda</span><h3>Prazo da semana</h3><p>DAS, DCTFWeb, eSocial, declarações e IR, já com as datas ajustadas quando cai em feriado.</p></div>
-      <div><span class="mono">Prática</span><h3>Dica de 1 minuto</h3><p>Uma coisa simples para fazer hoje e deixar o seu negócio mais organizado.</p></div>
-      <div><span class="mono">Confiança</span><h3>Fonte oficial</h3><p>Toda notícia traz o link da lei, da Receita ou do gov.br, para você conferir.</p></div>
-    </div>
+    <article class="paper" id="paper"><div class="empty">Carregando a edição de hoje…</div></article>
+    <section class="arch" id="arch" hidden></section>
   </div>
-</section>
 
-<section class="band">
-  <div class="wrap">
-    <div class="why">
-      <div>
-        <h2 class="disp">Por que só 100 vagas</h2>
-        <p>Os 100 primeiros assinantes são os fundadores do Café Contábil: recebem todas as edições de graça, para sempre. Depois disso, a assinatura passa a ser paga.</p>
-        <p>Em troca, peço só uma coisa: responda o e-mail quando tiver uma dúvida. As perguntas dos fundadores viram pauta das próximas edições.</p>
-        <a class="btn btn-act" href="#assinar" style="margin-top:28px">Garantir minha vaga</a>
-      </div>
-      <div class="seat" aria-hidden="true">
-        <span class="mono">Vagas de fundador</span>
-        <div class="grid" id="seats"></div>
-        <b id="s-txt">100 vagas livres</b>
-      </div>
-    </div>
-
-    <div class="author">
-      <div class="avatar"><img src="../img/yahn.jpg" alt="Yahn Torricelli Godoy" width="400" height="400" loading="lazy"></div>
-      <div>
-        <span class="mono" style="color:var(--muted)">Quem escreve</span>
-        <h3 class="disp">Yahn Torricelli Godoy</h3>
-        <p>Bacharel em Direito e Contabilidade, pós-graduando em Reforma Tributária. Atendo empresas em Jaú/SP e acompanho as mudanças de imposto todo dia para os meus clientes. O Café Contábil é esse acompanhamento, com foco na Reforma Tributária, resumido para você.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="band light">
-  <div class="wrap">
-    <div class="head"><h2 class="disp">Dúvidas</h2><p>Se a sua não estiver aqui, me chame no Instagram <a href="https://instagram.com/yahn.contador">@yahn.contador</a>.</p></div>
-    <div class="faq">
-      <details><summary>Quando sai a primeira edição?</summary><p>Em breve. Você recebe um e-mail no dia do lançamento, e a partir daí o Café Contábil chega todo dia útil às 7h.</p></details>
-      <details><summary>É grátis mesmo?</summary><p>Para os 100 primeiros, sim, e para sempre. Quem entrar depois vai pagar uma assinatura, que ainda vou anunciar.</p></details>
-      <details><summary>É para mim?</summary><p>É para quem tem empresa ou é MEI, para autônomos, para quem trabalha com contabilidade e para quem quer acompanhar a Reforma Tributária sem juridiquês.</p></details>
-      <details><summary>Posso cancelar?</summary><p>Pode, a qualquer momento. Todo e-mail tem um link para cancelar com um clique.</p></details>
-      <details><summary>O que vocês fazem com meus dados?</summary><p>Uso só para enviar o Café Contábil e avisos do Yahn Contador. Não vendo nem compartilho com ninguém.</p></details>
-      <details><summary>O jornal substitui um contador?</summary><p>Não. Ele te mantém informado. Para decidir algo do seu caso, fale com o seu contador ou com o meu escritório.</p></details>
-    </div>
-  </div>
-</section>
-
-<section class="band end">
-  <div class="wrap">
-    <h2 class="disp">Comece o dia sabendo o que mudou</h2>
-    <p id="end-p">São 100 vagas de fundador, grátis para sempre.</p>
-    <a class="btn btn-act" href="#assinar">Garantir minha vaga de fundador</a>
-  </div>
-</section>
+  <p class="after wrap">Feito por <a href="https://instagram.com/yahn.contador">Yahn Torricelli Godoy</a>, contador em Jaú/SP. Conteúdo informativo, não substitui orientação para o seu caso.</p>
 </main>
 
-<footer><div class="wrap"><span>Café Contábil · Yahn Contador · Jaú/SP</span><span>Conteúdo informativo, não substitui orientação individual</span></div></footer>
+<footer><div class="wrap"><span>Café Contábil · Yahn Contador</span><span>Todas as notícias com link da fonte oficial</span></div></footer>
+
+<div class="timer" id="timer" aria-live="polite"><span class="ring"><svg viewBox="0 0 34 34"><circle class="bg" cx="17" cy="17" r="14"/><circle class="fg" id="ringfg" cx="17" cy="17" r="14" stroke-dasharray="87.96" stroke-dashoffset="0"/></svg><b id="secs">15</b></span><span>Leitura grátis <a href="#" data-open="join">Garantir vaga</a></span></div>
+
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="g-t">
+  <div class="card">
+    <span class="k">Café Contábil · vagas de fundador</span>
+    <h3 class="disp" id="g-t">Continue lendo de graça</h3>
+    <p id="g-p">Os 100 primeiros assinantes leem todas as edições, para sempre, sem pagar nada.</p>
+    <div class="seats"><div class="row"><b id="s-txt">Restam 100 de 100 vagas</b><span class="mono">grátis para sempre</span></div><div class="bar"><i id="s-bar"></i></div></div>
+    <div class="tabs" role="tablist"><button type="button" role="tab" class="on" data-tab="join">Quero minha vaga</button><button type="button" role="tab" data-tab="login">Já sou inscrito</button></div>
+
+    <form id="f-join" novalidate>
+      <label>Nome<input type="text" name="nome" autocomplete="name" required maxlength="120"></label>
+      <div class="two">
+        <label>E-mail<input type="email" name="email" autocomplete="email" required maxlength="160"></label>
+        <label>WhatsApp<input type="tel" name="whatsapp" autocomplete="tel" inputmode="tel" placeholder="(14) 99999-9999" required maxlength="20"></label>
+      </div>
+      <div class="chips" role="radiogroup" aria-label="Você é">
+        <label><input type="radio" name="perfil" value="mei" checked><span>MEI</span></label>
+        <label><input type="radio" name="perfil" value="simples"><span>Simples</span></label>
+        <label><input type="radio" name="perfil" value="empresa"><span>Presumido ou Real</span></label>
+        <label><input type="radio" name="perfil" value="autonomo"><span>Autônomo</span></label>
+        <label><input type="radio" name="perfil" value="contador"><span>Contador</span></label>
+        <label><input type="radio" name="perfil" value="outro"><span>Outro</span></label>
+      </div>
+      <label class="ok"><input type="checkbox" name="ok" required>Aceito receber o Café Contábil e avisos do Yahn Contador. Posso cancelar quando quiser.</label>
+      <p class="err" role="alert"></p>
+      <button class="btn btn-act" type="submit" id="j-btn">Garantir minha vaga e continuar lendo</button>
+      <p class="hint">Já se inscreveu? <button type="button" data-tab="login">Entrar com e-mail ou WhatsApp</button></p>
+    </form>
+
+    <form id="f-login" novalidate hidden>
+      <label>E-mail ou WhatsApp<input type="text" name="ident" autocomplete="username" required maxlength="160" placeholder="voce@email.com ou (14) 99999-9999"></label>
+      <p class="err" role="alert"></p>
+      <button class="btn btn-act" type="submit">Entrar e continuar lendo</button>
+      <p class="hint">Ainda não tem vaga? <button type="button" data-tab="join">Garantir a minha</button></p>
+    </form>
+  </div>
+</div>
 
 <script>
 (() => {
   const SB = "https://vpmxaxnloaoqaxdmmoid.supabase.co", KEY = "sb_publishable_RhlWZVrxRY2WzayVLIiQFg_O92cxIBR";
   const H = { apikey: KEY, "Content-Type": "application/json" };
-  const f = document.getElementById("assinar"), err = f.querySelector(".err"), go = f.querySelector("button[type=submit]");
-  const seats = document.getElementById("seats");
-  seats.innerHTML = "<i></i>".repeat(100);
+  const rpc = (fn, body = {}) => fetch(`${SB}/rest/v1/rpc/${fn}`, { method: "POST", headers: H, body: JSON.stringify(body) }).then(r => { if (!r.ok) throw r.status; return r.json(); });
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+  const safeUrl = u => /^https:\/\//.test(u || "") ? u : null;
+  const FREE = 15;
+  const store = { get(){ try { return localStorage.getItem("cafe_id"); } catch(_) { return null; } }, set(v){ try { localStorage.setItem("cafe_id", v); } catch(_) {} }, del(){ try { localStorage.removeItem("cafe_id"); } catch(_) {} } };
+  let member = false, gateTimer = null;
 
-  function paint(v){
+  const fmtDia = iso => new Date(iso).toLocaleDateString("pt-BR", { weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: "America/Sao_Paulo" });
+  const fmtHora = iso => { const [h, m] = new Date(iso).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit", hour12: false, timeZone: "America/Sao_Paulo" }).split(":"); return `${+h}h${m === "00" ? "" : m}`; };
+  const item = it => `<article><span class="it-tag ${esc(it.tag)}">${esc(it.tag)}</span><h4>${esc(it.titulo)}</h4><p>${esc(it.texto)}</p>${safeUrl(it.url) ? `<a class="src" href="${esc(it.url)}" target="_blank" rel="noopener">Fonte: ${esc(it.fonte)}</a>` : (it.fonte ? `<span class="src">Fonte: ${esc(it.fonte)}</span>` : "")}</article>`;
+
+  function nextSlot(){
+    const now = new Date(new Date().toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }));
+    const m = now.getHours() * 60 + now.getMinutes();
+    const slots = [[300, "5h", "5"], [640, "10h40", "10"], [1120, "18h40", "18"]];
+    const s = slots.find(([t]) => t > m);
+    document.querySelectorAll("#times span").forEach(el => el.classList.toggle("on", el.dataset.h === (s ? s[2] : "5")));
+    return s ? `hoje às ${s[1]}` : "amanhã às 5h";
+  }
+
+  function renderEdition(ed, plantoes){
+    if (!ed) { $("#paper").innerHTML = `<div class="empty">A primeira edição sai às 5h. Volte amanhã cedo.</div>`; return; }
+    const pl = (plantoes || []).flatMap(p => (p.itens || []).map(it => ({ ...it, hora: fmtHora(p.publicada_em) })));
+    $("#paper").innerHTML = `
+      <header class="mast"><div class="disp">Café Contábil</div><div class="tag">o que mudou nos impostos, antes do seu café</div></header>
+      <div class="meta"><span>${esc(fmtDia(ed.publicada_em))}</span><span>Edição das ${esc(fmtHora(ed.publicada_em))} · 2 min de leitura</span></div>
+      ${pl.length ? `<section class="plant"><h3><i></i>Plantão · atualizado às ${esc(pl[0].hora)}</h3>${pl.map(item).join("")}</section>` : ""}
+      <div class="lead"><h2>${esc(ed.titulo)}</h2><div><p class="open">${esc(ed.abertura)}</p><div class="sig"><img src="../img/yahn.jpg" alt="" width="36" height="36">Yahn Torricelli Godoy · contador</div></div></div>
+      <div class="items">${(ed.itens || []).map(item).join("")}</div>
+      <div class="below">
+        ${(ed.prazos || []).length ? `<div class="box"><h5>Prazos</h5><div class="pz">${ed.prazos.map(p => `<div><b>${esc(p.data)}</b><span>${esc(p.texto)}</span></div>`).join("")}</div></div>` : ""}
+        ${ed.dica ? `<div class="box"><h5>Dica de 1 minuto</h5><p>${esc(ed.dica)}</p></div>` : ""}
+      </div>
+      <div class="foot"><span>Café Contábil · Yahn Contador · Jaú/SP</span><span>Próxima atualização: ${nextSlot()}</span></div>`;
+  }
+
+  function paintSeats(v){
     const used = 100 - v;
-    document.getElementById("v-bar").style.width = Math.max(used, 1) + "%";
-    seats.querySelectorAll("i").forEach((el, i) => el.classList.toggle("on", i < used));
-    if (v > 0) {
-      document.getElementById("v-txt").textContent = `Restam ${v} de 100 vagas`;
-      document.getElementById("s-txt").textContent = used ? `${used} fundadores · ${v} vagas livres` : "100 vagas livres";
-      document.getElementById("end-p").textContent = `Restam ${v} das 100 vagas de fundador, grátis para sempre.`;
-    } else {
-      document.getElementById("v-txt").textContent = "Vagas de fundador esgotadas";
-      document.getElementById("v-sub").textContent = "entre na lista";
-      document.getElementById("s-txt").textContent = "As 100 vagas foram preenchidas";
-      document.getElementById("end-p").textContent = "As vagas de fundador acabaram. Entre na lista para o lançamento da assinatura.";
-      go.textContent = "Entrar na lista";
-    }
+    $("#s-bar").style.width = Math.max(1, used) + "%";
+    if (v > 0) { $("#s-txt").textContent = `Restam ${v} de 100 vagas`; return; }
+    $("#s-txt").textContent = "As 100 vagas foram preenchidas";
+    $("#g-t").textContent = "Vagas de fundador esgotadas";
+    $("#g-p").textContent = "Entre na lista: quando a assinatura abrir, você é avisado primeiro. Se já é fundador, entre com o seu e-mail ou WhatsApp.";
+    $("#j-btn").textContent = "Entrar na lista de espera";
   }
-  async function vagas(){
-    try { const r = await fetch(`${SB}/rest/v1/rpc/cafe_vagas`, { method: "POST", headers: H, body: "{}" }); if (!r.ok) throw 0; const v = await r.json(); paint(v); return v; }
-    catch (_) { return null; }
-  }
-  vagas();
 
-  f.whatsapp.addEventListener("input", () => {
-    const n = f.whatsapp.value.replace(/\D/g, "").slice(0, 11);
-    f.whatsapp.value = n.length > 6 ? `(${n.slice(0,2)}) ${n.slice(2, n.length-4)}-${n.slice(-4)}` : n.length > 2 ? `(${n.slice(0,2)}) ${n.slice(2)}` : n;
+  function setTab(t){ document.querySelectorAll(".tabs button").forEach(b => b.classList.toggle("on", b.dataset.tab === t)); $("#f-join").hidden = t !== "join"; $("#f-login").hidden = t !== "login"; }
+  function openGate(tab){
+    if (member) return;
+    document.body.classList.add("gated"); setTab(tab || "join");
+    clearInterval(gateTimer); $("#timer").classList.remove("on");
+    setTimeout(() => { const el = document.querySelector(tab === "login" ? "#f-login input" : "#f-join input"); if (el && matchMedia("(min-width:700px)").matches) el.focus({ preventScroll: true }); }, 80);
+  }
+  function unlock(){
+    member = true; document.body.classList.remove("gated");
+    clearInterval(gateTimer); $("#timer").classList.remove("on");
+    $("#acts").innerHTML = `<span class="who-in">Fundador ✓</span><button class="btn btn-line" type="button" id="out">Sair</button>`;
+    $("#out").onclick = () => { store.del(); location.reload(); };
+    loadArchive();
+  }
+  document.addEventListener("click", e => {
+    const o = e.target.closest("[data-open]"); if (o) { e.preventDefault(); openGate(o.dataset.open); return; }
+    const t = e.target.closest("[data-tab]"); if (t) setTab(t.dataset.tab);
   });
+  function startClock(){
+    let left = FREE; const fg = $("#ringfg"), C = 87.96;
+    $("#timer").classList.add("on");
+    gateTimer = setInterval(() => {
+      left--; $("#secs").textContent = Math.max(0, left); fg.style.strokeDashoffset = String(C * (1 - left / FREE));
+      if (left <= 0) openGate("join");
+    }, 1000);
+  }
 
-  f.addEventListener("submit", async e => {
-    e.preventDefault(); err.textContent = "";
-    const nome = f.nome.value.trim(), email = f.email.value.trim().toLowerCase(), tel = f.whatsapp.value.replace(/\D/g, ""), perfil = (f.querySelector("input[name=perfil]:checked") || {}).value || null;
+  async function loadArchive(){
+    const id = store.get(); if (!id) return;
+    try {
+      const list = await rpc("cafe_arquivo", { p_id: id }); if (!list) return;
+      const eds = list.filter(e => e.tipo === "edicao"); if (eds.length < 2) return;
+      const a = $("#arch"); a.hidden = false;
+      a.innerHTML = `<h3 class="disp">Edições anteriores</h3><ul>${eds.map((e, i) => `<li><button type="button" data-i="${i}"><span class="mono">${esc(fmtDia(e.publicada_em))}</span><span>${esc(e.titulo)}</span><span class="mono">Ler</span></button></li>`).join("")}</ul>`;
+      a.querySelectorAll("button[data-i]").forEach(b => b.onclick = () => { renderEdition(eds[+b.dataset.i], []); $("#paper").scrollIntoView({ behavior: "smooth" }); });
+    } catch (_) {}
+  }
+
+  const tel = document.querySelector("#f-join input[name=whatsapp]");
+  tel.addEventListener("input", () => { const n = tel.value.replace(/\D/g, "").slice(0, 11); tel.value = n.length > 6 ? `(${n.slice(0,2)}) ${n.slice(2, n.length-4)}-${n.slice(-4)}` : n.length > 2 ? `(${n.slice(0,2)}) ${n.slice(2)}` : n; });
+
+  $("#f-join").addEventListener("submit", async e => {
+    e.preventDefault(); const f = e.target, err = f.querySelector(".err"), go = f.querySelector("button[type=submit]"); err.textContent = "";
+    const nome = f.nome.value.trim(), email = f.email.value.trim().toLowerCase(), w = f.whatsapp.value.replace(/\D/g, ""), perfil = (f.querySelector("input[name=perfil]:checked") || {}).value || null;
     if (nome.length < 2) { err.textContent = "Escreva seu nome."; f.nome.focus(); return; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent = "Confira o seu e-mail: é por ele que o jornal chega."; f.email.focus(); return; }
-    if (tel && tel.length < 10) { err.textContent = "Confira o WhatsApp com DDD ou deixe em branco."; f.whatsapp.focus(); return; }
-    if (!f.ok.checked) { err.textContent = "Marque a caixa para eu poder te enviar o jornal."; return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent = "Confira o seu e-mail."; f.email.focus(); return; }
+    if (w.length < 10) { err.textContent = "Confira o WhatsApp com DDD, por exemplo (14) 99999-9999."; f.whatsapp.focus(); return; }
+    if (!f.ok.checked) { err.textContent = "Marque a caixa para eu poder te enviar o Café Contábil."; return; }
     const label = go.textContent; go.disabled = true; go.textContent = "Salvando...";
     try {
-      const before = await vagas();
-      const r = await fetch(`${SB}/rest/v1/cafe_assinantes`, { method: "POST", headers: { ...H, Prefer: "return=minimal" },
-        body: JSON.stringify({ nome, email, whatsapp: tel || null, perfil, origem: new URLSearchParams(location.search).get("origem") || "pagina-cafe" }) });
-      if (r.status === 409) { err.textContent = "Esse e-mail já está inscrito. Você não precisa fazer mais nada."; return; }
-      if (!r.ok) throw new Error(r.status);
-      const after = await vagas();
-      const primeiro = nome.split(" ")[0];
-      if (before === 0) {
-        document.getElementById("d-k").textContent = "Você está na lista";
-        document.getElementById("d-t").textContent = `Anotado, ${primeiro}!`;
-        document.getElementById("d-p").textContent = "As vagas de fundador acabaram, mas você vai receber o aviso do lançamento da assinatura em primeira mão.";
-      } else {
-        const n = after != null ? 100 - after : null;
-        document.getElementById("d-k").textContent = n ? `Fundador nº ${n}` : "Vaga de fundador garantida";
-        document.getElementById("d-t").textContent = `Bem-vindo, ${primeiro}!`;
-      }
-      f.classList.add("sent");
-      f.scrollIntoView({ block: "center" });
-    } catch (_) {
-      err.innerHTML = 'Não consegui salvar agora. Tente de novo em instantes ou <a href="https://instagram.com/yahn.contador">me chame no Instagram</a>.';
-    } finally { go.disabled = false; go.textContent = label; }
+      const r = await fetch(`${SB}/rest/v1/cafe_assinantes`, { method: "POST", headers: { ...H, Prefer: "return=minimal" }, body: JSON.stringify({ nome, email, whatsapp: w, perfil, origem: new URLSearchParams(location.search).get("origem") || "pagina-cafe" }) });
+      if (r.status === 409) { err.innerHTML = 'Esse e-mail ou WhatsApp já está inscrito. <button type="button" data-tab="login" style="border:0;background:none;font:inherit;text-decoration:underline;cursor:pointer">Entrar</button>'; return; }
+      if (!r.ok) throw r.status;
+      store.set(email);
+      const l = await rpc("cafe_login", { p_id: email });
+      if (l.ok && l.fundador) { unlock(); rpc("cafe_vagas").then(paintSeats).catch(() => {}); }
+      else { $("#g-t").textContent = `Anotado, ${nome.split(" ")[0]}!`; $("#g-p").textContent = "Você está na lista de espera. Quando a assinatura abrir, você é avisado primeiro."; f.hidden = true; document.querySelector(".tabs").hidden = true; }
+    } catch (_) { err.innerHTML = 'Não consegui salvar agora. Tente de novo em instantes ou <a href="https://instagram.com/yahn.contador">me chame no Instagram</a>.'; }
+    finally { go.disabled = false; go.textContent = label; }
   });
+
+  $("#f-login").addEventListener("submit", async e => {
+    e.preventDefault(); const f = e.target, err = f.querySelector(".err"), go = f.querySelector("button[type=submit]"); err.textContent = "";
+    const id = f.ident.value.trim(); if (id.length < 5) { err.textContent = "Digite o e-mail ou o WhatsApp da sua inscrição."; return; }
+    go.disabled = true;
+    try {
+      const l = await rpc("cafe_login", { p_id: id });
+      if (!l.ok) { err.innerHTML = 'Não encontrei essa inscrição. Confira o que digitou ou <button type="button" data-tab="join" style="border:0;background:none;font:inherit;text-decoration:underline;cursor:pointer">garanta sua vaga</button>.'; return; }
+      if (!l.fundador) { err.textContent = "Você está na lista de espera. Quando a assinatura abrir, você é avisado primeiro."; return; }
+      store.set(id); unlock();
+    } catch (_) { err.textContent = "Não consegui conferir agora. Tente de novo em instantes."; }
+    finally { go.disabled = false; }
+  });
+
+  (async () => {
+    rpc("cafe_vagas").then(paintSeats).catch(() => {});
+    try { const d = await rpc("cafe_hoje"); renderEdition(d.edicao, d.plantoes); }
+    catch (_) { $("#paper").innerHTML = `<div class="empty">Não consegui carregar a edição agora. Atualize a página em instantes.</div>`; }
+    const id = store.get();
+    if (id) { try { const l = await rpc("cafe_login", { p_id: id }); if (l.ok && l.fundador) { unlock(); return; } } catch (_) {} }
+    startClock();
+  })();
 })();
 </script>
 </body>
