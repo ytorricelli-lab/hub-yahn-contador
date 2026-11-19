@@ -214,7 +214,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 <footer><div class="wrap"><span>Café Contábil · Yahn Contador</span><span>Todas as notícias com link da fonte oficial</span></div></footer>
 
-<div class="timer" id="timer" aria-live="polite"><span class="ring"><svg viewBox="0 0 34 34"><circle class="bg" cx="17" cy="17" r="14"/><circle class="fg" id="ringfg" cx="17" cy="17" r="14" stroke-dasharray="87.96" stroke-dashoffset="0"/></svg><b id="secs">15</b></span><span>Leitura grátis <a href="#" data-open="join">Garantir vaga</a></span></div>
+<div class="timer" id="timer" aria-live="polite"><span class="ring"><svg viewBox="0 0 34 34"><circle class="bg" cx="17" cy="17" r="14"/><circle class="fg" id="ringfg" cx="17" cy="17" r="14" stroke-dasharray="87.96" stroke-dashoffset="0"/></svg><b id="secs">30</b></span><span>Leitura grátis <a href="#" data-open="join">Garantir vaga</a></span></div>
 
 <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="g-t">
   <div class="card">
@@ -261,7 +261,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   const $ = s => document.querySelector(s);
   const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
   const safeUrl = u => /^https:\/\//.test(u || "") ? u : null;
-  const FREE = 15;
+  const FREE = 30;
   const store = { get(){ try { return localStorage.getItem("cafe_id"); } catch(_) { return null; } }, set(v){ try { localStorage.setItem("cafe_id", v); } catch(_) {} }, del(){ try { localStorage.removeItem("cafe_id"); } catch(_) {} } };
   let member = false, gateTimer = null;
 
@@ -322,7 +322,20 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     const o = e.target.closest("[data-open]"); if (o) { e.preventDefault(); openGate(o.dataset.open); return; }
     const t = e.target.closest("[data-tab]"); if (t) setTab(t.dataset.tab);
   });
+  function watchScroll(){
+    const arts = [...document.querySelectorAll(".items article")];
+    let target = document.querySelector(".below");
+    if (arts.length > 1 && arts[1].getBoundingClientRect().top > arts[0].getBoundingClientRect().top + 10) target = arts[1];
+    if (!target) return;
+    const check = () => {
+      if (member) { removeEventListener("scroll", check); return; }
+      const nearEnd = scrollY + innerHeight >= document.documentElement.scrollHeight - 40;
+      if (target.getBoundingClientRect().top < innerHeight * .25 || nearEnd) { removeEventListener("scroll", check); openGate("join"); }
+    };
+    addEventListener("scroll", check, { passive: true });
+  }
   function startClock(){
+    watchScroll();
     let left = FREE; const fg = $("#ringfg"), C = 87.96;
     $("#timer").classList.add("on");
     gateTimer = setInterval(() => {
