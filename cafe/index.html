@@ -381,12 +381,19 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     clearInterval(gateTimer); $("#timer").classList.remove("on");
     setTimeout(() => { const el = document.querySelector(tab === "login" ? "#f-login input" : "#f-join input"); if (el && matchMedia("(min-width:700px)").matches) el.focus({ preventScroll: true }); }, 80);
   }
-  function unlock(){
+  // Modo dono: o Yahn abre /cafe/?dono=yahn-cafe uma vez e o aparelho fica liberado, sem ocupar vaga.
+  const DONO = "yahn-cafe";
+  const owner = { get(){ try { return localStorage.getItem("cafe_dono") === DONO; } catch(_) { return false; } }, set(){ try { localStorage.setItem("cafe_dono", DONO); } catch(_) {} }, del(){ try { localStorage.removeItem("cafe_dono"); } catch(_) {} } };
+  const donoParam = new URLSearchParams(location.search).get("dono");
+  if (donoParam === DONO) owner.set();
+  else if (donoParam === "sair") owner.del();
+  const isOwner = donoParam === DONO || (donoParam !== "sair" && owner.get());
+  function unlock(asOwner){
     member = true; document.body.classList.remove("gated");
     clearInterval(gateTimer); $("#timer").classList.remove("on");
-    $("#acts").innerHTML = `<span class="who-in">Fundador ✓</span><button class="btn btn-line" type="button" id="out">Sair</button>`;
-    $("#out").onclick = () => { store.del(); location.reload(); };
-    loadArchive();
+    $("#acts").innerHTML = `<span class="who-in">${asOwner ? "Modo dono ✓" : "Fundador ✓"}</span><button class="btn btn-line" type="button" id="out">Sair</button>`;
+    $("#out").onclick = () => { store.del(); owner.del(); location.replace(location.pathname); };
+    if (!asOwner) loadArchive();
   }
   document.addEventListener("click", e => {
     const o = e.target.closest("[data-open]"); if (o) { e.preventDefault(); openGate(o.dataset.open); return; }
@@ -471,6 +478,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     rpc("cafe_vagas").then(paintSeats).catch(() => {});
     try { const d = await rpc("cafe_hoje"); renderEdition(d.edicao, d.plantoes); }
     catch (_) { $("#paper").innerHTML = `<div class="empty">Não consegui carregar a edição agora. Atualize a página em instantes.</div>`; }
+    if (isOwner) { unlock(true); return; }
     const id = store.get();
     if (id) { try { const l = await rpc("cafe_login", { p_id: id }); if (l.ok && l.fundador) { unlock(); return; } } catch (_) {} }
     startClock();
